@@ -1,8 +1,9 @@
 <!--
   File: index.html
-  Description: Main homepage for Nexus Insurance Brokers Ltd. (Burnaby, BC), modeled after
-               the Construction & Surety Bonds layout with interactive Contact Us and Apply Now forms,
-               a Surety Bond Rate Calculator, and responsive navigation.
+  Description: Main homepage for contractbonding.ca with Trusted Broker Partner
+               Nexus Insurance Brokers Ltd. (Burnaby, BC), modeled after the Construction &
+               Surety Bonds layout with interactive Contact Us and Apply Now forms, a Surety
+               Bond Rate Calculator, and responsive navigation.
   Dependencies: styles.css, app.js, Google Fonts (Plus Jakarta Sans & Inter).
   Role: Primary entry point for the static brokerage website.
 -->
@@ -11,15 +12,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construction &amp; Surety Bonds | Nexus Insurance Brokers Ltd. — Burnaby, BC</title>
+  <title>Construction &amp; Surety Bonds | contractbonding.ca</title>
   <meta
     name="description"
-    content="Nexus Insurance Brokers Ltd. in Burnaby, BC provides construction and commercial surety bonds including Contract, Bid, Performance, Labour &amp; Material Payment, and Administrative bonds."
+    content="contractbonding.ca provides construction and commercial surety bonds—including Contract, Bid, Performance, Labour &amp; Material Payment, and Administrative bonds—with Trusted Broker Partner Nexus Insurance Brokers Ltd. in Burnaby, BC."
   />
+  <link rel="icon" type="image/png" sizes="160x160" href="Visual%20Assets/chicklet%20image%20logo%20160px%20by%20160px.png" />
+  <link rel="apple-touch-icon" href="Visual%20Assets/chicklet%20image%20logo%20160px%20by%20160px.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
@@ -32,7 +35,7 @@
     <div class="container top-bar__inner">
       <div class="top-bar__location">
         <span class="top-bar__dot" aria-hidden="true"></span>
-        <span><strong>Nexus Insurance Brokers Ltd.</strong> &bull; Burnaby, BC</span>
+        <span><strong>contractbonding.ca</strong> &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd. (Burnaby, BC)</span>
       </div>
       <div class="top-bar__actions">
         <a href="#calculator" class="top-bar__link">Rate Calculator</a>
@@ -49,16 +52,13 @@
   <!-- Primary Header / Navigation -->
   <header class="site-header" id="site-header">
     <div class="container site-header__inner">
-      <a href="#" class="brand" aria-label="Nexus Insurance Brokers Ltd. Home">
-        <svg class="brand__mark" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
-          <rect width="40" height="40" rx="8" fill="#2b3378" />
-          <path d="M10 29V11l10 11 10-11v18" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-          <circle cx="20" cy="11" r="2.4" fill="#ead98a" />
-        </svg>
-        <div class="brand__text">
-          <span class="brand__name">Nexus Insurance Brokers Ltd.</span>
-          <span class="brand__sub">Surety &amp; Construction Bonds &bull; Burnaby, BC</span>
-        </div>
+      <a href="#" class="brand" aria-label="contractbonding.ca Home">
+        <img
+          class="brand__logo"
+          src="Visual%20Assets/Re%20Do%20Logo.png"
+          alt="CONTRACT BONDING.CA"
+        />
+        <span class="brand__sub brand__sub--partner">Trusted Broker Partner: Nexus Insurance Brokers Ltd. &bull; Burnaby, BC</span>
       </a>
 
       <button
@@ -99,13 +99,14 @@
       <div class="hero__bg-pattern" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__content">
-          <span class="hero__eyebrow">Burnaby, BC &bull; Canadian Surety Specialists</span>
+          <span class="hero__eyebrow">contractbonding.ca &bull; Canadian Surety Specialists</span>
           <h1 class="hero__title">Construction Bonds</h1>
           <p class="hero__subtitle">Surety Bonds for Contractors, Developers &amp; Businesses</p>
           <p class="hero__lead">
-            Nexus Insurance Brokers Ltd. helps general contractors, trade subcontractors, and
-            commercial businesses across Burnaby, Metro Vancouver, and Canada secure Bid,
-            Contract, Performance, and Administrative bonds quickly and competitively.
+            <strong>contractbonding.ca</strong> connects general contractors, trade subcontractors,
+            and commercial businesses across Burnaby, Metro Vancouver, and Canada with our Trusted
+            Broker Partner, <strong>Nexus Insurance Brokers Ltd.</strong>, to secure Bid, Contract,
+            Performance, and Administrative bonds quickly and competitively.
           </p>
 
           <div class="hero__actions">
@@ -304,11 +305,11 @@
             <ul class="bond-list">
               <li>
                 <strong>Bid Bond</strong>
-                <span>Guarantees the bidder will enter into the contract at the submitted price (typically 10% of bid).</span>
+                <span>This bond is submitted to the owner with your tender at the bid stage. The bid bond provides financial assurance to the owner that the tender is submitted in good faith. It also provides assurance that the contractor intends to fulfill all obligations outlined in their tender should they be successful in their bid.</span>
               </li>
               <li>
-                <strong>Consent of Surety (Agreement to Bond)</strong>
-                <span>Confirms the surety’s commitment to issue final Performance and L&amp;M Payment bonds upon award.</span>
+                <strong>Consent of Surety</strong>
+                <span>This bond is also submitted at the bid stage. The Consent of Surety (often called Agreement to Bond or Undertaking of Surety) is a commitment by the Surety Company to provide the required Performance and Labour &amp; Material Payment bonds as specified in the tender documents.</span>
               </li>
             </ul>
             <button
@@ -329,11 +330,11 @@
             <ul class="bond-list">
               <li>
                 <strong>Performance Bond</strong>
-                <span>Guarantees project completion according to specifications, drawings, and schedule (50%–100%).</span>
+                <span>This bond guarantees the contractor will perform their obligations to the owner as specified in the terms and conditions of the contract. The Performance Bond protects the owner from a financial loss should the contractor fail to perform.</span>
               </li>
               <li>
-                <strong>Labour &amp; Material Payment Bond</strong>
-                <span>Ensures subcontractors and material suppliers are paid if the contractor defaults.</span>
+                <strong>Labour and Material Payment Bond</strong>
+                <span>Labour and Material Payment Bonds are issued in conjunction with a Performance bond, and guarantee that the contractor will pay eligible sub-trades, labourers, and material suppliers associated with the project. Eligible claimants are those with a direct contract with the bonded contractor.</span>
               </li>
               <li>
                 <strong>Maintenance Bond</strong>
@@ -545,15 +546,39 @@
       </div>
     </section>
 
-    <!-- Section 8: Testimonials -->
-    <section class="section section--tinted" id="testimonials">
+    <!-- Section 8: Trusted Broker Partners & Testimonials -->
+    <section class="section section--tinted" id="trusted-partners">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">Testimonials</span>
-          <h2>Trusted by BC Contractors &amp; Business Owners</h2>
+          <span class="section-eyebrow">Trusted Broker Partners</span>
+          <h2>Backed by Experienced Canadian Surety Professionals</h2>
+          <p>
+            contractbonding.ca works with vetted, licensed surety brokerages to deliver fast
+            underwriting and competitive bonding facilities.
+          </p>
         </div>
 
-        <div class="two-col">
+        <div class="partner-banner">
+          <div>
+            <span class="benefit-panel__tag">Featured Trusted Broker Partner</span>
+            <h3>Nexus Insurance Brokers Ltd.</h3>
+            <p>
+              Headquartered in <strong>Burnaby, BC</strong>, Nexus Insurance Brokers Ltd.
+              specializes in commercial insurance and construction surety bonds for contractors,
+              subtrades, and developers across British Columbia and Canada.
+            </p>
+          </div>
+          <div class="partner-banner__actions">
+            <button type="button" class="btn btn--primary" data-open-modal="contact-modal">
+              Contact Us
+            </button>
+            <button type="button" class="btn btn--outline" data-open-modal="apply-modal">
+              Apply Now
+            </button>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-top: 2rem;">
           <blockquote class="quote-card">
             <p>
               &ldquo;Contract bonding made easy! Nexus Insurance Brokers helped us set up our
@@ -578,13 +603,15 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <h3 class="footer-brand">Nexus Insurance Brokers Ltd.</h3>
+        <h3 class="footer-brand">contractbonding.ca</h3>
         <p class="footer-text">
-          Specialized commercial insurance and construction surety bond brokerage serving
-          contractors, developers, and businesses in Burnaby, BC and across Canada.
+          Canadian construction and commercial surety bond portal serving contractors, developers,
+          and businesses across British Columbia and Alberta.
         </p>
         <p class="footer-location">
-          <strong>Location:</strong> Burnaby, British Columbia, Canada
+          <strong>Trusted Broker Partner:</strong>
+          <a href="https://www.nexusinsurancebrokers.com/" target="_blank" rel="noopener noreferrer">Nexus Insurance Brokers Ltd.</a>
+          &bull; Burnaby, BC
         </p>
       </div>
 
@@ -618,8 +645,8 @@
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom__inner">
-        <span>&copy; <span id="current-year">2026</span> Nexus Insurance Brokers Ltd. All rights reserved.</span>
-        <span>Burnaby, BC &bull; Construction &amp; Surety Bonds</span>
+        <span>&copy; <span id="current-year">2026</span> contractbonding.ca. All rights reserved.</span>
+        <span>Trusted Broker Partner: <a href="https://www.nexusinsurancebrokers.com/" target="_blank" rel="noopener noreferrer">Nexus Insurance Brokers Ltd.</a> (Burnaby, BC)</span>
       </div>
     </div>
   </footer>
@@ -630,7 +657,7 @@
     <div class="modal__dialog">
       <button type="button" class="modal__close" data-close-modal aria-label="Close Contact Us form">&times;</button>
       <div class="modal__header">
-        <span class="section-eyebrow">Nexus Insurance Brokers Ltd.</span>
+        <span class="section-eyebrow">contractbonding.ca &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd.</span>
         <h2 id="contact-modal-title">Contact Us</h2>
         <p class="modal__lead">One of our professionals will reach out to you.</p>
       </div>
@@ -701,7 +728,7 @@
     <div class="modal__dialog modal__dialog--wide">
       <button type="button" class="modal__close" data-close-modal aria-label="Close Application form">&times;</button>
       <div class="modal__header">
-        <span class="section-eyebrow">Nexus Insurance Brokers Ltd. &bull; Burnaby, BC</span>
+        <span class="section-eyebrow">contractbonding.ca &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd. (Burnaby, BC)</span>
         <h2 id="apply-modal-title">Surety Bond Application Form</h2>
         <p class="modal__lead">
           Complete the application below to begin underwriting your construction or commercial bond.

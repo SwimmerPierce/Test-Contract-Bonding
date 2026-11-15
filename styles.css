@@ -1,32 +1,32 @@
 /*
  * File: styles.css
- * Description: Responsive stylesheet for Nexus Insurance Brokers Ltd. Construction & Surety Bonds
- *              homepage, modeled on a Canadian surety brokerage layout with navy/steel-blue/gold
- *              branding, rate calculator styling, and accessible modal forms.
+ * Description: Responsive stylesheet for contractbonding.ca Construction & Surety Bonds
+ *              homepage with Montserrat typography and Deep Navy (#0F2537), Steel Blue (#4B6882),
+ *              and Gold/Amber (#D49A3B) visual language.
  * Dependencies: Loaded by index.html.
  * Role: Visual presentation and responsive layout layer.
  */
 
 :root {
-  --navy: #2b3378;
-  --navy-dark: #1d2356;
-  --blue: #2974a3;
-  --blue-dark: #1d5a82;
-  --sky-tint: #e8f3fa;
-  --teal-tint: #e7f6f4;
-  --gold: #ead98a;
-  --gold-hover: #dfc969;
-  --gold-text: #1b2254;
-  --text: #374151;
-  --text-muted: #5a6577;
-  --heading: #19224d;
-  --border: #dce5ef;
-  --white: #ffffff;
-  --danger: #b91c1c;
-  --success: #0f766e;
-  --shadow-sm: 0 2px 8px rgba(27, 34, 84, 0.06);
-  --shadow-md: 0 10px 30px rgba(27, 34, 84, 0.1);
-  --shadow-lg: 0 22px 50px rgba(17, 24, 62, 0.22);
+  --navy: #0F2537;
+  --navy-dark: #091824;
+  --blue: #4B6882;
+  --blue-dark: #354E65;
+  --sky-tint: #EDF2F6;
+  --teal-tint: #E6EEF4;
+  --gold: #D49A3B;
+  --gold-hover: #BD862C;
+  --gold-text: #0F2537;
+  --text: #2D3B48;
+  --text-muted: #556677;
+  --heading: #0F2537;
+  --border: #D5E0EA;
+  --white: #FFFFFF;
+  --danger: #B91C1C;
+  --success: #0F766E;
+  --shadow-sm: 0 2px 8px rgba(15, 37, 55, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 37, 55, 0.1);
+  --shadow-lg: 0 22px 50px rgba(9, 24, 36, 0.24);
   --radius: 12px;
   --radius-sm: 8px;
 }
@@ -51,9 +51,10 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  font-family: "Montserrat", "Inter", sans-serif;
   color: var(--heading);
-  line-height: 1.25;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
   margin-top: 0;
 }
 
@@ -177,9 +178,20 @@ a:hover {
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
   text-decoration: none;
+}
+
+.brand__logo {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+.brand__sub--partner {
+  font-size: 0.66rem;
 }
 
 .brand:hover {
@@ -192,15 +204,26 @@ a:hover {
 }
 
 .brand__name {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   color: var(--navy);
 }
 
+.brand__tld {
+  color: var(--gold);
+  font-weight: 700;
+}
+
 .brand__sub {
-  font-size: 0.76rem;
-  color: var(--text-muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
 }
 
 .primary-nav {
@@ -354,9 +377,10 @@ a:hover {
 
 .hero__eyebrow {
   display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 0.75rem;
@@ -484,9 +508,10 @@ a:hover {
 
 .section-eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 0.45rem;
@@ -528,7 +553,7 @@ a:hover {
   border-radius: 10px;
   background: var(--sky-tint);
   color: var(--navy);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   display: inline-flex;
   align-items: center;
@@ -594,7 +619,7 @@ a:hover {
   border-radius: 50%;
   background: var(--navy);
   color: var(--gold);
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   font-size: 1.15rem;
   display: inline-flex;
@@ -794,6 +819,38 @@ a:hover {
   flex-wrap: wrap;
 }
 
+/* Trusted Broker Partners */
+.partner-banner {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.partner-banner h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.partner-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.partner-banner__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 /* Testimonials */
 .quote-card {
   margin: 0;
@@ -840,6 +897,17 @@ a:hover {
 .footer-location {
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-location a,
+.footer-bottom a {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.footer-location a:hover,
+.footer-bottom a:hover {
+  color: var(--white);
 }
 
 .footer-links {
@@ -938,7 +1006,7 @@ a:hover {
 }
 
 .form-section legend {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 0.92rem;
   color: var(--navy);
