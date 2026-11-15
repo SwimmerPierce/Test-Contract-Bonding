@@ -92,31 +92,14 @@
   const calcForm = document.getElementById("rate-calculator-form");
   const calcValueInput = document.getElementById("calc-contract-value");
   const calcTypeSelect = document.getElementById("calc-bond-type");
-  const calcProfileSelect = document.getElementById("calc-profile");
   const calcRateRange = document.getElementById("calc-rate-range");
   const calcCostRange = document.getElementById("calc-cost-range");
 
   const RATE_TABLE = {
-    contract: {
-      strong: [0.01, 0.015],
-      standard: [0.01, 0.015],
-      emerging: [0.01, 0.015],
-    },
-    bid: {
-      strong: [0.0025, 0.005],
-      standard: [0.004, 0.0075],
-      emerging: [0.006, 0.01],
-    },
-    administrative: {
-      strong: [0.0075, 0.0125],
-      standard: [0.01, 0.0175],
-      emerging: [0.015, 0.025],
-    },
-    other: {
-      strong: [0.01, 0.015],
-      standard: [0.0125, 0.02],
-      emerging: [0.0175, 0.0275],
-    },
+    contract: [0.01, 0.015],
+    bid: [0.004, 0.0075],
+    administrative: [0.01, 0.0175],
+    other: [0.0125, 0.02],
   };
 
   function formatCurrency(amount) {
@@ -128,15 +111,14 @@
   }
 
   function updateCalculator() {
-    if (!calcValueInput || !calcTypeSelect || !calcProfileSelect) return;
+    if (!calcValueInput || !calcTypeSelect) return;
     const rawValue = Number(calcValueInput.value);
     const amount = Number.isFinite(rawValue) && rawValue > 0 ? rawValue : 0;
     const typeKey = calcTypeSelect.value;
-    const profileKey = calcProfileSelect.value;
-    const [minRate, maxRate] = (RATE_TABLE[typeKey] && RATE_TABLE[typeKey][profileKey]) || [0.0125, 0.0175];
+    const [minRate, maxRate] = RATE_TABLE[typeKey] || [0.01, 0.015];
 
-    const minPct = (minRate * 100).toFixed(2).replace(/\.00$/, "");
-    const maxPct = (maxRate * 100).toFixed(2).replace(/\.00$/, "");
+    const minPct = (minRate * 100).toFixed(2).replace(/\.?0+$/, "");
+    const maxPct = (maxRate * 100).toFixed(2).replace(/\.?0+$/, "");
     calcRateRange.textContent = `${minPct}% – ${maxPct}%`;
     calcCostRange.textContent = `${formatCurrency(amount * minRate)} – ${formatCurrency(amount * maxRate)} CAD`;
   }
@@ -146,7 +128,7 @@
       event.preventDefault();
       updateCalculator();
     });
-    [calcValueInput, calcTypeSelect, calcProfileSelect].forEach((el) => {
+    [calcValueInput, calcTypeSelect].forEach((el) => {
       if (el) el.addEventListener("change", updateCalculator);
     });
     updateCalculator();
