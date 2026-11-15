@@ -98,9 +98,9 @@
 
   const RATE_TABLE = {
     contract: {
-      strong: [0.0085, 0.0125],
-      standard: [0.0125, 0.0175],
-      emerging: [0.0175, 0.025],
+      strong: [0.01, 0.015],
+      standard: [0.01, 0.015],
+      emerging: [0.01, 0.015],
     },
     bid: {
       strong: [0.0025, 0.005],
