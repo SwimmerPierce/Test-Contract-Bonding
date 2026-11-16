@@ -47,6 +47,7 @@
     if (form && success) {
       form.hidden = false;
       success.hidden = true;
+      clearFormValidation(form);
     }
     if (errorBox) {
       errorBox.hidden = true;
@@ -239,6 +240,42 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  function clearFormValidation(form) {
+    if (!form) return;
+    form.querySelectorAll(".is-invalid").forEach((el) => {
+      el.classList.remove("is-invalid");
+      el.removeAttribute("aria-invalid");
+    });
+  }
+
+  function highlightInvalidFields(form, checks) {
+    clearFormValidation(form);
+    let firstInvalid = null;
+    checks.forEach(([fieldName, isInvalid]) => {
+      if (!isInvalid) return;
+      const el = form.querySelector(`[name="${fieldName}"]`);
+      if (el) {
+        el.classList.add("is-invalid");
+        el.setAttribute("aria-invalid", "true");
+        if (!firstInvalid) firstInvalid = el;
+      }
+    });
+    if (firstInvalid) firstInvalid.focus();
+  }
+
+  function attachLiveValidationReset(form) {
+    if (!form) return;
+    ["input", "change"].forEach((evt) => {
+      form.addEventListener(evt, (event) => {
+        const target = event.target;
+        if (target && target.classList && target.classList.contains("is-invalid")) {
+          target.classList.remove("is-invalid");
+          target.removeAttribute("aria-invalid");
+        }
+      });
+    });
+  }
+
   async function submitLeadToApi(payload) {
     const response = await fetch("/api/leads", {
       method: "POST",
@@ -262,6 +299,7 @@
   const contactSummary = document.getElementById("contact-success-summary");
 
   if (contactForm) {
+    attachLiveValidationReset(contactForm);
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(contactForm);
@@ -273,6 +311,13 @@
       const notes = String(data.get("notes") || "").trim();
 
       if (!name || !email || !phone || !company || !bondType) {
+        highlightInvalidFields(contactForm, [
+          ["name", !name],
+          ["email", !email],
+          ["phone", !phone],
+          ["company", !company],
+          ["bondType", !bondType],
+        ]);
         contactError.textContent =
           "Please complete all required fields (Name, Email, Phone Number, Company Name, and Type of Bond).";
         contactError.hidden = false;
@@ -280,10 +325,13 @@
       }
 
       if (!isValidEmail(email)) {
+        highlightInvalidFields(contactForm, [["email", true]]);
         contactError.textContent = "Please enter a valid email address.";
         contactError.hidden = false;
         return;
       }
+
+      clearFormValidation(contactForm);
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn ? submitBtn.textContent : "Send Inquiry";
@@ -353,6 +401,7 @@
   }
 
   if (applyForm) {
+    attachLiveValidationReset(applyForm);
     applyForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(applyForm);
@@ -381,6 +430,16 @@
         !bondType ||
         amount <= 0
       ) {
+        highlightInvalidFields(applyForm, [
+          ["company", !company],
+          ["contactName", !contactName],
+          ["email", !email],
+          ["phone", !phone],
+          ["city", !city],
+          ["years", !years],
+          ["bondType", !bondType],
+          ["amount", amount <= 0],
+        ]);
         applyError.textContent =
           "Please complete all required business, contact, and bond detail fields.";
         applyError.hidden = false;
@@ -388,10 +447,13 @@
       }
 
       if (!isValidEmail(email)) {
+        highlightInvalidFields(applyForm, [["email", true]]);
         applyError.textContent = "Please enter a valid email address.";
         applyError.hidden = false;
         return;
       }
+
+      clearFormValidation(applyForm);
 
       const submitBtn = applyForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn ? submitBtn.textContent : "Submit Application";
