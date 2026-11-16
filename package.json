@@ -1,0 +1,17 @@
+{
+  "name": "test-contract-bonding",
+  "version": "1.0.0",
+  "description": "contractbonding.ca — Construction & Surety Bonds Website with Neon Postgres Lead Database & Admin Dashboard",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node dev-server.js",
+    "test": "node test-suite.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20.x"
+  }
+}

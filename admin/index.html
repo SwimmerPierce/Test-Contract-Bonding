@@ -1,0 +1,342 @@
+<!--
+  File: admin/index.html
+  Description: Password-protected Admin Dashboard (/admin) for contractbonding.ca and
+               Nexus Insurance Brokers Ltd. (Burnaby, BC), displaying Neon Postgres lead
+               submissions with KPIs, filtering, status management, CSV export, and detail modals.
+-->
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Lead Dashboard | contractbonding.ca</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" sizes="160x160" href="/Visual%20Assets/chicklet%20image%20logo%20160px%20by%20160px.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body class="admin-body">
+  <!-- Top Admin Header -->
+  <header class="admin-header">
+    <div class="container admin-header__inner">
+      <div class="admin-brand">
+        <a href="/" class="admin-brand__logo-link" title="Return to contractbonding.ca">
+          <img
+            src="/Visual%20Assets/Re%20Do%20Logo.png"
+            alt="contractbonding.ca"
+            class="admin-brand__logo"
+          />
+        </a>
+        <div class="admin-brand__meta">
+          <span class="admin-brand__badge">Surety Portal Admin</span>
+          <span class="admin-brand__sub">Nexus Insurance Brokers Ltd. &bull; Burnaby, BC</span>
+        </div>
+      </div>
+
+      <div class="admin-header__actions">
+        <span id="db-storage-badge" class="storage-pill" hidden>Neon Postgres</span>
+        <a href="/" class="btn btn--outline btn--sm">View Public Site</a>
+        <button type="button" id="logout-btn" class="btn btn--primary btn--sm" hidden>
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <!-- Login Gate -->
+    <section id="login-view" class="login-card-wrap">
+      <div class="login-card">
+        <div class="login-card__header">
+          <span class="section-eyebrow">Protected Area</span>
+          <h1>Admin Lead Dashboard</h1>
+          <p>
+            Enter the administrator password to view and manage surety bond inquiries and
+            applications submitted through <strong>contractbonding.ca</strong>.
+          </p>
+        </div>
+
+        <form id="admin-login-form" class="login-form" novalidate>
+          <div class="form-group">
+            <label for="admin-password">Administrator Password</label>
+            <input
+              type="password"
+              id="admin-password"
+              name="password"
+              placeholder="Enter admin password..."
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <p id="login-error" class="form-error" role="alert" hidden></p>
+
+          <button type="submit" id="login-submit-btn" class="btn btn--primary btn--block btn--lg">
+            Unlock Dashboard
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Authenticated Dashboard View -->
+    <section id="dashboard-view" hidden>
+      <!-- KPI Summary Row -->
+      <div class="kpi-grid">
+        <article class="kpi-card">
+          <span class="kpi-card__label">Total Leads</span>
+          <strong class="kpi-card__value" id="kpi-total">0</strong>
+          <span class="kpi-card__sub" id="kpi-new-count">0 new</span>
+        </article>
+
+        <article class="kpi-card">
+          <span class="kpi-card__label">Bond Applications</span>
+          <strong class="kpi-card__value" id="kpi-applications">0</strong>
+          <span class="kpi-card__sub">Full underwriting intake</span>
+        </article>
+
+        <article class="kpi-card">
+          <span class="kpi-card__label">Contact Inquiries</span>
+          <strong class="kpi-card__value" id="kpi-contacts">0</strong>
+          <span class="kpi-card__sub">Callback requests</span>
+        </article>
+
+        <article class="kpi-card kpi-card--gold">
+          <span class="kpi-card__label">Requested Bond Volume</span>
+          <strong class="kpi-card__value" id="kpi-volume">$0</strong>
+          <span class="kpi-card__sub">Cumulative CAD pipeline</span>
+        </article>
+      </div>
+
+      <!-- Toolbar: Search, Filters & Actions -->
+      <div class="admin-toolbar">
+        <div class="admin-toolbar__filters">
+          <div class="filter-item filter-item--search">
+            <label for="filter-search" class="sr-only">Search leads</label>
+            <input
+              type="search"
+              id="filter-search"
+              placeholder="Search company, contact, email, phone, ref #..."
+            />
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-type" class="sr-only">Lead Type</label>
+            <select id="filter-type">
+              <option value="all">All Submission Types</option>
+              <option value="application">Bond Applications</option>
+              <option value="contact">Contact Inquiries</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-bond" class="sr-only">Bond Type</label>
+            <select id="filter-bond">
+              <option value="all">All Bond Types</option>
+              <option value="Contract">Contract</option>
+              <option value="Bid">Bid</option>
+              <option value="Administrative">Administrative</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="filter-status" class="sr-only">Lead Status</label>
+            <select id="filter-status">
+              <option value="all">All Statuses</option>
+              <option value="New">New</option>
+              <option value="In Review">In Review</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Quoted">Quoted</option>
+              <option value="Bound">Bound</option>
+              <option value="Archived">Archived</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-toolbar__buttons">
+          <button type="button" id="refresh-leads-btn" class="btn btn--outline btn--sm">
+            Refresh
+          </button>
+          <button type="button" id="create-lead-btn" class="btn btn--outline btn--sm">
+            + Add Lead
+          </button>
+          <button type="button" id="export-csv-btn" class="btn btn--gold btn--sm">
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Status Banner -->
+      <div id="dashboard-alert" class="admin-alert" hidden></div>
+
+      <!-- Leads Table Card -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="leads-table" id="leads-table">
+            <thead>
+              <tr>
+                <th>Submitted</th>
+                <th>Ref #</th>
+                <th>Type</th>
+                <th>Company &amp; Contact</th>
+                <th>Bond &amp; Value</th>
+                <th>Location / Details</th>
+                <th>Status</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody">
+              <tr>
+                <td colspan="8" class="table-empty">Loading leads...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lead Details & Underwriting Notes Modal -->
+  <div class="modal" id="lead-detail-modal" role="dialog" aria-modal="true" aria-labelledby="lead-detail-title" hidden>
+    <div class="modal__backdrop" data-close-admin-modal></div>
+    <div class="modal__dialog modal__dialog--wide">
+      <button type="button" class="modal__close" data-close-admin-modal aria-label="Close modal">&times;</button>
+      <div class="modal__header">
+        <span class="section-eyebrow" id="detail-eyebrow">Lead Record</span>
+        <h2 id="lead-detail-title">Lead Details</h2>
+        <p class="modal__lead" id="detail-subtitle"></p>
+      </div>
+
+      <div id="detail-grid" class="detail-grid"></div>
+
+      <form id="detail-update-form" class="detail-update-form">
+        <input type="hidden" id="detail-lead-id" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="detail-status">Pipeline Status</label>
+            <select id="detail-status" name="status">
+              <option value="New">New</option>
+              <option value="In Review">In Review</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Quoted">Quoted</option>
+              <option value="Bound">Bound</option>
+              <option value="Archived">Archived</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="detail-reference-readonly">Reference ID</label>
+            <input type="text" id="detail-reference-readonly" readonly />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="detail-admin-notes">Broker / Underwriting Internal Notes</label>
+          <textarea
+            id="detail-admin-notes"
+            name="admin_notes"
+            rows="3"
+            placeholder="Add internal broker notes, surety market quotes, or follow-up tasks..."
+          ></textarea>
+        </div>
+
+        <div class="modal__footer modal__footer--spread">
+          <button type="button" id="detail-delete-btn" class="btn btn--danger-outline btn--sm">
+            Delete Lead
+          </button>
+          <div class="modal__footer-right">
+            <button type="button" class="btn btn--outline" data-close-admin-modal>Close</button>
+            <button type="submit" id="detail-save-btn" class="btn btn--primary">Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Manual Add Lead Modal -->
+  <div class="modal" id="add-lead-modal" role="dialog" aria-modal="true" aria-labelledby="add-lead-title" hidden>
+    <div class="modal__backdrop" data-close-admin-modal></div>
+    <div class="modal__dialog">
+      <button type="button" class="modal__close" data-close-admin-modal aria-label="Close modal">&times;</button>
+      <div class="modal__header">
+        <span class="section-eyebrow">Manual Entry</span>
+        <h2 id="add-lead-title">Add Surety Lead</h2>
+        <p class="modal__lead">Log a phone or email lead directly into the Neon Postgres database.</p>
+      </div>
+
+      <form id="add-lead-form" class="modal-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="manual-lead-type">Submission Type</label>
+            <select id="manual-lead-type" name="lead_type">
+              <option value="contact">Contact Inquiry</option>
+              <option value="application">Bond Application</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="manual-bond-type">Bond Type <span class="req">*</span></label>
+            <select id="manual-bond-type" name="bond_type" required>
+              <option value="Contract">Contract</option>
+              <option value="Bid">Bid</option>
+              <option value="Administrative">Administrative</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="manual-company">Company Name <span class="req">*</span></label>
+            <input type="text" id="manual-company" name="company_name" placeholder="Fraser Valley Civil Ltd." required />
+          </div>
+          <div class="form-group">
+            <label for="manual-contact">Contact Name <span class="req">*</span></label>
+            <input type="text" id="manual-contact" name="contact_name" placeholder="Alex Mercer" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="manual-email">Email <span class="req">*</span></label>
+            <input type="email" id="manual-email" name="email" placeholder="alex@fvcivil.ca" required />
+          </div>
+          <div class="form-group">
+            <label for="manual-phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="manual-phone" name="phone" placeholder="(604) 555-0188" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="manual-city">City / Province</label>
+            <input type="text" id="manual-city" name="city" placeholder="Burnaby, BC" />
+          </div>
+          <div class="form-group">
+            <label for="manual-amount">Estimated Bond Value ($ CAD)</label>
+            <input type="number" id="manual-amount" name="amount" min="0" step="1000" placeholder="500000" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="manual-notes">Project / Inquiry Notes</label>
+          <textarea id="manual-notes" name="notes" rows="2" placeholder="Notes from call or email..."></textarea>
+        </div>
+
+        <p id="manual-lead-error" class="form-error" role="alert" hidden></p>
+
+        <div class="modal__footer">
+          <button type="button" class="btn btn--outline" data-close-admin-modal>Cancel</button>
+          <button type="submit" class="btn btn--primary">Create Lead</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

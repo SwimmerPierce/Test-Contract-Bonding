@@ -2,8 +2,8 @@
  * File: app.js
  * Description: Client-side interactivity for Nexus Insurance Brokers Ltd. (Burnaby, BC),
  *              powering responsive navigation, the Surety Bond Rate Calculator, and the
- *              Contact Us & Apply Now modal forms with validation and confirmation summaries.
- * Dependencies: index.html DOM elements, styles.css modal/nav classes.
+ *              Contact Us & Apply Now modal forms with Neon Postgres persistence via /api/leads.
+ * Dependencies: index.html DOM elements, styles.css modal/nav classes, /api/leads endpoint.
  * Role: Frontend behavioral controller.
  */
 
@@ -154,6 +154,22 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  async function submitLeadToApi(payload) {
+    const response = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) {
+      throw new Error(data.error || "Unable to submit your request right now. Please try again.");
+    }
+    return data.lead;
+  }
+
   // Contact Us Form
   const contactForm = document.getElementById("contact-form");
   const contactError = document.getElementById("contact-error");
@@ -161,7 +177,7 @@
   const contactSummary = document.getElementById("contact-success-summary");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
+    contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(contactForm);
       const name = String(data.get("name") || "").trim();
@@ -169,9 +185,11 @@
       const phone = String(data.get("phone") || "").trim();
       const company = String(data.get("company") || "").trim();
       const bondType = String(data.get("bondType") || "").trim();
+      const notes = String(data.get("notes") || "").trim();
 
       if (!name || !email || !phone || !company || !bondType) {
-        contactError.textContent = "Please complete all required fields (Name, Email, Phone Number, Company Name, and Type of Bond).";
+        contactError.textContent =
+          "Please complete all required fields (Name, Email, Phone Number, Company Name, and Type of Bond).";
         contactError.hidden = false;
         return;
       }
@@ -182,18 +200,46 @@
         return;
       }
 
-      contactError.hidden = true;
-      renderSummary(contactSummary, [
-        ["Name", name],
-        ["Email", email],
-        ["Phone", phone],
-        ["Company", company],
-        ["Bond Type", bondType],
-      ]);
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : "Send Inquiry";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
 
-      contactForm.hidden = true;
-      contactSuccess.hidden = false;
-      contactForm.reset();
+      try {
+        const savedLead = await submitLeadToApi({
+          lead_type: "contact",
+          contact_name: name,
+          company_name: company,
+          email,
+          phone,
+          bond_type: bondType,
+          notes,
+        });
+
+        contactError.hidden = true;
+        renderSummary(contactSummary, [
+          ["Reference #", savedLead.reference_id],
+          ["Name", name],
+          ["Email", email],
+          ["Phone", phone],
+          ["Company", company],
+          ["Bond Type", bondType],
+        ]);
+
+        contactForm.hidden = true;
+        contactSuccess.hidden = false;
+        contactForm.reset();
+      } catch (err) {
+        contactError.textContent = err.message || "Failed to submit inquiry. Please try again.";
+        contactError.hidden = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
     });
   }
 
@@ -204,7 +250,7 @@
   const applySummary = document.getElementById("apply-success-summary");
 
   if (applyForm) {
-    applyForm.addEventListener("submit", (event) => {
+    applyForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(applyForm);
       const company = String(data.get("company") || "").trim();
@@ -213,12 +259,27 @@
       const phone = String(data.get("phone") || "").trim();
       const city = String(data.get("city") || "").trim();
       const years = String(data.get("years") || "").trim();
+      const structure = String(data.get("structure") || "").trim();
       const bondType = String(data.get("bondType") || "").trim();
       const amount = Number(data.get("amount") || 0);
       const obligee = String(data.get("obligee") || "").trim();
+      const requiredDate = String(data.get("requiredDate") || "").trim();
+      const financials = String(data.get("financials") || "").trim();
+      const priorSurety = String(data.get("priorSurety") || "").trim();
+      const notes = String(data.get("notes") || "").trim();
 
-      if (!company || !contactName || !email || !phone || !city || !years || !bondType || amount <= 0) {
-        applyError.textContent = "Please complete all required business, contact, and bond detail fields.";
+      if (
+        !company ||
+        !contactName ||
+        !email ||
+        !phone ||
+        !city ||
+        !years ||
+        !bondType ||
+        amount <= 0
+      ) {
+        applyError.textContent =
+          "Please complete all required business, contact, and bond detail fields.";
         applyError.hidden = false;
         return;
       }
@@ -229,21 +290,58 @@
         return;
       }
 
-      const refId = `NX-${Math.floor(100000 + Math.random() * 900000)}`;
-      applyError.hidden = true;
-      renderSummary(applySummary, [
-        ["Reference #", refId],
-        ["Business", company],
-        ["Contact", `${contactName} (${email})`],
-        ["Location", city],
-        ["Bond Type", bondType],
-        ["Estimated Amount", `${formatCurrency(amount)} CAD`],
-        ["Obligee / Owner", obligee || "Not specified"],
-      ]);
+      const submitBtn = applyForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : "Submit Application";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+      }
 
-      applyForm.hidden = true;
-      applySuccess.hidden = false;
-      applyForm.reset();
+      const refId = `NX-${Math.floor(100000 + Math.random() * 900000)}`;
+
+      try {
+        const savedLead = await submitLeadToApi({
+          reference_id: refId,
+          lead_type: "application",
+          company_name: company,
+          contact_name: contactName,
+          email,
+          phone,
+          city,
+          years_in_business: Number(years),
+          business_structure: structure,
+          bond_type: bondType,
+          amount,
+          obligee,
+          required_date: requiredDate,
+          financials,
+          prior_surety: priorSurety,
+          notes,
+        });
+
+        applyError.hidden = true;
+        renderSummary(applySummary, [
+          ["Reference #", savedLead.reference_id || refId],
+          ["Business", company],
+          ["Contact", `${contactName} (${email})`],
+          ["Location", city],
+          ["Bond Type", bondType],
+          ["Estimated Amount", `${formatCurrency(amount)} CAD`],
+          ["Obligee / Owner", obligee || "Not specified"],
+        ]);
+
+        applyForm.hidden = true;
+        applySuccess.hidden = false;
+        applyForm.reset();
+      } catch (err) {
+        applyError.textContent = err.message || "Failed to submit application. Please try again.";
+        applyError.hidden = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
     });
   }
 })();

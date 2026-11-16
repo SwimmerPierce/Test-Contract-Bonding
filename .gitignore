@@ -1,0 +1,9 @@
+node_modules/
+.vercel/
+.env
+.env.*
+!.env.example
+.playwright-mcp/
+.local-leads.json
+*.log
+
