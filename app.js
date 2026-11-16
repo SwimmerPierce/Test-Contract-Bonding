@@ -94,6 +94,14 @@
   const calcTypeSelect = document.getElementById("calc-bond-type");
   const calcRateRange = document.getElementById("calc-rate-range");
   const calcCostRange = document.getElementById("calc-cost-range");
+  const calcQuoteCta = document.getElementById("calc-quote-cta");
+
+  const CALC_TO_FORM_BOND_TYPE = {
+    contract: "Contract",
+    bid: "Bid",
+    administrative: "Administrative",
+    other: "Other",
+  };
 
   const RATE_TABLE = {
     contract: [0.01, 0.015],
@@ -173,6 +181,33 @@
       calcTypeSelect.addEventListener("change", updateCalculator);
     }
     updateCalculator();
+  }
+
+  if (calcQuoteCta) {
+    calcQuoteCta.addEventListener("click", () => {
+      const typeKey = calcTypeSelect ? calcTypeSelect.value : "contract";
+      const mappedBondType = CALC_TO_FORM_BOND_TYPE[typeKey] || "Contract";
+      const bondLabel =
+        calcTypeSelect && calcTypeSelect.selectedIndex >= 0
+          ? calcTypeSelect.options[calcTypeSelect.selectedIndex].textContent.trim()
+          : mappedBondType;
+      const amount = parseNumericInput(calcValueInput ? calcValueInput.value : 0);
+      const formattedAmount = amount > 0 ? `${formatCurrency(amount)} CAD` : "Not specified";
+      const rateText = calcRateRange ? calcRateRange.textContent.trim() : "";
+      const costText = calcCostRange ? calcCostRange.textContent.trim() : "";
+
+      openModal("contact-modal", mappedBondType);
+
+      const contactNotes = document.getElementById("contact-notes");
+      if (contactNotes) {
+        contactNotes.value = [
+          "Requesting a firm underwriting quote based on rate calculator estimate:",
+          `- Bond Category: ${bondLabel}`,
+          `- Contract / Project Value: ${formattedAmount}`,
+          `- Indicative Estimate: ${costText} (${rateText})`,
+        ].join("\n");
+      }
+    });
   }
 
   // Helper to safely render key-value summary lines
