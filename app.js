@@ -110,9 +110,42 @@
     }).format(amount);
   }
 
+  function parseNumericInput(val) {
+    const digits = String(val || "").replace(/[^\d]/g, "");
+    return digits ? Number(digits) : 0;
+  }
+
+  function formatNumberWithCommas(inputEl) {
+    const raw = String(inputEl.value || "");
+    const selStart = inputEl.selectionStart ?? raw.length;
+    const digitsBeforeCursor = raw.slice(0, selStart).replace(/[^\d]/g, "").length;
+    const allDigits = raw.replace(/[^\d]/g, "");
+
+    if (!allDigits) {
+      inputEl.value = "";
+      return;
+    }
+
+    const formatted = Number(allDigits).toLocaleString("en-CA");
+    inputEl.value = formatted;
+
+    // Restore cursor position based on digit count before cursor
+    let newCursor = 0;
+    let seenDigits = 0;
+    while (newCursor < formatted.length && seenDigits < digitsBeforeCursor) {
+      if (/\d/.test(formatted[newCursor])) {
+        seenDigits++;
+      }
+      newCursor++;
+    }
+    if (typeof inputEl.setSelectionRange === "function") {
+      inputEl.setSelectionRange(newCursor, newCursor);
+    }
+  }
+
   function updateCalculator() {
     if (!calcValueInput || !calcTypeSelect) return;
-    const rawValue = Number(calcValueInput.value);
+    const rawValue = parseNumericInput(calcValueInput.value);
     const amount = Number.isFinite(rawValue) && rawValue > 0 ? rawValue : 0;
     const typeKey = calcTypeSelect.value;
     const [minRate, maxRate] = RATE_TABLE[typeKey] || [0.01, 0.015];
@@ -128,9 +161,17 @@
       event.preventDefault();
       updateCalculator();
     });
-    [calcValueInput, calcTypeSelect].forEach((el) => {
-      if (el) el.addEventListener("change", updateCalculator);
-    });
+    if (calcValueInput) {
+      formatNumberWithCommas(calcValueInput);
+      calcValueInput.addEventListener("input", () => {
+        formatNumberWithCommas(calcValueInput);
+        updateCalculator();
+      });
+      calcValueInput.addEventListener("change", updateCalculator);
+    }
+    if (calcTypeSelect) {
+      calcTypeSelect.addEventListener("change", updateCalculator);
+    }
     updateCalculator();
   }
 

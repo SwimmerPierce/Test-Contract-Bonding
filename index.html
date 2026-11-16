@@ -414,11 +414,12 @@
             <div class="form-group">
               <label for="calc-contract-value">Contract / Bonded Project Value ($ CAD)</label>
               <input
-                type="number"
+                type="text"
+                inputmode="numeric"
                 id="calc-contract-value"
-                min="10000"
-                step="5000"
-                value="500000"
+                value="500,000"
+                placeholder="500,000"
+                autocomplete="off"
                 required
               />
             </div>
