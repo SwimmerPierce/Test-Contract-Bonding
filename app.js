@@ -28,9 +28,17 @@
   }
 
   // Modal management
+  let pendingCalcAmount = null;
+
   function openModal(modalId, preselectedBondType) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
+
+    if (modalId === "contact-modal") {
+      pendingCalcAmount = null;
+      const contactNotes = document.getElementById("contact-notes");
+      if (contactNotes) contactNotes.value = "";
+    }
 
     // Reset form/success state each time modal is opened
     const form = modal.querySelector("form");
@@ -197,6 +205,7 @@
       const costText = calcCostRange ? calcCostRange.textContent.trim() : "";
 
       openModal("contact-modal", mappedBondType);
+      pendingCalcAmount = amount > 0 ? amount : null;
 
       const contactNotes = document.getElementById("contact-notes");
       if (contactNotes) {
@@ -284,7 +293,7 @@
       }
 
       try {
-        const savedLead = await submitLeadToApi({
+        const leadPayload = {
           lead_type: "contact",
           contact_name: name,
           company_name: company,
@@ -292,17 +301,28 @@
           phone,
           bond_type: bondType,
           notes,
-        });
+        };
+        if (pendingCalcAmount && pendingCalcAmount > 0) {
+          leadPayload.amount = pendingCalcAmount;
+        }
+
+        const savedLead = await submitLeadToApi(leadPayload);
+        const submittedAmount = pendingCalcAmount;
+        pendingCalcAmount = null;
 
         contactError.hidden = true;
-        renderSummary(contactSummary, [
+        const summaryRows = [
           ["Reference #", savedLead.reference_id],
           ["Name", name],
           ["Email", email],
           ["Phone", phone],
           ["Company", company],
           ["Bond Type", bondType],
-        ]);
+        ];
+        if (submittedAmount && submittedAmount > 0) {
+          summaryRows.push(["Bond / Contract Value", `${formatCurrency(submittedAmount)} CAD`]);
+        }
+        renderSummary(contactSummary, summaryRows);
 
         contactForm.hidden = true;
         contactSuccess.hidden = false;
