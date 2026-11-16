@@ -9,7 +9,8 @@
     "test": "node test-suite.js"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.0"
+    "@neondatabase/serverless": "^1.0.0",
+    "@vercel/analytics": "^2.0.1"
   },
   "engines": {
     "node": ">=20.x"
