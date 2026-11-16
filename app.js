@@ -286,9 +286,16 @@
 
   // Apply Now Form
   const applyForm = document.getElementById("apply-form");
+  const applyAmountInput = document.getElementById("apply-amount");
   const applyError = document.getElementById("apply-error");
   const applySuccess = document.getElementById("apply-success");
   const applySummary = document.getElementById("apply-success-summary");
+
+  if (applyAmountInput) {
+    applyAmountInput.addEventListener("input", () => {
+      formatNumberWithCommas(applyAmountInput);
+    });
+  }
 
   if (applyForm) {
     applyForm.addEventListener("submit", async (event) => {
@@ -302,7 +309,7 @@
       const years = String(data.get("years") || "").trim();
       const structure = String(data.get("structure") || "").trim();
       const bondType = String(data.get("bondType") || "").trim();
-      const amount = Number(data.get("amount") || 0);
+      const amount = parseNumericInput(data.get("amount"));
       const obligee = String(data.get("obligee") || "").trim();
       const requiredDate = String(data.get("requiredDate") || "").trim();
       const financials = String(data.get("financials") || "").trim();
