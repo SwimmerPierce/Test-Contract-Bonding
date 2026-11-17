@@ -1,0 +1,19 @@
+# Vercel Deployment Ignore
+# Prevents internal, development, documentation, and notes files
+# from being published or accessible via public URLs.
+
+# Notes and Documentation
+notes/
+docs/
+*.md
+
+# Local Dev & Test Files
+dev-server.js
+test-suite.js
+.local-leads.json
+*.log
+
+# Environment & Config
+.env
+.env.*
+!.env.example

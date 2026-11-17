@@ -48,6 +48,19 @@ function createServer() {
       relativePath = "/admin/index.html";
     }
 
+    // Block private/internal routes (notes, markdown files, dotfiles) from being served over HTTP
+    const isPrivate =
+      relativePath.startsWith("/.") ||
+      relativePath === "/notes" ||
+      relativePath.startsWith("/notes/") ||
+      relativePath.endsWith(".md");
+
+    if (isPrivate) {
+      res.statusCode = 404;
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      return res.end("Not Found");
+    }
+
     const safePath = path.normalize(path.join(ROOT, relativePath));
     if (!safePath.startsWith(ROOT)) {
       res.statusCode = 403;

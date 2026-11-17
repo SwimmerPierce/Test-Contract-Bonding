@@ -45,6 +45,12 @@ async function runTests() {
     const adminHtml = await adminPageRes.text();
     assert.ok(adminHtml.includes("Admin Lead Dashboard"), "/admin should contain dashboard title");
 
+    // 1b. Verify private notes and internal markdown files return 404
+    const notesRes = await fetch(`${baseUrl}/notes/README.md`);
+    assert.strictEqual(notesRes.status, 404, "/notes/README.md should return 404");
+    const notesDirRes = await fetch(`${baseUrl}/notes`);
+    assert.strictEqual(notesDirRes.status, 404, "/notes should return 404");
+
     // 2. Verify unauthenticated access to /api/leads is blocked
     const unauthLeadsRes = await fetch(`${baseUrl}/api/leads`);
     assert.strictEqual(unauthLeadsRes.status, 401, "Unauthenticated GET /api/leads must return 401");
