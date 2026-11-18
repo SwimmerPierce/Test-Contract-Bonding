@@ -13,7 +13,7 @@
   const loginView = document.getElementById("login-view");
   const dashboardView = document.getElementById("dashboard-view");
   const loginForm = document.getElementById("admin-login-form");
-  const emailInput = document.getElementById("admin-email");
+  const usernameInput = document.getElementById("admin-username") || document.getElementById("admin-email");
   const passwordInput = document.getElementById("admin-password");
   const loginError = document.getElementById("login-error");
   const loginSubmitBtn = document.getElementById("login-submit-btn");
@@ -121,7 +121,7 @@
         adminUserBadge.textContent = "";
         adminUserBadge.hidden = true;
       }
-      setTimeout(() => (emailInput || passwordInput) && (emailInput || passwordInput).focus(), 50);
+      setTimeout(() => (usernameInput || passwordInput) && (usernameInput || passwordInput).focus(), 50);
     }
   }
 
@@ -143,16 +143,27 @@
     }
   }
 
+  // Quick user chips
+  document.querySelectorAll(".user-chip-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const u = btn.getAttribute("data-username");
+      if (usernameInput && u) {
+        usernameInput.value = u;
+        if (passwordInput) passwordInput.focus();
+      }
+    });
+  });
+
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const email = emailInput ? String(emailInput.value || "").trim() : "";
+      const username = usernameInput ? String(usernameInput.value || "").trim() : "";
       const password = String(passwordInput.value || "").trim();
 
-      if (!email) {
-        loginError.textContent = "Please enter your administrator email address.";
+      if (!username) {
+        loginError.textContent = "Please enter your administrator username.";
         loginError.hidden = false;
-        if (emailInput) emailInput.focus();
+        if (usernameInput) usernameInput.focus();
         return;
       }
 
@@ -172,7 +183,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "same-origin",
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify({ username, password }),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok || !data.ok) {

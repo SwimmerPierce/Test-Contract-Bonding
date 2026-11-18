@@ -66,6 +66,8 @@ async function runTests() {
     assert.ok(adminHtml.includes("Admin Lead Dashboard"), "/admin should contain dashboard title");
     assert.ok(adminHtml.includes("detail-assigned-broker"), "/admin should include assigned broker selector");
     assert.ok(adminHtml.includes("detail-supervising-agent"), "/admin should include supervising agent input");
+    assert.ok(adminHtml.includes('id="admin-username"'), "/admin should include username input field");
+    assert.ok(adminHtml.includes("Authorized users:"), "/admin should include authorized user quick select");
 
     // 1a. Verify SEO & Lead Magnet PDF static files
     const robotsRes = await fetch(`${baseUrl}/robots.txt`);
@@ -233,23 +235,35 @@ async function runTests() {
 
     // 5b. Verify each of the 3 authorized broker logins (chase, ken, nathan)
     const brokerLogins = [
-      { email: "chase@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_CHASE" },
-      { email: "ken@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_KEN" },
-      { email: "nathan@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_NATHAN" },
+      { email: "chase@nexusinsurancebrokers.com", username: "chase", envKey: "ADMIN_PASSWORD_CHASE" },
+      { email: "ken@nexusinsurancebrokers.com", username: "ken", envKey: "ADMIN_PASSWORD_KEN" },
+      { email: "nathan@nexusinsurancebrokers.com", username: "nathan", envKey: "ADMIN_PASSWORD_NATHAN" },
     ];
     for (const broker of brokerLogins) {
       const pwd = process.env[broker.envKey];
       if (pwd) {
         assert.strictEqual(pwd.length, 20, `${broker.envKey} should be 20 characters`);
+        // Test login with full email
         const brokerLoginRes = await fetch(`${baseUrl}/api/auth`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: broker.email, password: pwd }),
+          body: JSON.stringify({ username: broker.email, password: pwd }),
         });
         assert.strictEqual(brokerLoginRes.status, 200, `Login for ${broker.email} should return 200`);
         const brokerPayload = await brokerLoginRes.json();
         assert.strictEqual(brokerPayload.ok, true);
         assert.strictEqual(brokerPayload.user.email, broker.email);
+
+        // Test login with short username
+        const shortUserLoginRes = await fetch(`${baseUrl}/api/auth`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: broker.username, password: pwd }),
+        });
+        assert.strictEqual(shortUserLoginRes.status, 200, `Login for username '${broker.username}' should return 200`);
+        const shortUserPayload = await shortUserLoginRes.json();
+        assert.strictEqual(shortUserPayload.ok, true);
+        assert.strictEqual(shortUserPayload.user.email, broker.email);
 
         // Verify session verification GET /api/auth returns user email
         const brokerCheckRes = await fetch(`${baseUrl}/api/auth`, {

@@ -65,25 +65,27 @@
 
         <form id="admin-login-form" class="login-form" novalidate>
           <div class="form-group">
-            <label for="admin-email">Broker Username / Email</label>
+            <label for="admin-username">Username</label>
             <input
-              type="email"
-              id="admin-email"
-              name="email"
+              type="text"
+              id="admin-username"
+              name="username"
               placeholder="e.g. chase@nexusinsurancebrokers.com"
               autocomplete="username"
-              list="admin-email-hints"
+              autocapitalize="none"
+              spellcheck="false"
               required
             />
-            <datalist id="admin-email-hints">
-              <option value="chase@nexusinsurancebrokers.com"></option>
-              <option value="ken@nexusinsurancebrokers.com"></option>
-              <option value="nathan@nexusinsurancebrokers.com"></option>
-            </datalist>
+            <div class="login-user-hints" aria-label="Quick select username">
+              <span class="login-user-hints__label">Authorized users:</span>
+              <button type="button" class="user-chip-btn" data-username="chase@nexusinsurancebrokers.com">Chase</button>
+              <button type="button" class="user-chip-btn" data-username="ken@nexusinsurancebrokers.com">Ken</button>
+              <button type="button" class="user-chip-btn" data-username="nathan@nexusinsurancebrokers.com">Nathan</button>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="admin-password">Administrator Password</label>
+            <label for="admin-password">Password</label>
             <input
               type="password"
               id="admin-password"

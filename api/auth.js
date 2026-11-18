@@ -68,7 +68,7 @@ module.exports = async function handler(req, res) {
         await recordFailedAttempt(clientIp);
         return sendJson(res, 401, {
           ok: false,
-          error: "Invalid login credentials. Please check your email and password.",
+          error: "Invalid login credentials. Please check your username and password.",
         });
       }
 
