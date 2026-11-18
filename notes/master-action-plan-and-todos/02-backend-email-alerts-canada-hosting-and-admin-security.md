@@ -160,14 +160,14 @@ module.exports = { sendLeadNotifications };
   1. In Vercel Marketplace / Neon Console (`console.neon.tech`), create the production database choosing **Region: AWS Canada (Central) — `ca-central-1` (Montreal)**.
   2. Update `DATABASE_URL` in Vercel Project Settings -> Environment Variables to the new Canadian Neon connection string.
   3. Re-run `npm test` or hit `/api/leads` so `ensureSchema()` initializes `surety_leads` & `auth_attempts` cleanly in the Canadian database (or migrate existing test records if needed).
-- [x] **2.2 Pin Vercel Serverless Functions to Toronto (`yyz1`) & Add Security Headers in [vercel.json](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/vercel.json):**
-  - [ ] **[Human Action]:** Verify `Toronto, Canada (yyz1)` region in Vercel Project Settings -> Functions.
+- [x] **2.2 Pin Vercel Serverless Functions to Montréal (`yul1`) & Add Security Headers in [vercel.json](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/vercel.json):**
+  - [ ] **[Human Action]:** Verify `Montréal, Canada (yul1)` region in Vercel Project Settings -> Functions. *(Note: Vercel's Canadian compute region is `yul1` in Montréal / `ca-central-1`. The identifier `yyz1` is invalid in Vercel and causes build failure `Invalid region selector: "yyz1"`).*
 
 ```json
 {
   "version": 2,
   "cleanUrls": true,
-  "regions": ["yyz1"],
+  "regions": ["yul1"],
   "rewrites": [
     {
       "source": "/admin",
@@ -195,7 +195,7 @@ module.exports = { sendLeadNotifications };
 }
 ```
 
-*(Note: Verify exact `regions` support on your Vercel plan tier—Vercel Pro/Hobby region defaults can also be checked in Vercel Project Settings -> Functions -> Function Region (`Toronto, Canada (yyz1)`). Also remember Alberta PIPA s. 13.1 still requires disclosing any US-based subprocessors like Vercel's global edge routing or US-based email APIs in `privacy.html`.)*
+*(Note: Vercel functions run in `yul1` (Montréal). If you prefer Vercel's global default, omit `"regions"` to run in `iad1` (Washington, D.C.). Also remember Alberta PIPA s. 13.1 still requires disclosing any US-based subprocessors like Vercel's global edge routing or US-based email APIs in `privacy.html`.)*
 
 ---
 
@@ -220,9 +220,11 @@ ALTER TABLE surety_leads ADD COLUMN IF NOT EXISTS supervising_agent VARCHAR(100)
   - `casl_implied_expires_at = NOW() + INTERVAL '6 months'` (tracking CASL s. 10(9) 6-month inquiry consent expiry!).
 - Update `updateLead()` ([lib/db.js#L203-L245](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js#L203-L245)) and `PATCH /api/leads` ([api/leads.js#L111-L115](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js#L111-L115)) to allow updating `assigned_broker` and `supervising_agent`.
 
-### 3.2 Brute-Force Protection on `/api/auth` ([api/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/auth.js) & [lib/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/auth.js))
+### 3.2 Multi-Broker Authentication & Brute-Force Protection ([api/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/auth.js) & [lib/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/auth.js))
+- [x] **3-Broker Logins Configured:** Configured distinct logins for `chase@nexusinsurancebrokers.com`, `ken@nexusinsurancebrokers.com`, and `nathan@nexusinsurancebrokers.com` (also accepting shorthand usernames `chase`, `ken`, and `nathan`), backed by individual 20-character secure passwords stored in local [.env](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/.env) (`ADMIN_PASSWORD_CHASE`, `ADMIN_PASSWORD_KEN`, `ADMIN_PASSWORD_NATHAN`) with timing-safe HMAC token signing and legacy fallback (`ADMIN_PASSWORD`).
+- [x] **Anti-Reconnaissance UI Hardening:** Dedicated Username input section in `/admin` with zero information disclosure (no exposed authorized user enumeration chips and no disclosure of the 20-character password length policy).
 - [x] Added IP + Postgres-backed `auth_attempts` (with local Map fallback) failed-login counter returning `HTTP 429 Too Many Requests` (`Retry-After: 900`) after **5 failed attempts within 15 minutes**.
-- [ ] **[Human Action]:** Set a strong `ADMIN_PASSWORD` (20+ random characters) in Vercel Env Vars and rotate it quarterly.
+- [ ] **[Human Action]:** Set `ADMIN_PASSWORD_CHASE`, `ADMIN_PASSWORD_KEN`, and `ADMIN_PASSWORD_NATHAN` in Vercel Project Settings -> Environment Variables and share credentials with Ken (Level 3 Nominee) and Nathan.
 - [x] Shortened `SESSION_TTL_SECONDS` in [lib/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/auth.js) from 7 days to **12 hours** (`60 * 60 * 12`).
 
 ### 3.3 Anti-Spam Protection on `POST /api/leads` ([api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js))

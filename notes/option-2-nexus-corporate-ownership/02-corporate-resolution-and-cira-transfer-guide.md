@@ -46,6 +46,6 @@ Under CIRA (Canadian Internet Registration Authority) rules, `.ca` domains requi
 
 ### Part 2: Vercel, Neon Postgres & Email API Corporate Billing Migration
 - [ ] **GitHub (`SwimmerPierce/Test-Contract-Bonding`):** Either move the repository under a Nexus corporate GitHub Organization (with Chase as Owner/Maintainer) or grant a backup corporate recovery account read/admin access.
-- [ ] **Vercel Account:** Transfer the project to a Vercel Team owned by `Nexus Insurance Brokers Ltd.` (or update Vercel billing entity/credit card to Nexus's corporate Visa/Mastercard) and keep `"regions": ["yyz1"]` (Toronto, Canada).
+- [ ] **Vercel Account:** Transfer the project to a Vercel Team owned by `Nexus Insurance Brokers Ltd.` (or update Vercel billing entity/credit card to Nexus's corporate Visa/Mastercard) and keep `"regions": ["yul1"]` (Montréal, Canada).
 - [ ] **Neon Postgres:** Ensure the production Neon project (`aws-ca-central-1` Montreal) bills to Nexus's corporate card and share encrypted `.env` / emergency backup recovery keys in Nexus's password vault (1Password / Bitwarden).
 - [ ] **Google Ads & Google Business Profile:** Set Nexus's corporate billing profile and BC incorporation info in Google Ads Payments Profile (this is critical because Google Ads **Financial Services Verification** requires matching the advertiser's corporate legal name and insurance brokerage licence to the paying entity!).

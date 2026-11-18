@@ -43,7 +43,8 @@ Your initial 8-bullet summary covered the core site, backend, cross-sell, SEO/ou
 ## 6. Implement Level 1 Supervision Trail & Rule 6 Sign-Off (`Council Rule 6(1)(a) & (c)`) — *HIGH URGENCY*
 - **Todo:**
   - [x] Added `assigned_broker` + `supervising_agent` columns in [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js) and `/admin` ([admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html) & [admin/admin.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/admin.js)).
-  - [ ] **[Human Action — Chase & Ken]:** Give Ken (Level 3 Nominee) `/admin` credentials and establish the written rule (deferred with Stage 0 Supervision Protocol) that **no Level 1 broker signs or seals any bond or Consent of Surety** (`Rule 6(1)(a)`).
+  - [x] Implemented multi-broker `/admin` logins in [lib/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/auth.js) & [admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html) (`chase`, `ken`, and `nathan` @nexusinsurancebrokers.com) with 20-character secure passwords and anti-reconnaissance UI hardening.
+  - [ ] **[Human Action — Chase & Ken]:** Add `ADMIN_PASSWORD_CHASE`, `ADMIN_PASSWORD_KEN`, and `ADMIN_PASSWORD_NATHAN` to Vercel Production Environment Variables, provide Ken (Level 3 Nominee) his credentials, and establish the written rule (deferred with Stage 0 Supervision Protocol) that **no Level 1 broker signs or seals any bond or Consent of Surety** (`Rule 6(1)(a)`).
 
 ## 7. Build CASL 6-Month Implied Consent Expiry Tracker (`CASL s. 10(9) & s. 13`) — *MEDIUM URGENCY*
 - **Why Missed:** Unconverted form inquiries expire after **6 months** under CASL unless express opt-in was checked or the contractor became an active client (2-year EBR).
