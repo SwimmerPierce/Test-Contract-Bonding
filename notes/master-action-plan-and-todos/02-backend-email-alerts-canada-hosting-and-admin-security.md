@@ -1,6 +1,31 @@
-# Backend Spec: Instant Email Alerts, Canada Hosting Pinning & `/admin` Security Hardening
+# Backend Spec: Email Architecture, Instant Alerts, Canada Hosting Pinning & `/admin` Security Hardening
 
-This specification covers the exact backend, infrastructure, and `/admin` dashboard upgrades required for [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js), [api/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/auth.js), [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js), [vercel.json](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/vercel.json), and [admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html).
+This specification covers the email setup (business inboxes + transactional API alerts), backend infrastructure, and `/admin` dashboard upgrades required for [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js), [api/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/auth.js), [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js), [vercel.json](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/vercel.json), and [admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html).
+
+---
+
+## Section 0: Corporate Broker Mailbox Architecture & Recommendations
+
+Setting up email for `contractbonding.ca` requires distinguishing between **two distinct systems**:
+1. **Day-to-day human broker mailboxes (Inbound & Outbound):** Handled via **MX records** on your domain so you and your team can send/receive emails to contractors, bonding companies, and CPAs (e.g., `chase@contractbonding.ca`, `info@contractbonding.ca`, `privacy@nexusinsurancebrokers.com`).
+2. **Automated transactional website alerts (System-to-Human):** Handled via API/SMTP using **Resend** or **Postmark** to trigger immediate notifications when an inquiry or checklist is submitted online.
+
+### Email Service Comparison & Recommendations
+
+| Service | Primary Use Case | Cost (CAD) | Best For | Why Choose / Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Google Workspace (Business Starter)** *(Recommended for Simplicity)* | Human broker inboxes & general brokerage addresses | ~$7.20 / user / mo | Fast, reliable setup; modern Gmail UI; team collaboration | • Cleanest spam filtering and deliverability.<br>• Free unlimited email aliases (e.g. `info@`, `bonds@`, `admin@` all route to Chase's single inbox without paying extra user fees).<br>• Direct integration with Google Drive / Google Docs for underwriting files. |
+| **Microsoft 365 (Business Basic / Standard)** | Human broker inboxes & traditional brokerage operations | ~$7.70 / user / mo | Integration with existing Nexus desktop Outlook & Broker Management Systems (BMS) | • Recommended if Nexus Insurance Brokers Ltd. already operates on Microsoft 365 / Exchange.<br>• Free "Shared Mailboxes" (e.g. `bonds@nexusinsurancebrokers.com` shared by Chase and Ken).<br>• Standard for desktop insurance tools like Applied Systems or Policy Works. |
+| **Resend (`resend.com`)** *(Implemented in Code)* | Transactional lead alerts & automated applicant confirmations | Free (up to 3,000 emails/mo) | Automated web app notifications | • Already integrated in [lib/email.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/email.js).<br>• Zero SMTP dependencies (uses Node 20 HTTPS `fetch()`).<br>• Isolates web app automated sending from your personal corporate mailbox so lead alerts never risk your primary domain's deliverability. |
+
+### Domain DNS Configuration Blueprint
+When setting up `contractbonding.ca` DNS (at your registrar, e.g. CIRA/Cloudflare/Namecheap):
+1. **Root Domain MX Records:** Point to your human provider (e.g., `ASPMX.L.GOOGLE.COM` for Google Workspace, or `contractbonding-ca.mail.protection.outlook.com` for Microsoft 365).
+2. **Transactional Subdomain (Recommended Best Practice):** Verify Resend using a subdomain like `mail.contractbonding.ca` or `alerts.contractbonding.ca`. This keeps automated lead emails cleanly separated from everyday broker conversations.
+3. **SPF & DKIM & DMARC:**
+   - TXT record on root: `v=spf1 include:_spf.google.com ~all` (if using Google Workspace)
+   - Resend DKIM TXT records provided in the Resend dashboard.
+   - DMARC TXT record on `_dmarc.contractbonding.ca`: `v=DMARC1; p=none; rua=mailto:dmarc@contractbonding.ca;`
 
 ---
 
