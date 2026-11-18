@@ -143,17 +143,6 @@
     }
   }
 
-  // Quick user chips
-  document.querySelectorAll(".user-chip-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const u = btn.getAttribute("data-username");
-      if (usernameInput && u) {
-        usernameInput.value = u;
-        if (passwordInput) passwordInput.focus();
-      }
-    });
-  });
-
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -161,14 +150,14 @@
       const password = String(passwordInput.value || "").trim();
 
       if (!username) {
-        loginError.textContent = "Please enter your administrator username.";
+        loginError.textContent = "Please enter your username.";
         loginError.hidden = false;
         if (usernameInput) usernameInput.focus();
         return;
       }
 
       if (!password) {
-        loginError.textContent = "Please enter your 20-character administrator password.";
+        loginError.textContent = "Please enter your password.";
         loginError.hidden = false;
         if (passwordInput) passwordInput.focus();
         return;

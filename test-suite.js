@@ -67,7 +67,8 @@ async function runTests() {
     assert.ok(adminHtml.includes("detail-assigned-broker"), "/admin should include assigned broker selector");
     assert.ok(adminHtml.includes("detail-supervising-agent"), "/admin should include supervising agent input");
     assert.ok(adminHtml.includes('id="admin-username"'), "/admin should include username input field");
-    assert.ok(adminHtml.includes("Authorized users:"), "/admin should include authorized user quick select");
+    assert.strictEqual(adminHtml.includes("Authorized users:"), false, "/admin should not leak authorized usernames");
+    assert.strictEqual(adminHtml.includes("20-character"), false, "/admin should not leak password length policy");
 
     // 1a. Verify SEO & Lead Magnet PDF static files
     const robotsRes = await fetch(`${baseUrl}/robots.txt`);

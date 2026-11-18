@@ -136,41 +136,6 @@
   margin-bottom: 1.35rem;
 }
 
-.login-user-hints {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-}
-
-.login-user-hints__label {
-  color: var(--text-muted);
-  font-size: 0.76rem;
-  font-weight: 500;
-}
-
-.user-chip-btn {
-  background: #edf3f8;
-  border: 1px solid rgba(30, 77, 107, 0.22);
-  color: var(--navy);
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
-  font-size: 0.74rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  line-height: 1.2;
-}
-
-.user-chip-btn:hover,
-.user-chip-btn:focus-visible {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--navy);
-  outline: none;
-}
-
 /* KPI Grid */
 .kpi-grid {
   display: grid;
