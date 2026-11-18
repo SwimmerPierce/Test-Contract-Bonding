@@ -4,12 +4,13 @@ This playbook breaks down **Channels 1–5** into executable sub-tasks, outreach
 
 ---
 
-## Channel 1: Automated Public Procurement Outbound Engine (BC Bid, APC & Licensing Portals)
+## Channel 1: Automated Public Procurement Outbound Engine (`BC_Bid_Organizer_Skill`, BC Bid, APC & Licensing Portals)
 
 ### Sub-Tasks Checklist
-- [x] **1.0 Create Channel 1 SOP, CSV Prospect Tracker & Outreach Templates:** [notes/channel-1-outbound-engine/01-outbound-prospecting-tracker-and-templates.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/channel-1-outbound-engine/01-outbound-prospecting-tracker-and-templates.md).
-- [ ] **1.1 [Human Action] Weekly Procurement Data Pull:** Every Monday at 9:00 AM, query **BC Bid (`bcbid.gov.bc.ca`)** (`bc-contract-awards` & `bc-unverified-bids`), **Alberta Purchasing Connection (`purchasingconnection.ca`)**, and municipal award logs (Burnaby, Vancouver, Surrey, Metro Vancouver, Calgary, Edmonton).
-- [ ] **1.2 [Human Action] Segment Prospects Into 3 Buckets:**
+- [x] **1.0 Create Channel 1 SOP, CSV Prospect Tracker & Outreach Templates:** [notes/channel-1-outbound-engine/01-outbound-prospecting-tracker-and-templates.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/channel-1-outbound-engine/01-outbound-prospecting-tracker-and-templates.md) (configured to consume exports from your decoupled personal project `https://github.com/SwimmerPierce/BC_Bid_Organizer_Skill` without merging repositories).
+- [ ] **1.0b [Human Action — Personal Project Integration] Export Weekly Prospect Feeds from `BC_Bid_Organizer_Skill`:** In your separate personal repo (`https://github.com/SwimmerPierce/BC_Bid_Organizer_Skill`), add a read-only SQL query or Monday CSV export that pulls the past 7 days of daily-collected BC Bid & RFP site data into Channel 1's tracker columns (tagged into **Bucket A** `$75K–$250K` winners and **Bucket B** 2nd–4th place bidders), keeping repos strictly separate.
+- [ ] **1.1 [Human Action] Weekly Monday Procurement Data Pull:** Every Monday at 9:00 AM PT, generate the 7-day export from `BC_Bid_Organizer_Skill`, and supplement only portals not yet covered by its daily collector (**Alberta Purchasing Connection (`purchasingconnection.ca`)**, Metro Vancouver/Calgary/Edmonton municipal award logs).
+- [ ] **1.2 [Human Action] Segment Prospects Into Buckets A, B & C:**
   - **Bucket A (`$75,000 – $250,000` Unbonded Award Winners):** Growing trades/GCs winning small municipal jobs without bonding who want to bid `$500K–$2M` public tenders next year.
   - **Bucket B (2nd, 3rd & 4th Place Bidders on Bonded Tenders):** Contractors appearing in `Unverified Bid Results` who already bid regularly and rely on timely Bid Bonds/Consents of Surety.
   - **Bucket C (Land Developers & Civil Firms Pulling Building/Subdivision Permits):** Developers posting 100% cash/bank Letters of Credit (LOCs) for municipal servicing works.

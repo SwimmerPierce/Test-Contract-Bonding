@@ -1,20 +1,35 @@
-# Channel 1 Execution Pack: Automated Public Procurement Outbound Engine (BC Bid, APC & Licensing Portals)
+# Channel 1 Execution Pack: Automated Public Procurement Outbound Engine (`BC_Bid_Organizer_Skill`, BC Bid, APC & Licensing Portals)
 
 This operational pack turns Channel 1 of `03-marketing-channels-1-to-5-execution-playbook.md` into a repeatable weekly workflow with prospect segmentation rules, ready-to-paste tracker columns, and CASL-safe outreach scripts.
 
 ---
 
+## 0. Upstream Personal Intelligence Feed: `BC_Bid_Organizer_Skill` (Keep Decoupled)
+
+- **Repository:** `https://github.com/SwimmerPierce/BC_Bid_Organizer_Skill` *(separate personal project collecting BC Bid and other RFP site data daily into a structured database)*
+- **Architecture Rule (Do NOT Merge):** Keep `BC_Bid_Organizer_Skill` in its own repository and database. Do **not** merge its scraper code or database into the `contractbonding.ca` brokerage website repository (`Test-Contract-Bonding`). Treating it as a standalone upstream intelligence source:
+  1. Preserves clean IP/ownership boundaries (especially while Stage 0 Option 1 vs. Option 2 is undecided).
+  2. Prevents scraping dependencies or heavy database workloads from touching the Vercel frontend/API.
+- **How It Connects to Channel 1:** Instead of manually pulling BC Bid and RFP sites every Monday morning, query/export the previous 7 days of collected records from `BC_Bid_Organizer_Skill` directly into the **Section 3 CSV Tracker** below:
+  - **Bucket A Export Filter:** Contract awards from the past 7 days between `$75,000` and `$250,000` (plus emerging/small-value public RFP winners) where bonding was not yet required or no recurring surety history appears.
+  - **Bucket B Export Filter:** 2nd, 3rd, and 4th place bidders from unverified bid openings / multi-bidder RFP results from the past 7 days (active bidders likely using Bid Bonds & Consents of Surety).
+  - **Clean Handoff Checklist (Human Setup):**
+    - [ ] Add a saved read-only query or weekly CSV export script inside `BC_Bid_Organizer_Skill` that outputs columns matching Section 3 (`Pull Date, Source Portal, Bucket, Company Name, ...`).
+    - [ ] Confirm which additional RFP portals (`BC Bid`, municipal portals, APC, etc.) are covered daily in `BC_Bid_Organizer_Skill` so only gaps need manual pulls.
+    - [ ] Apply CASL check (`Phone`/`LinkedIn` preferred; or verified `s. 10(9)(b)` conspicuous business email) and Alberta AIC routing tag before handing exported rows to Nexus brokers.
+
+---
+
 ## 1. Weekly Monday 9:00 AM PT Procurement Pull SOP
 
-1. **BC Bid Public Portals (`bcbid.gov.bc.ca`):**
-   - Pull **Contract Awards** from the previous 7 days (`bc-contract-awards` / `bc-opportunity-awards` skill or portal export).
-   - Pull **Unverified Bid Results** from the previous 7 days (`bc-unverified-bids` skill or portal export).
-   - Optionally sync into the `bc-bid-coordinator` SQLite pipeline to detect 2nd/3rd/4th place active bidders and emerging `$75K–$250K` unbonded winners.
-2. **Alberta Purchasing Connection (`purchasingconnection.ca`):**
-   - Pull recent municipal/provincial awards and bid results across Calgary, Edmonton, Red Deer, and Lethbridge.
+1. **Primary Automated Pull — `BC_Bid_Organizer_Skill` Daily Database Export:**
+   - Run your weekly Monday morning export from `https://github.com/SwimmerPierce/BC_Bid_Organizer_Skill` covering the previous 7 days of **BC Bid Contract Awards**, **Unverified Bid Results**, and **other tracked RFP sites**.
+   - Load newly surfaced **Bucket A** (`$75K–$250K` award winners) and **Bucket B** (2nd/3rd/4th place bidders) rows into the Section 3 tracker.
+   - *(Fallback / Manual Skills if offline: pull `bc-contract-awards` / `bc-opportunity-awards` & `bc-unverified-bids`, or sync via `bc-bid-coordinator`.)*
+2. **Supplementary Pulls (Portals Not Yet Covered by `BC_Bid_Organizer_Skill`):**
+   - **Alberta Purchasing Connection (`purchasingconnection.ca`):** Pull recent municipal/provincial awards and bid results across Calgary, Edmonton, Red Deer, and Lethbridge (unless already ingested into `BC_Bid_Organizer_Skill`).
    - **AIC Licensing Rule:** Until Chase's individual AIC Non-Resident Level 1 Licence is issued, log Alberta prospects and hand warm/qualified Alberta callbacks to an individually AIC-licensed Nexus broker.
-3. **Municipal Permit & Licensing Feeds:**
-   - Check Metro Vancouver / Burnaby / Surrey / Vancouver / Calgary / Edmonton municipal award logs and Technical Safety BC / Service Alberta new-registrant directories.
+   - **Municipal Permit & Licensing Feeds:** Check Metro Vancouver / Burnaby / Surrey / Vancouver / Calgary / Edmonton subdivision/building permit logs and **Technical Safety BC** / **Service Alberta** new-registrant directories for **Buckets C & D**.
 
 ---
 

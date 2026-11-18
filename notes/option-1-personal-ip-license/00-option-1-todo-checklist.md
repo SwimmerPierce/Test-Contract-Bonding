@@ -15,9 +15,9 @@ You (Chase) retain **100% personal legal ownership** of the `contractbonding.ca`
   - **Guaranteed Minimum Commission Floor & "Greater-Of" Rule:** Upward escalation if general Nexus commission structure increases; floor protection if general splits decrease.
 - [ ] **1.2 Confirm 100% corporate expense funding in Section 6 of the Addendum:**
   - Nexus directly funds 100% of domain, web/database hosting, transactional email, DBA fees, E&O endorsement, and pre-approved digital advertising up to **`$2,000/month`** using pre-tax corporate dollars ($0 out of pocket for Chase).
-- [ ] **1.3 Have a BC corporate/employment lawyer review the Addendum** (optional quick review) and have both **Chase Addison** and **Nexus Insurance Brokers Ltd. (Level 3 Nominee)** sign and date two copies (one for your personal file, one for Nexus's corporate binder).
+- [ ] **1.3 Have a BC corporate/employment lawyer review the Addendum** (confirming **Schedule B — Excluded Personal IP** cleanly carves out `BC_Bid_Organizer_Skill` and other personal repositories from Section 2.1 exclusivity and "work-for-hire" claims) and have both **Chase Addison** and **Nexus Insurance Brokers Ltd. (Level 3 Nominee)** sign and date two copies (one for your personal file, one for Nexus's corporate binder).
 - [ ] **1.4 Set up tracking codes in Nexus's Broker Management System (BMS) / accounting sheet:**
-  - Create producer tracking source tag `CB-WEB` (or `contractbonding.ca`) for all leads coming from the site so Year 1 and Renewal commissions are clearly attributed to Stream A, Stream B, or Stream C.
+  - Create producer tracking source tag `CB-WEB` (or `contractbonding.ca`) and ensure BMS tagging rules explicitly apply `CB-WEB` to **both** inbound website inquiries (`contractbonding.ca`) **and** outbound surety/CGL deals originated from your Schedule B personal procurement tools (`BC_Bid_Organizer_Skill`), so Year 1, Renewal, and `4.0x–4.5x` buyout attribution are preserved across Streams A, B, and C.
 
 ---
 
@@ -60,8 +60,8 @@ You (Chase) retain **100% personal legal ownership** of the `contractbonding.ca`
 
 ---
 
-## Phase 5: Personal IP Security & Domain Hygiene (Ongoing)
+## Phase 5: Personal IP Security, Domain Hygiene & Excluded Project Separation (Ongoing)
 
-- [ ] **5.1 Lock down your personal CIRA registrar, GitHub (`SwimmerPierce/Test-Contract-Bonding`), Vercel, and Neon accounts** with hardware/app **2FA** and registrar transfer lock enabled.
-- [ ] **5.2 Keep Domain Ownership Evidence:** Save your CIRA registration receipt, original GitHub commit logs, and signed Addendum in a dedicated folder so personal IP title is undisputed.
+- [ ] **5.1 Lock down your personal CIRA registrar, GitHub (`SwimmerPierce`), Vercel, and Neon accounts** with hardware/app **2FA** and registrar transfer lock enabled. Keep `SwimmerPierce/BC_Bid_Organizer_Skill` and all other Schedule B personal repositories **strictly unmerged and on separate personal hosting/billing** (never mix with `Test-Contract-Bonding` or place on Nexus billing).
+- [ ] **5.2 Keep Domain & Excluded IP Evidence (+ PIPA Boundary):** Save your CIRA registration receipt, original GitHub commit logs, signed Addendum (with **Schedule B** attached) in a dedicated folder so title is undisputed, and ensure `BC_Bid_Organizer_Skill` holds only raw public procurement data (never import Nexus confidential underwriting files or PIPA client files back into Schedule B databases).
 - [ ] **5.3 Proceed to Folder (iii)** ([00-master-todo-roadmap.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/master-action-plan-and-todos/00-master-todo-roadmap.md)) to complete all website compliance edits, privacy policy, disclaimers, email alerts, and marketing launch tasks.

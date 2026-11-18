@@ -11,13 +11,13 @@ You formally transfer/assign legal ownership of `contractbonding.ca` and the web
 > [!IMPORTANT]
 > **Execute BEFORE transferring the domain:** Never transfer CIRA domain ownership until both the Director's Resolution and the Reversion Agreement are signed.
 
-- [ ] **1.1 Negotiate and finalize Schedule A commission tiers & Reversion/Buyout terms** inside [01-domain-ip-assignment-and-reversion-agreement.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/01-domain-ip-assignment-and-reversion-agreement.md):
+- [ ] **1.1 Negotiate and finalize Schedule A commission tiers, Schedule B Excluded Personal IP carve-out, & Reversion/Buyout terms** inside [01-domain-ip-assignment-and-reversion-agreement.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/01-domain-ip-assignment-and-reversion-agreement.md):
   - **Stream A (Self-Serviced Business under Supervision):** `60%–70%` of gross brokerage commission (New & Renewal).
   - **Stream B (Internal Nexus Handoff):** `25%–35%` Year 1 / `15%–25%` Renewal on both surety and cross-sold commercial accounts.
   - **Stream C (Out-of-Province Broker Referrals):** `80%–90%` of net referral fee collected by Nexus.
-  - **Reversion & Buyout Multiple:** Confirm `$1.00` domain & code Reversion trigger across all departure/M&A scenarios **plus** the separate `[4.0x – 4.5x]` floor (and `75%` M&A exit-multiple upside ratchet) on trailing 12-month gross commission and net referral revenue from `contractbonding.ca` (`CB-WEB`) deals.
-- [ ] **1.2 Sign the Sole Director's Resolution** (Document 2A in [02-corporate-resolution-and-cira-transfer-guide.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/02-corporate-resolution-and-cira-transfer-guide.md)) authorizing Nexus Insurance Brokers Ltd. to acquire `contractbonding.ca`, fund its hosting/ads, and honor the Reversion Agreement.
-- [ ] **1.3 Have a BC corporate lawyer review** (especially tax treatment of transferring the domain at nominal cost vs. fair market value under Canadian tax rules, and the enforceability of the reversion/buyout clauses) and execute two originals of the Assignment & Reversion Agreement.
+  - **Reversion, Buyout Multiple & `CB-WEB` Scope:** Confirm `$1.00` domain & code Reversion trigger across all departure/M&A scenarios **plus** the separate `[4.0x – 4.5x]` floor (and `75%` M&A exit-multiple upside ratchet) on trailing 12-month gross commission and net referral revenue across all **`CB-WEB`** deals (explicitly including **both** inbound `contractbonding.ca` leads **and** outbound deals originated via Schedule B tools like `BC_Bid_Organizer_Skill`), and verify **Schedule B** lists all excluded personal repos/skills (`BC_Bid_Organizer_Skill`, etc.).
+- [ ] **1.2 Sign the Sole Director's Resolution** (Document 2A in [02-corporate-resolution-and-cira-transfer-guide.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/02-corporate-resolution-and-cira-transfer-guide.md)) authorizing Nexus Insurance Brokers Ltd. to acquire `contractbonding.ca` and `Test-Contract-Bonding` only (expressly excluding Schedule B personal repositories), fund its hosting/ads, and honor the Reversion Agreement.
+- [ ] **1.3 Have a BC corporate lawyer review** (especially tax treatment of transferring the domain at nominal cost vs. fair market value under Canadian tax rules, the **Section 1.3 & Schedule B Excluded Personal IP** carve-out, and enforceability of reversion/buyout clauses) and execute two originals of the Assignment & Reversion Agreement.
 
 ---
 
@@ -25,11 +25,11 @@ You formally transfer/assign legal ownership of `contractbonding.ca` and the web
 
 - [ ] **2.1 Complete CIRA `.ca` Corporate Registrant Transfer** (follow Document 2B in [02-corporate-resolution-and-cira-transfer-guide.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/02-corporate-resolution-and-cira-transfer-guide.md)):
   - Update registrant legal name from Chase Addison to **`Nexus Insurance Brokers Ltd.`** (qualifies under CIRA Canadian Presence Requirements as a BC corporation).
-- [ ] **2.2 Migrate Vercel, Neon Postgres & Email API Billing to Nexus's Corporate Card:**
-  - Transfer Vercel project (`Test-Contract-Bonding`), Neon Postgres database, Resend/Postmark transactional email, and Google Ads billing onto Nexus Insurance Brokers Ltd.'s corporate credit card so 100% of expenses are pre-tax corporate deductions.
-  - Ensure your father (corporate owner) holds primary admin recovery access alongside your developer access.
+- [ ] **2.2 Migrate Vercel, Neon Postgres & Email API Billing to Nexus's Corporate Card (With GitHub Repo Isolation):**
+  - Transfer the Vercel project (`Test-Contract-Bonding`), Neon Postgres database, Resend/Postmark transactional email, and Google Ads billing onto Nexus Insurance Brokers Ltd.'s corporate credit card so 100% of expenses are pre-tax corporate deductions.
+  - Ensure your father (corporate owner) holds primary admin recovery access for `contractbonding.ca` infrastructure alongside your developer access, **while maintaining strict GitHub account isolation:** **never** share your master `SwimmerPierce` GitHub login or personal repos (`BC_Bid_Organizer_Skill`, etc.) with Nexus—grant repository-level collaborator access solely to `Test-Contract-Bonding` (or move `Test-Contract-Bonding` alone into a dedicated Nexus GitHub org) and keep `BC_Bid_Organizer_Skill` on separate personal billing/hosting.
 - [ ] **2.3 Configure Commission Tagging (`CB-WEB`) in Nexus BMS:**
-  - Track every client bound from `contractbonding.ca` so trailing 12-month revenue (needed for both payroll splits and the M&A buyout formula) is always auditable.
+  - Track every client bound from `contractbonding.ca` **as well as** outbound deals originated from Excluded Personal IP (`BC_Bid_Organizer_Skill`) under the `CB-WEB` code so trailing 12-month revenue (needed for both Schedule A splits and the `4.0x–4.5x` M&A buyout formula) is always auditable, while keeping `BC_Bid_Organizer_Skill`'s raw public database completely separate from Nexus's PIPA client files.
 
 ---
 
