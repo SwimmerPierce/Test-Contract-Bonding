@@ -15,7 +15,7 @@ You formally transfer/assign legal ownership of `contractbonding.ca` and the web
   - **Stream A (Self-Serviced Business under Supervision):** `60%–70%` of gross brokerage commission (New & Renewal).
   - **Stream B (Internal Nexus Handoff):** `25%–35%` Year 1 / `15%–25%` Renewal on both surety and cross-sold commercial accounts.
   - **Stream C (Out-of-Province Broker Referrals):** `80%–90%` of net referral fee collected by Nexus.
-  - **Reversion & Buyout Multiple:** Confirm `$1.00` Reversion trigger + alternative third-party M&A Buyout multiple (e.g., `2.5x–3.0x` trailing 12-month commission revenue from `contractbonding.ca`).
+  - **Reversion & Buyout Multiple:** Confirm `$1.00` domain & code Reversion trigger across all departure/M&A scenarios **plus** the separate `[4.0x – 4.5x]` trailing 12-month gross commission and net referral buyout payout on `contractbonding.ca` (`CB-WEB`) deals.
 - [ ] **1.2 Sign the Sole Director's Resolution** (Document 2A in [02-corporate-resolution-and-cira-transfer-guide.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-2-nexus-corporate-ownership/02-corporate-resolution-and-cira-transfer-guide.md)) authorizing Nexus Insurance Brokers Ltd. to acquire `contractbonding.ca`, fund its hosting/ads, and honor the Reversion Agreement.
 - [ ] **1.3 Have a BC corporate lawyer review** (especially tax treatment of transferring the domain at nominal cost vs. fair market value under Canadian tax rules, and the enforceability of the reversion/buyout clauses) and execute two originals of the Assignment & Reversion Agreement.
 

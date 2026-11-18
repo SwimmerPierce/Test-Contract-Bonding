@@ -42,7 +42,7 @@ Address: #101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6
 
 ## 3. Retention of Title & Intellectual Property
 3.1 **Title Retained by Producer:** Nothing in this Addendum transfers or assigns ownership of the `contractbonding.ca` domain name, domain registrar account, DNS records, brand trademarks, or software source code repository from the Licensor to the Brokerage. All right, title, and interest in the Platform remain the sole personal property of Chase Addison.  
-3.2 **Client Book & Underwriting Files:** All active insurance policies, executed surety bonds, insurer contracts, and regulatory underwriting files bound through the Brokerage remain the property and regulatory records of the Brokerage (subject to Producer's earned commissions and any separate Producer Employment/Independent Contractor Agreement).  
+3.2 **Client Book & Underwriting Files:** All active insurance policies, executed surety bonds, insurer contracts, and regulatory underwriting files bound through the Brokerage remain the regulatory records of the Brokerage, **subject strictly to the Producer's earned commission rights under Schedule A and the Producer's Deal / Book-of-Business Buyout Payout (and optional Book Portability Election) under Section 7.3**.  
 3.3 **Lead Database Separation Upon Termination:** If this Addendum terminates, the Brokerage retains copies of records necessary for regulatory 7-year retention, active policy servicing, and PIPA compliance, while the Producer retains full control over the `contractbonding.ca` domain, web hosting infrastructure, database hosting services, and source code repository.
 
 ---
@@ -85,13 +85,28 @@ Address: #101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6
 
 ---
 
-## 7. Term, Termination & Sale of Brokerage Protection
+## 7. Term, Termination, Departure Protections & Book Buyout (`4.0x – 4.5x`)
 7.1 **Term:** This Addendum commences on the Effective Date and continues for so long as the Producer remains actively licensed with and sponsored by the Brokerage, unless earlier terminated in accordance with this Section.  
-7.2 **Termination:** Either Party may terminate this Addendum upon **30 days' written notice** (or immediately if required by the Insurance Council of BC or any applicable provincial regulator).  
-7.3 **Sale or Change of Control of Brokerage:** If Nexus Insurance Brokers Ltd. enters into an agreement to sell its shares or book of business to an unrelated third party, the License granted under Section 2 shall **not** automatically transfer to the buyer. Upon closing of any third-party sale without a new written license or buyout agreement signed by the Producer:  
-   - (a) The License terminates automatically upon closing;  
-   - (b) The Producer retains sole authority to redirect `contractbonding.ca`, sell/license the Platform separately, or negotiate a separate Platform purchase/licensing fee with the acquirer; and  
-   - (c) Any earned and unpaid commissions or renewal splits accrued prior to termination remain payable to the Producer per Schedule A.
+7.2 **Termination & Departure Scenarios (Producer Always Retains Domain & Code):** The License granted to the Brokerage under Section 2 terminates automatically upon any of the following events:  
+   - (a) **Termination Without Just Cause** by the Brokerage;  
+   - (b) **Voluntary Resignation / Departure by Producer** (Producer choosing to leave the Brokerage upon **30 days' written notice** or upon transferring Producer's licence to another brokerage);  
+   - (c) **Termination With Just Cause** by the Brokerage (or immediate termination if required by a provincial insurance regulator); or  
+   - (d) **Sale / Change of Control / Wind-Down / Payment Default:** The Brokerage enters into an agreement to sell its shares or book of business to an unrelated third party, winds down, loses its agency licence, or defaults on Schedule A payments for more than 45 days after written notice.
+
+   **Full Ownership & Control Retained in All Cases:** Upon **any** termination event under Section 7.2(a)–(d), the License does **not** transfer to any buyer or successor, and Chase Addison immediately retains **100% full ownership, DNS control, hosting access, and operational control** over `contractbonding.ca` and the Platform codebase (subject only to the Brokerage retaining archival copies of regulatory underwriting files required by law).
+
+7.3 **Simultaneous `[4.0x – 4.5x]` Deal / Book-of-Business Buyout Payout (Upon Departure or M&A Sale):**  
+   *The Parties expressly distinguish between (i) the Platform technology (`contractbonding.ca` domain and codebase, which Chase retains) and (ii) the bound deals and recurring client book generated through `contractbonding.ca` (tagged `CB-WEB`, which remain on the Brokerage's books or are included in an M&A sale).*  
+   Upon **any** event under Section 7.2(a), (b), (c), or (d) where the Brokerage (or an M&A buyer) retains the bound `contractbonding.ca` (`CB-WEB`) accounts:  
+   - (a) **Dual Entitlement (Platform + Book Buyout):** In addition to retaining 100% ownership and control of the `contractbonding.ca` domain and codebase, the Producer shall be paid a dedicated **Deal / Book-of-Business Buyout Payout equal to `[4.0x – 4.5x]` the trailing 12 months' gross annual commission and net referral revenue generated by all deals originated from `contractbonding.ca` (`CB-WEB`)** (plus any unpaid earned commissions accrued prior to termination);  
+   - (b) **Optional Client Book Transfer Election:** Upon departure under Section 7.2(a) or (b) to another licensed Canadian brokerage, in lieu of the cash buyout payout above, the Producer may elect in writing (subject to client consent and insurer appointment transfers) to have the Brokerage execute standard Broker of Record / book-transfer authorizations transferring servicing of the `CB-WEB` client book to the Producer's new brokerage;  
+   - (c) **Separate & Non-Offsetting Payout:** For certainty, the `[4.0x – 4.5x]` buyout payout under this Section is completely **separate from, independent of, and in addition to** (and shall not be credited against, offset, or reduce) any other payout, share or equity sale proceeds, family succession/gifting distribution, retention bonus, earn-out, severance, or earned producer commissions that the Producer may otherwise receive during an M&A buyout or departure; and  
+   - (d) **Payment Timing:** Payable in full at closing in an M&A Change of Control (prior to shareholder distributions) or within **30 days** of departure under Section 7.2(a)–(c) (or via an agreed installment schedule secured against the `CB-WEB` commission stream).
+
+> [!NOTE]
+> **Legal Review Note for BC Counsel:** A `4.0x – 4.5x` gross revenue multiple is an aggressive producer-favorable valuation (above typical 2.0x–3.5x brokerage book multiples), and Canadian courts scrutinize clauses granting full buyout windfalls in a *just-cause* termination for dishonesty/fraud. Have your BC employment/corporate lawyer confirm the final multiple and whether just-cause buyouts should be subject to offset only for proven direct financial loss caused by the misconduct.
+
+7.4 **Survival:** Sections 3, 7.2, and 7.3 survive termination of this Addendum and are binding upon the Brokerage's successors and assigns.
 
 ---
 
@@ -111,6 +126,11 @@ All leads tagged to `contractbonding.ca` (and related outbound campaigns origina
 | **Stream C: Out-of-Province External Referrals** | Leads in provinces/territories where the Brokerage is not yet licensed, referred by **Nexus Insurance Brokers Ltd.** under a written referral agreement to an external licensed partner brokerage | **90%** of the referral fee received by Nexus | **10%** administrative share | All external referral agreements and fee checks/EFTs are contracted and collected strictly in the name of **Nexus Insurance Brokers Ltd.** |
 
 *Payment Timing:* Commissions and referral shares are payable on the Brokerage's regular monthly commission cycle following receipt of cleared insurer commission or partner brokerage referral funds, subject to statutory payroll/tax deductions or T4A reporting as applicable.
+
+### Guaranteed Minimum Commission Floor & Upward Escalation ("Greater-Of" Rule)
+The commission percentages set out in **Schedule A** above represent a **guaranteed contractual minimum floor** for the Producer on all business generated through `contractbonding.ca`:
+- **Upward Adjustment:** If at any time the Brokerage's general producer compensation schedule or the Producer's commission structure for work performed at Nexus Insurance Brokers Ltd. outside of `contractbonding.ca` is amended to provide the Producer with a **higher** commission percentage on any corresponding category of new business, renewal business, internal handoff, or referral, then Streams A, B, and/or C under this Addendum shall automatically increase to reflect that higher percentage for all new and renewing transactions going forward.
+- **No Downward Reduction (Floor Protection):** Conversely, if the Brokerage's general commission structure for work outside of `contractbonding.ca` is ever reduced or modified such that the Producer would earn a **lower** commission percentage than the rates listed in Schedule A, this Addendum shall prevail and stand unchanged—ensuring the Producer always receives **the greater of** (i) the applicable Schedule A rate above or (ii) the Producer's applicable general Nexus commission split.
 
 ---
 
