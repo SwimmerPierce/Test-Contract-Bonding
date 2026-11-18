@@ -87,7 +87,14 @@ Address: #101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6
 
 ## 6. Platform Infrastructure & Marketing Expense Structure
 
-6.1 **Corporate Expense Funding:** The Brokerage shall pay or reimburse the Producer at cost for pre-approved direct operating expenses of the Platform (including domain registration and DNS management fees, web hosting infrastructure, database hosting services, source code repository services, transactional email services, and pre-approved paid search / digital advertising campaigns) up to `$2000/month`, with prior written approval of the Brokerage for any spend above that cap.
+6.1 **Direct Corporate Payment & Expense Assumption:** Effective upon the Effective Date, the Brokerage shall assume and directly pay (or reimburse the Producer at cost for any pre-authorized direct payments) 100% of approved direct operating, infrastructure, and marketing expenses of the Platform from corporate funds, including:
+- Domain registration and DNS management fees;
+- Web hosting infrastructure, database hosting services, source code repository services, and transactional email services;
+- BC, Alberta, and any future provincial Corporate Registry / Insurance Council DBA filing fees;
+- Errors & Omissions (E&O) insurance endorsements covering `contractbonding.ca`; and
+- Pre-approved paid search, SEO landing-page expansion, digital tools, and digital advertising campaigns (`$2,000/month` or as approved by the Brokerage).
+
+6.2 **Zero Personal Producer Expense Obligation:** In no event shall the Producer be required to fund, pay out-of-pocket, or absorb Platform operating or marketing expenses out of personal or producer commission income. In the event the Producer incurs or pays any emergency or incidental third-party platform fee directly on behalf of the Platform, the Brokerage shall promptly reimburse the Producer in full at cost upon presentation of receipt, without deduction from or offset against the Producer's earned commissions under Schedule A.
 
 ---
 

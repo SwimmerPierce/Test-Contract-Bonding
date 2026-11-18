@@ -8,13 +8,13 @@ You (Chase) retain **100% personal legal ownership** of the `contractbonding.ca`
 
 ## Phase 1: Agreement & Internal Compensation Setup (Days 1–3)
 
-- [ ] **1.1 Review and finalize commission percentages with your father (President / Level 3 Nominee)** inside [01-domain-license-and-producer-commission-addendum.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-1-personal-ip-license/01-domain-license-and-producer-commission-addendum.md):
-  - **Stream A (Self-Serviced Bonds & Cross-Sold Commercial Policies under Supervision):** Agree on producer split (recommended: **60%–70%** of gross brokerage commission on New Business & Renewals).
-  - **Stream B (Complex Surety / Out-of-Scope Accounts Handed to Senior Nexus Brokers):** Agree on internal origination split (recommended: **25%–35%** Year 1 / **15%–25%** Renewal on both the surety facility and any cross-sold CGL/Builders Risk/Fleet policies).
-  - **Stream C (Out-of-Province Leads Referred to Partner Brokerages):** Agree on producer share of net referral fee received by Nexus (recommended: **80%–90%** of net referral fee).
-- [ ] **1.2 Decide on expense handling in Section 5 of the Addendum:**
-  - *Choice A:* You pay hosting/ads personally and claim as personal commission expenses (if T4A/commissioned), **OR**
-  - *Choice B (Recommended):* Nexus reimburses approved direct domain/hosting/Google Ads invoices or funds ads directly out of corporate revenue before net split calculation.
+- [ ] **1.1 Confirm agreed commission percentages and Floor with your father (President / Level 3 Nominee)** inside [01-domain-license-and-producer-commission-addendum.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/option-1-personal-ip-license/01-domain-license-and-producer-commission-addendum.md):
+  - **Stream A (Producer-Worked Business):** **65%** Year 1 / **35%** Year 2+ Renewals (`35%` Year 1 / `65%` Renewal to Nexus) on surety bonds and cross-sold commercial policies.
+  - **Stream B (Complex Handoff / Brokerage-Only Province):** **35%** Year 1; **15%** Renewal if not working on deal, upgrading to **35%** Renewal if working on deal.
+  - **Stream C (Out-of-Province External Referrals):** **90%** of referral fee to Producer / **10%** administrative share to Nexus.
+  - **Guaranteed Minimum Commission Floor & "Greater-Of" Rule:** Upward escalation if general Nexus commission structure increases; floor protection if general splits decrease.
+- [ ] **1.2 Confirm 100% corporate expense funding in Section 6 of the Addendum:**
+  - Nexus directly funds 100% of domain, web/database hosting, transactional email, DBA fees, E&O endorsement, and pre-approved digital advertising up to **`$2,000/month`** using pre-tax corporate dollars ($0 out of pocket for Chase).
 - [ ] **1.3 Have a BC corporate/employment lawyer review the Addendum** (optional quick review) and have both **Chase Addison** and **Nexus Insurance Brokers Ltd. (Level 3 Nominee)** sign and date two copies (one for your personal file, one for Nexus's corporate binder).
 - [ ] **1.4 Set up tracking codes in Nexus's Broker Management System (BMS) / accounting sheet:**
   - Create producer tracking source tag `CB-WEB` (or `contractbonding.ca`) for all leads coming from the site so Year 1 and Renewal commissions are clearly attributed to Stream A, Stream B, or Stream C.
