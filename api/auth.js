@@ -6,10 +6,13 @@
 "use strict";
 
 const {
+  hasConfiguredAdmin,
   getAdminPassword,
   verifyPassword,
+  verifyUserCredentials,
   createSessionToken,
   isRequestAuthenticated,
+  getRequestUser,
   buildSessionCookie,
   buildLogoutCookie,
   getClientIp,
@@ -26,17 +29,19 @@ module.exports = async function handler(req, res) {
 
     if (req.method === "GET") {
       const authenticated = isRequestAuthenticated(req);
+      const user = authenticated ? getRequestUser(req) : null;
       return sendJson(res, 200, {
         ok: true,
         authenticated,
+        user,
       });
     }
 
     if (req.method === "POST") {
-      if (!getAdminPassword()) {
+      if (!hasConfiguredAdmin()) {
         return sendJson(res, 503, {
           ok: false,
-          error: "ADMIN_PASSWORD is not configured on the server.",
+          error: "Admin authentication is not configured on the server.",
         });
       }
 
@@ -55,18 +60,20 @@ module.exports = async function handler(req, res) {
       }
 
       const body = await readJsonBody(req);
-      const password = String(body.password || "");
+      const email = String(body.email || body.username || "").trim();
+      const password = String(body.password || "").trim();
 
-      if (!verifyPassword(password)) {
+      const verification = verifyUserCredentials(email, password);
+      if (!verification.ok) {
         await recordFailedAttempt(clientIp);
         return sendJson(res, 401, {
           ok: false,
-          error: "Invalid admin password. Please try again.",
+          error: "Invalid login credentials. Please check your email and password.",
         });
       }
 
       await clearFailedAttempts(clientIp);
-      const token = createSessionToken();
+      const token = createSessionToken({ email: verification.email });
       const cookie = buildSessionCookie(token, isSecure);
 
       return sendJson(
@@ -75,6 +82,7 @@ module.exports = async function handler(req, res) {
         {
           ok: true,
           authenticated: true,
+          user: { email: verification.email },
           token,
         },
         { "Set-Cookie": cookie }

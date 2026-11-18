@@ -13,10 +13,12 @@
   const loginView = document.getElementById("login-view");
   const dashboardView = document.getElementById("dashboard-view");
   const loginForm = document.getElementById("admin-login-form");
+  const emailInput = document.getElementById("admin-email");
   const passwordInput = document.getElementById("admin-password");
   const loginError = document.getElementById("login-error");
   const loginSubmitBtn = document.getElementById("login-submit-btn");
   const logoutBtn = document.getElementById("logout-btn");
+  const adminUserBadge = document.getElementById("admin-user-badge");
   const dbStorageBadge = document.getElementById("db-storage-badge");
   const dashboardAlert = document.getElementById("dashboard-alert");
 
@@ -101,17 +103,25 @@
     }, 4000);
   }
 
-  function setAuthenticatedUI(isAuthenticated) {
+  function setAuthenticatedUI(isAuthenticated, user) {
     if (isAuthenticated) {
       loginView.hidden = true;
       dashboardView.hidden = false;
       logoutBtn.hidden = false;
+      if (adminUserBadge && user && user.email) {
+        adminUserBadge.textContent = user.email;
+        adminUserBadge.hidden = false;
+      }
     } else {
       loginView.hidden = false;
       dashboardView.hidden = true;
       logoutBtn.hidden = true;
       dbStorageBadge.hidden = true;
-      setTimeout(() => passwordInput && passwordInput.focus(), 50);
+      if (adminUserBadge) {
+        adminUserBadge.textContent = "";
+        adminUserBadge.hidden = true;
+      }
+      setTimeout(() => (emailInput || passwordInput) && (emailInput || passwordInput).focus(), 50);
     }
   }
 
@@ -123,7 +133,7 @@
       });
       const data = await res.json();
       if (data && data.authenticated) {
-        setAuthenticatedUI(true);
+        setAuthenticatedUI(true, data.user);
         await fetchLeads();
       } else {
         setAuthenticatedUI(false);
@@ -136,10 +146,20 @@
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+      const email = emailInput ? String(emailInput.value || "").trim() : "";
       const password = String(passwordInput.value || "").trim();
-      if (!password) {
-        loginError.textContent = "Please enter the administrator password.";
+
+      if (!email) {
+        loginError.textContent = "Please enter your administrator email address.";
         loginError.hidden = false;
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      if (!password) {
+        loginError.textContent = "Please enter your 20-character administrator password.";
+        loginError.hidden = false;
+        if (passwordInput) passwordInput.focus();
         return;
       }
 
@@ -152,11 +172,11 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "same-origin",
-          body: JSON.stringify({ password }),
+          body: JSON.stringify({ email, password }),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok || !data.ok) {
-          throw new Error(data.error || "Invalid administrator password.");
+          throw new Error(data.error || "Invalid administrator credentials.");
         }
 
         if (data.token) {
@@ -166,7 +186,7 @@
         }
 
         passwordInput.value = "";
-        setAuthenticatedUI(true);
+        setAuthenticatedUI(true, data.user);
         await fetchLeads();
       } catch (err) {
         loginError.textContent = err.message || "Authentication failed.";

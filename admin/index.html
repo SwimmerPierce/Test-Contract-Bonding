@@ -40,6 +40,7 @@
       </div>
 
       <div class="admin-header__actions">
+        <span id="admin-user-badge" class="user-pill" hidden></span>
         <span id="db-storage-badge" class="storage-pill" hidden>Neon Postgres</span>
         <a href="/" class="btn btn--outline btn--sm">View Public Site</a>
         <button type="button" id="logout-btn" class="btn btn--primary btn--sm" hidden>
@@ -57,19 +58,37 @@
           <span class="section-eyebrow">Protected Area</span>
           <h1>Admin Lead Dashboard</h1>
           <p>
-            Enter the administrator password to view and manage surety bond inquiries and
+            Sign in with your authorized broker credentials to view and manage surety bond inquiries and
             applications submitted through <strong>contractbonding.ca</strong>.
           </p>
         </div>
 
         <form id="admin-login-form" class="login-form" novalidate>
           <div class="form-group">
+            <label for="admin-email">Broker Username / Email</label>
+            <input
+              type="email"
+              id="admin-email"
+              name="email"
+              placeholder="e.g. chase@nexusinsurancebrokers.com"
+              autocomplete="username"
+              list="admin-email-hints"
+              required
+            />
+            <datalist id="admin-email-hints">
+              <option value="chase@nexusinsurancebrokers.com"></option>
+              <option value="ken@nexusinsurancebrokers.com"></option>
+              <option value="nathan@nexusinsurancebrokers.com"></option>
+            </datalist>
+          </div>
+
+          <div class="form-group">
             <label for="admin-password">Administrator Password</label>
             <input
               type="password"
               id="admin-password"
               name="password"
-              placeholder="Enter admin password..."
+              placeholder="Enter 20-character password..."
               autocomplete="current-password"
               required
             />

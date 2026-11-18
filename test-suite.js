@@ -231,6 +231,36 @@ async function runTests() {
     });
     assert.strictEqual(badLoginRes.status, 401, "Wrong admin password should return 401");
 
+    // 5b. Verify each of the 3 authorized broker logins (chase, ken, nathan)
+    const brokerLogins = [
+      { email: "chase@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_CHASE" },
+      { email: "ken@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_KEN" },
+      { email: "nathan@nexusinsurancebrokers.com", envKey: "ADMIN_PASSWORD_NATHAN" },
+    ];
+    for (const broker of brokerLogins) {
+      const pwd = process.env[broker.envKey];
+      if (pwd) {
+        assert.strictEqual(pwd.length, 20, `${broker.envKey} should be 20 characters`);
+        const brokerLoginRes = await fetch(`${baseUrl}/api/auth`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: broker.email, password: pwd }),
+        });
+        assert.strictEqual(brokerLoginRes.status, 200, `Login for ${broker.email} should return 200`);
+        const brokerPayload = await brokerLoginRes.json();
+        assert.strictEqual(brokerPayload.ok, true);
+        assert.strictEqual(brokerPayload.user.email, broker.email);
+
+        // Verify session verification GET /api/auth returns user email
+        const brokerCheckRes = await fetch(`${baseUrl}/api/auth`, {
+          headers: { Authorization: `Bearer ${brokerPayload.token}` },
+        });
+        const brokerCheckData = await brokerCheckRes.json();
+        assert.strictEqual(brokerCheckData.authenticated, true);
+        assert.strictEqual(brokerCheckData.user.email, broker.email);
+      }
+    }
+
     // 6. Verify valid admin password succeeds and returns session token + cookie
     const goodLoginRes = await fetch(`${baseUrl}/api/auth`, {
       method: "POST",

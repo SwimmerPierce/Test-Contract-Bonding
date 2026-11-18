@@ -88,6 +88,20 @@
   border: 1px solid rgba(14, 98, 91, 0.22);
 }
 
+.user-pill {
+  background: #edf3f8;
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 77, 107, 0.25);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .admin-main {
   flex: 1;
   padding: 2rem 0 3.5rem;
