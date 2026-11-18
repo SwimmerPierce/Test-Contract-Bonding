@@ -1,10 +1,10 @@
 <!--
   File: index.html
-  Description: Main homepage for contractbonding.ca with Trusted Broker Partner
-               Nexus Insurance Brokers Ltd. (Burnaby, BC), modeled after the Construction &
-               Surety Bonds layout with interactive Contact Us and Apply Now forms, a Surety
-               Bond Rate Calculator, and responsive navigation.
-  Dependencies: styles.css, app.js, Google Fonts (Plus Jakarta Sans & Inter).
+  Description: Main homepage for contractbonding.ca, a surety bond service operated by
+               Nexus Insurance Brokers Ltd. (Burnaby, BC), serving British Columbia and Alberta
+               with interactive Contact Us, Apply Now, and Readiness Checklist forms and a
+               Surety Bond Rate Calculator.
+  Dependencies: styles.css, app.js, Google Fonts (Montserrat & Inter).
   Role: Primary entry point for the static brokerage website.
 -->
 <!DOCTYPE html>
@@ -15,8 +15,9 @@
   <title>Construction &amp; Surety Bonds | contractbonding.ca</title>
   <meta
     name="description"
-    content="contractbonding.ca provides construction and commercial surety bonds—including Contract, Bid, Performance, Labour &amp; Material Payment, and Administrative bonds—with Trusted Broker Partner Nexus Insurance Brokers Ltd. in Burnaby, BC."
+    content="contractbonding.ca provides construction and commercial surety bonds—including Contract, Bid, Performance, Labour &amp; Material Payment, and Administrative bonds—a surety bond service operated by Nexus Insurance Brokers Ltd. in Burnaby, BC, serving British Columbia and Alberta."
   />
+  <link rel="canonical" href="https://contractbonding.ca/" />
   <link rel="icon" type="image/png" sizes="200x200" href="Visual%20Assets/chicklet%20image%20logo%20160px%20by%20160px.png" />
   <link rel="apple-touch-icon" href="Visual%20Assets/chicklet%20image%20logo%20160px%20by%20160px.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,6 +27,29 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    "name": "Nexus Insurance Brokers Ltd. (contractbonding.ca)",
+    "alternateName": "contractbonding.ca",
+    "url": "https://contractbonding.ca/",
+    "telephone": "+1-604-420-2501",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "#101 - 4268 Lozells Avenue",
+      "addressLocality": "Burnaby",
+      "addressRegion": "BC",
+      "postalCode": "V5A 0C6",
+      "addressCountry": "CA"
+    },
+    "openingHours": "Mo-Fr 08:30-16:30",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "British Columbia" },
+      { "@type": "AdministrativeArea", "name": "Alberta" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -35,7 +59,7 @@
     <div class="container top-bar__inner">
       <div class="top-bar__location">
         <span class="top-bar__dot" aria-hidden="true"></span>
-        <span><strong>contractbonding.ca</strong> &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd. (Burnaby, BC)</span>
+        <span><strong>contractbonding.ca</strong> &bull; Operated by <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC) &bull; <a href="tel:6044202501" style="color:inherit;text-decoration:underline;">604-420-2501</a></span>
       </div>
       <div class="top-bar__actions">
         <a href="#calculator" class="top-bar__link">Rate Calculator</a>
@@ -98,14 +122,14 @@
       <div class="hero__bg-pattern" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__content">
-          <span class="hero__eyebrow">contractbonding.ca &bull; Canadian Surety Specialists</span>
+          <span class="hero__eyebrow">contractbonding.ca &bull; Operated by Nexus Insurance Brokers Ltd.</span>
           <h1 class="hero__title">Construction Bonds</h1>
           <p class="hero__subtitle">Surety Bonds for Contractors, Developers &amp; Businesses</p>
           <p class="hero__lead">
-            <strong>contractbonding.ca</strong> connects general contractors, trade subcontractors,
-            and commercial businesses across British Columbia and Alberta with our Trusted
-            Broker Partner, <strong>Nexus Insurance Brokers Ltd.</strong>, to secure Bid, Contract,
-            Performance, and Administrative bonds quickly and competitively.
+            <strong>contractbonding.ca</strong> is a commercial and construction surety service
+            operated by <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC), licensed in
+            British Columbia and Alberta to arrange Bid, Contract, Performance, and Administrative
+            bonds quickly and competitively.
           </p>
 
           <div class="hero__actions">
@@ -447,7 +471,7 @@
               <strong id="calc-cost-range">$5,000 – $7,500 CAD</strong>
             </div>
             <p class="calc-result__disclaimer">
-              *Indicative estimate only. Final rates depend on surety underwriting review.
+              *Indicative estimate only and subject to insurer minimum premiums (typically $250&ndash;$500+ CAD) and formal surety underwriting. This calculator is not a quote, binder, or commitment to issue a bond.
             </p>
           </div>
 
@@ -471,8 +495,8 @@
           <span class="section-eyebrow">Eligibility</span>
           <h2>What Kinds of Businesses Can Obtain a Construction Bond?</h2>
           <p>
-            We arrange bonding facilities for contractors and commercial operators of all sizes—from
-            emerging subtrades to established general contractors.
+            Nexus Insurance Brokers Ltd. arranges bonding facilities for contractors and commercial
+            operators of all sizes—from emerging subtrades to established general contractors.
           </p>
         </div>
 
@@ -493,6 +517,24 @@
             <h3>Developers &amp; Businesses</h3>
             <p>Land developers, property owners, and firms needing administrative or license bonds.</p>
           </article>
+        </div>
+
+        <!-- Lead Magnet Banner -->
+        <div class="lead-magnet-banner">
+          <div class="lead-magnet-banner__content">
+            <span class="section-eyebrow">Free Contractor Guide (PDF)</span>
+            <h3>First-Time Contractor Bonding Readiness Checklist</h3>
+            <p>
+              Applying for your first Bid Bond, Performance facility, or $10,000 licence bond?
+              Get our 1-page BC &amp; Alberta checklist covering the 3 C&rsquo;s, financial
+              statement tiers, and the 6-item document packet underwriters ask for.
+            </p>
+          </div>
+          <div>
+            <button type="button" class="btn btn--gold btn--lg" data-open-modal="checklist-modal">
+              Download Free 1-Page Readiness Checklist (PDF)
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -556,26 +598,28 @@
       </div>
     </section>
 
-    <!-- Section 8: Trusted Broker Partners & Testimonials -->
+    <!-- Section 8: Brokerage Operator Details -->
     <section class="section section--tinted" id="trusted-partners">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">Trusted Broker Partners</span>
-          <h2>Backed by Experienced Canadian Surety Professionals</h2>
+          <span class="section-eyebrow">Operated by Nexus Insurance Brokers Ltd.</span>
+          <h2>Backed by Licensed BC &amp; Alberta Surety Specialists</h2>
           <p>
-            contractbonding.ca works with vetted, licensed surety brokerages to deliver fast
-            underwriting and competitive bonding facilities.
+            contractbonding.ca is operated by Nexus Insurance Brokers Ltd., a licensed insurance
+            brokerage serving contractors, subtrades, and developers in British Columbia and
+            Alberta (with licensed partner brokerage referrals across Canada).
           </p>
         </div>
 
         <div class="partner-banner">
           <div>
-            <span class="benefit-panel__tag">Featured Trusted Broker Partner</span>
+            <span class="benefit-panel__tag">Licensed Brokerage Operator</span>
             <h3>Nexus Insurance Brokers Ltd.</h3>
             <p>
-              Headquartered in <strong>Burnaby, BC</strong>, Nexus Insurance Brokers Ltd.
-              specializes in commercial insurance and construction surety bonds for contractors,
-              subtrades, and developers across British Columbia and Canada.
+              Headquartered at <strong>#101 &ndash; 4268 Lozells Avenue, Burnaby, BC V5A 0C6</strong>
+              (Tel: <a href="tel:6044202501"><strong>604-420-2501</strong></a> | Mon&ndash;Fri,
+              8:30 AM &ndash; 4:30 PM PT), Nexus Insurance Brokers Ltd. specializes in commercial
+              insurance and construction surety bonds across British Columbia and Alberta.
             </p>
           </div>
           <div class="partner-banner__actions">
@@ -587,24 +631,6 @@
             </button>
           </div>
         </div>
-
-        <div class="two-col" style="margin-top: 2rem;">
-          <blockquote class="quote-card">
-            <p>
-              &ldquo;Contract bonding made easy! Nexus Insurance Brokers helped us set up our
-              bonding facility ahead of a tight municipal tender deadline in Metro Vancouver.&rdquo;
-            </p>
-            <footer>— Commercial Electrical Contractor, Burnaby, BC</footer>
-          </blockquote>
-
-          <blockquote class="quote-card">
-            <p>
-              &ldquo;Responsive, knowledgeable, and straightforward. They walked us through our
-              financials and got our Performance and L&amp;M Payment bonds issued without delay.&rdquo;
-            </p>
-            <footer>— Civil &amp; Excavation Principal, Lower Mainland, BC</footer>
-          </blockquote>
-        </div>
       </div>
     </section>
   </main>
@@ -615,13 +641,15 @@
       <div>
         <h3 class="footer-brand">contractbonding.ca</h3>
         <p class="footer-text">
-          Canadian construction and commercial surety bond portal serving contractors, developers,
-          and businesses across British Columbia and Alberta.
+          A construction and commercial surety bond service operated by
+          <strong>Nexus Insurance Brokers Ltd.</strong>, licensed in British Columbia and Alberta
+          (with licensed partner brokerage referrals across other Canadian provinces/territories).
         </p>
         <p class="footer-location">
-          <strong>Trusted Broker Partner:</strong>
-          <a href="https://www.nexusinsurancebrokers.com/" target="_blank" rel="noopener noreferrer">Nexus Insurance Brokers Ltd.</a>
-          &bull; Burnaby, BC
+          <strong>Nexus Insurance Brokers Ltd.</strong><br />
+          #101 &ndash; 4268 Lozells Avenue, Burnaby, BC V5A 0C6<br />
+          Tel: <a href="tel:6044202501">604-420-2501</a> &bull; Mon&ndash;Fri, 8:30 AM &ndash; 4:30 PM PT<br />
+          Privacy Officer: <a href="mailto:privacy@nexusinsurancebrokers.com">privacy@nexusinsurancebrokers.com</a> &bull; 604-420-2501
         </p>
       </div>
 
@@ -636,10 +664,15 @@
       </div>
 
       <div>
-        <h4>Quick Actions</h4>
+        <h4>Quick Actions &amp; Disclosures</h4>
         <ul class="footer-links">
           <li><a href="#calculator">Surety Rate Calculator</a></li>
           <li><a href="#how-it-works">How Bonding Works</a></li>
+          <li>
+            <button type="button" class="footer-link-btn" data-open-modal="checklist-modal">
+              Free Bonding Readiness Checklist (PDF)
+            </button>
+          </li>
           <li>
             <button type="button" class="footer-link-btn" data-open-modal="contact-modal">
               Contact Us
@@ -655,8 +688,14 @@
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom__inner">
-        <span>&copy; <span id="current-year">2026</span> contractbonding.ca. All rights reserved.</span>
-        <span>Trusted Broker Partner: <a href="https://www.nexusinsurancebrokers.com/" target="_blank" rel="noopener noreferrer">Nexus Insurance Brokers Ltd.</a> (Burnaby, BC)</span>
+        <span>&copy; <span id="current-year">2026</span> Nexus Insurance Brokers Ltd. (contractbonding.ca). All rights reserved.</span>
+        <span class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="/terms">Terms &amp; Broker Disclosures (B.C. Reg. 573/2004)</a>
+          <span>&bull;</span>
+          <a href="https://www.nexusinsurancebrokers.com/" target="_blank" rel="noopener noreferrer">nexusinsurancebrokers.com</a>
+        </span>
       </div>
     </div>
   </footer>
@@ -667,12 +706,17 @@
     <div class="modal__dialog">
       <button type="button" class="modal__close" data-close-modal aria-label="Close Contact Us form">&times;</button>
       <div class="modal__header">
-        <span class="section-eyebrow">contractbonding.ca &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd.</span>
+        <span class="section-eyebrow">Operated by Nexus Insurance Brokers Ltd. &bull; Licensed in BC &amp; Alberta</span>
         <h2 id="contact-modal-title">Contact Us</h2>
-        <p class="modal__lead">One of our professionals will reach out to you.</p>
+        <p class="modal__lead">One of our professionals at Nexus Insurance Brokers Ltd. (Burnaby, BC) will reach out to you.</p>
       </div>
 
       <form id="contact-form" class="modal-form" novalidate>
+        <div class="hp-field" aria-hidden="true">
+          <label for="contact-website-url">Website URL</label>
+          <input type="text" id="contact-website-url" name="website_url" tabindex="-1" autocomplete="off" />
+        </div>
+
         <div class="form-group">
           <label for="contact-name">Name <span class="req">*</span></label>
           <input type="text" id="contact-name" name="name" placeholder="Jane Doe" required />
@@ -707,8 +751,63 @@
         </div>
 
         <div class="form-group">
+          <label for="contact-province">Province / Territory of Business or Project <span class="req">*</span></label>
+          <select id="contact-province" name="province" required>
+            <option value="">Select province...</option>
+            <option value="BC">British Columbia</option>
+            <option value="AB">Alberta</option>
+            <option value="SK">Saskatchewan (Partner Referral)</option>
+            <option value="MB">Manitoba (Partner Referral)</option>
+            <option value="ON">Ontario (Partner Referral)</option>
+            <option value="QC">Quebec (Partner Referral)</option>
+            <option value="Atlantic">Atlantic Canada (NB/NS/PE/NL — Partner Referral)</option>
+            <option value="Territories">Yukon / NWT / Nunavut (Partner Referral)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="contact-notes">Additional Details (Optional)</label>
           <textarea id="contact-notes" name="notes" rows="3" placeholder="Tell us about your project timeline or bond amount..."></textarea>
+        </div>
+
+        <div class="note-box" style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+          <strong>Tender closing within 48 hours?</strong>
+          <span>Do not rely solely on an online submission—call our Burnaby office directly at <a href="tel:6044202501">604-420-2501</a> (Mon&ndash;Fri, 8:30 AM &ndash; 4:30 PM PT).</span>
+        </div>
+
+        <fieldset class="form-section" style="padding: 0.9rem 1rem; margin-top: 0.75rem;">
+          <legend>Consent &amp; Coverage Options</legend>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="crossSellInsurance" value="true" />
+              <span>
+                <strong>Also review my Commercial Insurance:</strong> Have a Nexus broker quote or review my Commercial General Liability (CGL), Builders Risk, Tools, or Commercial Auto insurance for potential bundle savings.
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="privacyConsent" value="true" required />
+              <span>
+                I understand that submitting this form does <strong>not</strong> bind coverage or guarantee a bond, and I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms &amp; Broker Disclosures</a> (including cloud data processing in Canada/US per PIPA). If my business or project is outside BC or Alberta, I authorize <strong>Nexus Insurance Brokers Ltd.</strong> to refer my inquiry to a licensed partner brokerage in my jurisdiction and acknowledge Nexus may receive a referral fee. <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check" style="margin-bottom: 0;">
+            <label class="checkbox-label">
+              <input type="checkbox" name="marketingOptIn" value="true" />
+              <span>
+                Yes, I would like to receive bonding guides, tender updates, and commercial insurance offers by email/SMS from Nexus Insurance Brokers Ltd. (You may unsubscribe at any time.)
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="no-bind-notice">
+          <strong>Important Notice:</strong> Submitting this online form does not bind, issue, or guarantee any surety bond, Consent of Surety, or insurance coverage. No bond is in effect until underwritten and formally executed by an authorized Attorney-in-Fact of a licensed surety company.
         </div>
 
         <p class="form-error" id="contact-error" role="alert" hidden></p>
@@ -723,9 +822,12 @@
         <div class="form-success__icon" aria-hidden="true">&#10003;</div>
         <h3>Thank You — Inquiry Received</h3>
         <p>
-          One of our professionals at <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC)
+          One of our professionals at <strong>Nexus Insurance Brokers Ltd.</strong> (#101 &ndash; 4268 Lozells Ave, Burnaby, BC &bull; <a href="tel:6044202501">604-420-2501</a>)
           will reach out to you shortly.
         </p>
+        <div class="no-bind-notice">
+          <strong>Important Notice:</strong> Submitting this online form does not bind, issue, or guarantee any surety bond, Consent of Surety, or insurance coverage. No bond is in effect until underwritten and formally executed by an authorized Attorney-in-Fact of a licensed surety company.
+        </div>
         <div class="form-success__summary" id="contact-success-summary"></div>
         <button type="button" class="btn btn--primary" data-close-modal>Close</button>
       </div>
@@ -738,14 +840,19 @@
     <div class="modal__dialog modal__dialog--wide">
       <button type="button" class="modal__close" data-close-modal aria-label="Close Application form">&times;</button>
       <div class="modal__header">
-        <span class="section-eyebrow">contractbonding.ca &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd. (Burnaby, BC)</span>
+        <span class="section-eyebrow">Operated by Nexus Insurance Brokers Ltd. &bull; Licensed in BC &amp; Alberta</span>
         <h2 id="apply-modal-title">Surety Bond Application Form</h2>
         <p class="modal__lead">
-          Complete the application below to begin underwriting your construction or commercial bond.
+          Complete the application below to begin underwriting your construction or commercial bond with Nexus Insurance Brokers Ltd. (Burnaby, BC).
         </p>
       </div>
 
       <form id="apply-form" class="modal-form" novalidate>
+        <div class="hp-field" aria-hidden="true">
+          <label for="apply-website-url">Website URL</label>
+          <input type="text" id="apply-website-url" name="website_url" tabindex="-1" autocomplete="off" />
+        </div>
+
         <fieldset class="form-section">
           <legend>1. Applicant &amp; Business Information</legend>
           <div class="form-row">
@@ -770,11 +877,28 @@
             </div>
           </div>
 
-          <div class="form-row form-row--three">
+          <div class="form-row">
             <div class="form-group">
-              <label for="apply-city">City / Province <span class="req">*</span></label>
-              <input type="text" id="apply-city" name="city" placeholder="Burnaby, BC" required />
+              <label for="apply-city">City / Municipality <span class="req">*</span></label>
+              <input type="text" id="apply-city" name="city" placeholder="Burnaby" required />
             </div>
+            <div class="form-group">
+              <label for="apply-province">Province / Territory of Business or Project <span class="req">*</span></label>
+              <select id="apply-province" name="province" required>
+                <option value="">Select province...</option>
+                <option value="BC">British Columbia</option>
+                <option value="AB">Alberta</option>
+                <option value="SK">Saskatchewan (Partner Referral)</option>
+                <option value="MB">Manitoba (Partner Referral)</option>
+                <option value="ON">Ontario (Partner Referral)</option>
+                <option value="QC">Quebec (Partner Referral)</option>
+                <option value="Atlantic">Atlantic Canada (NB/NS/PE/NL — Partner Referral)</option>
+                <option value="Territories">Yukon / NWT / Nunavut (Partner Referral)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
             <div class="form-group">
               <label for="apply-years">Years in Business <span class="req">*</span></label>
               <input type="number" id="apply-years" name="years" min="0" max="150" placeholder="5" required />
@@ -819,6 +943,11 @@
               <input type="date" id="apply-date" name="requiredDate" />
             </div>
           </div>
+
+          <div class="note-box" style="margin-top: 0.75rem; margin-bottom: 0.5rem;">
+            <strong>Tender closing within 48 hours?</strong>
+            <span>Do not rely solely on an online submission—call our Burnaby office directly at <a href="tel:6044202501">604-420-2501</a> (Mon&ndash;Fri, 8:30 AM &ndash; 4:30 PM PT).</span>
+          </div>
         </fieldset>
 
         <fieldset class="form-section">
@@ -844,6 +973,41 @@
           </div>
         </fieldset>
 
+        <fieldset class="form-section" style="padding: 0.9rem 1rem; margin-top: 0.75rem;">
+          <legend>Consent &amp; Coverage Options</legend>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="crossSellInsurance" value="true" />
+              <span>
+                <strong>Also review my Commercial Insurance:</strong> Have a Nexus broker quote or review my Commercial General Liability (CGL), Builders Risk, Tools, or Commercial Auto insurance for potential bundle savings.
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="privacyConsent" value="true" required />
+              <span>
+                I understand that submitting this form does <strong>not</strong> bind coverage or guarantee a bond, and I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms &amp; Broker Disclosures</a> (including cloud data processing in Canada/US per PIPA). If my business or project is outside BC or Alberta, I authorize <strong>Nexus Insurance Brokers Ltd.</strong> to refer my inquiry to a licensed partner brokerage in my jurisdiction and acknowledge Nexus may receive a referral fee. <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check" style="margin-bottom: 0;">
+            <label class="checkbox-label">
+              <input type="checkbox" name="marketingOptIn" value="true" />
+              <span>
+                Yes, I would like to receive bonding guides, tender updates, and commercial insurance offers by email/SMS from Nexus Insurance Brokers Ltd. (You may unsubscribe at any time.)
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="no-bind-notice">
+          <strong>Important Notice:</strong> Submitting this online form does not bind, issue, or guarantee any surety bond, Consent of Surety, or insurance coverage. No bond is in effect until underwritten and formally executed by an authorized Attorney-in-Fact of a licensed surety company.
+        </div>
+
         <p class="form-error" id="apply-error" role="alert" hidden></p>
 
         <div class="modal__footer">
@@ -856,11 +1020,131 @@
         <div class="form-success__icon" aria-hidden="true">&#10003;</div>
         <h3>Bond Application Submitted</h3>
         <p>
-          Thank you for applying with <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC).
+          Thank you for applying with <strong>Nexus Insurance Brokers Ltd.</strong> (#101 &ndash; 4268 Lozells Ave, Burnaby, BC &bull; <a href="tel:6044202501">604-420-2501</a>).
           One of our surety professionals will review your application and reach out to you.
         </p>
+        <div class="no-bind-notice">
+          <strong>Important Notice:</strong> Submitting this online form does not bind, issue, or guarantee any surety bond, Consent of Surety, or insurance coverage. No bond is in effect until underwritten and formally executed by an authorized Attorney-in-Fact of a licensed surety company.
+        </div>
         <div class="form-success__summary" id="apply-success-summary"></div>
         <button type="button" class="btn btn--primary" data-close-modal>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: First-Time Contractor Bonding Readiness Checklist (Lead Magnet) -->
+  <div class="modal" id="checklist-modal" role="dialog" aria-modal="true" aria-labelledby="checklist-modal-title" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close Readiness Checklist form">&times;</button>
+      <div class="modal__header">
+        <span class="section-eyebrow">Free Contractor Guide &bull; Nexus Insurance Brokers Ltd.</span>
+        <h2 id="checklist-modal-title">Download the Bonding Readiness Checklist (PDF)</h2>
+        <p class="modal__lead">
+          Enter your details below for instant PDF access to the BC &amp; Alberta 1-page surety underwriting checklist.
+        </p>
+      </div>
+
+      <form id="checklist-form" class="modal-form" novalidate>
+        <div class="hp-field" aria-hidden="true">
+          <label for="checklist-website-url">Website URL</label>
+          <input type="text" id="checklist-website-url" name="website_url" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checklist-name">Your Name <span class="req">*</span></label>
+            <input type="text" id="checklist-name" name="name" placeholder="Jane Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="checklist-company">Company Name <span class="req">*</span></label>
+            <input type="text" id="checklist-company" name="company" placeholder="Acme Contracting Ltd." required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checklist-email">Work Email <span class="req">*</span></label>
+            <input type="email" id="checklist-email" name="email" placeholder="jane@acme.ca" required />
+          </div>
+          <div class="form-group">
+            <label for="checklist-phone">Phone Number (Optional)</label>
+            <input type="tel" id="checklist-phone" name="phone" placeholder="604-111-1111" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="checklist-province">Province / Territory <span class="req">*</span></label>
+          <select id="checklist-province" name="province" required>
+            <option value="">Select province...</option>
+            <option value="BC">British Columbia</option>
+            <option value="AB">Alberta</option>
+            <option value="SK">Saskatchewan (Partner Referral)</option>
+            <option value="MB">Manitoba (Partner Referral)</option>
+            <option value="ON">Ontario (Partner Referral)</option>
+            <option value="QC">Quebec (Partner Referral)</option>
+            <option value="Atlantic">Atlantic Canada (NB/NS/PE/NL — Partner Referral)</option>
+            <option value="Territories">Yukon / NWT / Nunavut (Partner Referral)</option>
+          </select>
+        </div>
+
+        <fieldset class="form-section" style="padding: 0.9rem 1rem; margin-top: 0.75rem;">
+          <legend>Consent &amp; Coverage Options</legend>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="crossSellInsurance" value="true" />
+              <span>
+                <strong>Also review my Commercial Insurance:</strong> Have a Nexus broker quote or review my Commercial General Liability (CGL), Builders Risk, Tools, or Commercial Auto insurance for potential bundle savings.
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="privacyConsent" value="true" required />
+              <span>
+                I understand that submitting this form does <strong>not</strong> bind coverage or guarantee a bond, and I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms &amp; Broker Disclosures</a> (including cloud data processing in Canada/US per PIPA). <span class="req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group form-check" style="margin-bottom: 0;">
+            <label class="checkbox-label">
+              <input type="checkbox" name="marketingOptIn" value="true" />
+              <span>
+                Yes, send me the 4-part contractor bonding educational series, tender tips, and commercial insurance updates by email/SMS from Nexus Insurance Brokers Ltd. (Unsubscribe anytime.)
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <p class="form-error" id="checklist-error" role="alert" hidden></p>
+
+        <div class="modal__footer">
+          <button type="button" class="btn btn--outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn--gold">Get Checklist PDF</button>
+        </div>
+      </form>
+
+      <div id="checklist-success" class="form-success" hidden>
+        <div class="form-success__icon" aria-hidden="true">&#10003;</div>
+        <h3>Your Readiness Checklist Is Ready!</h3>
+        <p>
+          Click below to download your PDF copy of the <strong>First-Time Contractor Bonding Readiness Checklist</strong>.
+        </p>
+        <div style="margin: 1.2rem 0;">
+          <a
+            id="checklist-download-link"
+            href="/assets/first-time-bonding-readiness-checklist.pdf"
+            download="First-Time-Contractor-Bonding-Readiness-Checklist.pdf"
+            class="btn btn--gold btn--lg"
+          >
+            Download Checklist PDF
+          </a>
+        </div>
+        <div class="form-success__summary" id="checklist-success-summary"></div>
+        <button type="button" class="btn btn--outline" data-close-modal>Close</button>
       </div>
     </div>
   </div>

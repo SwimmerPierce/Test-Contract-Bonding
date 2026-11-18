@@ -131,6 +131,7 @@
               <option value="all">All Submission Types</option>
               <option value="application">Bond Applications</option>
               <option value="contact">Contact Inquiries</option>
+              <option value="checklist">Checklist Downloads</option>
             </select>
           </div>
 
@@ -142,6 +143,7 @@
               <option value="Bid">Bid</option>
               <option value="Administrative">Administrative</option>
               <option value="Other">Other</option>
+              <option value="Checklist">Checklist</option>
             </select>
           </div>
 
@@ -235,6 +237,29 @@
           </div>
         </div>
 
+        <div class="form-row">
+          <div class="form-group">
+            <label for="detail-assigned-broker">Assigned Broker</label>
+            <select id="detail-assigned-broker" name="assigned_broker">
+              <option value="">Unassigned</option>
+              <option value="Chase Addison (Level 1 — BC)">Chase Addison (Level 1 — BC)</option>
+              <option value="Chase Addison (Level 1 — BC/AB)">Chase Addison (Level 1 — BC/AB)</option>
+              <option value="AIC-Licensed Nexus Broker (Interim AB Routing)">AIC-Licensed Nexus Broker (Interim AB Routing)</option>
+              <option value="Ken Addison (Level 3 Nominee — Signatory)">Ken Addison (Level 3 Nominee — Signatory)</option>
+              <option value="Out-of-Province Referral Partner">Out-of-Province Referral Partner</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="detail-supervising-agent">Supervising Level 2/3 Agent Sign-Off</label>
+            <input
+              type="text"
+              id="detail-supervising-agent"
+              name="supervising_agent"
+              placeholder="e.g., Ken Addison (Level 3) — Reviewed YYYY-MM-DD"
+            />
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="detail-admin-notes">Broker / Underwriting Internal Notes</label>
           <textarea
@@ -313,13 +338,27 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="manual-city">City / Province</label>
-            <input type="text" id="manual-city" name="city" placeholder="Burnaby, BC" />
+            <label for="manual-city">City / Municipality</label>
+            <input type="text" id="manual-city" name="city" placeholder="Burnaby" />
           </div>
           <div class="form-group">
-            <label for="manual-amount">Estimated Bond Value ($ CAD)</label>
-            <input type="number" id="manual-amount" name="amount" min="0" step="1000" placeholder="500000" />
+            <label for="manual-province">Province / Territory</label>
+            <select id="manual-province" name="province">
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="SK">Saskatchewan (Partner Referral)</option>
+              <option value="MB">Manitoba (Partner Referral)</option>
+              <option value="ON">Ontario (Partner Referral)</option>
+              <option value="QC">Quebec (Partner Referral)</option>
+              <option value="Atlantic">Atlantic Canada (Partner Referral)</option>
+              <option value="Territories">Yukon / NWT / Nunavut (Partner Referral)</option>
+            </select>
           </div>
+        </div>
+
+        <div class="form-group">
+          <label for="manual-amount">Estimated Bond Value ($ CAD)</label>
+          <input type="number" id="manual-amount" name="amount" min="0" step="1000" placeholder="500000" />
         </div>
 
         <div class="form-group">

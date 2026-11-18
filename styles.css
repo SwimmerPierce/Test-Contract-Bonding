@@ -1009,6 +1009,11 @@ a:hover {
   box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.14);
 }
 
+.form-group input[type="checkbox"].is-invalid {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1143,6 +1148,106 @@ a:hover {
   padding: 0.9rem 1.05rem;
   margin: 1rem 0 1.25rem;
   font-size: 0.88rem;
+}
+
+/* Compliance Checkboxes, Honeypot & Notices */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-check {
+  margin-bottom: 0.75rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-weight: 400 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.5;
+  color: var(--text) !important;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  margin-top: 0.2rem;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+
+.checkbox-label a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.no-bind-notice {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.95rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0.9rem 0 1rem;
+  text-align: left;
+}
+
+.no-bind-notice strong {
+  color: var(--navy);
+}
+
+.lead-magnet-banner {
+  margin-top: 2.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.85rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.lead-magnet-banner__content {
+  max-width: 64ch;
+}
+
+.lead-magnet-banner__content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.lead-magnet-banner__content p {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+
+.footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+  color: var(--gold);
+  font-weight: 600;
 }
 
 /* Responsive */

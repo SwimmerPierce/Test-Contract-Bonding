@@ -64,7 +64,9 @@
     modal.hidden = false;
     document.body.style.overflow = "hidden";
 
-    const firstInput = modal.querySelector("input, select, textarea");
+    const firstInput = modal.querySelector(
+      "input:not([tabindex='-1']):not([type='hidden']), select, textarea"
+    );
     if (firstInput) {
       setTimeout(() => firstInput.focus(), 40);
     }
@@ -113,10 +115,10 @@
   };
 
   const RATE_TABLE = {
-    contract: [0.01, 0.015],
-    bid: [0.004, 0.0075],
-    administrative: [0.01, 0.0175],
-    other: [0.0125, 0.02],
+    contract: { minRate: 0.01, maxRate: 0.015, minCost: 500 },
+    bid: { minRate: 0.004, maxRate: 0.0075, minCost: 250 },
+    administrative: { minRate: 0.01, maxRate: 0.0175, minCost: 250 },
+    other: { minRate: 0.0125, maxRate: 0.02, minCost: 350 },
   };
 
   function formatCurrency(amount) {
@@ -165,12 +167,27 @@
     const rawValue = parseNumericInput(calcValueInput.value);
     const amount = Number.isFinite(rawValue) && rawValue > 0 ? rawValue : 0;
     const typeKey = calcTypeSelect.value;
-    const [minRate, maxRate] = RATE_TABLE[typeKey] || [0.01, 0.015];
+    const config = RATE_TABLE[typeKey] || { minRate: 0.01, maxRate: 0.015, minCost: 500 };
 
-    const minPct = (minRate * 100).toFixed(2).replace(/\.?0+$/, "");
-    const maxPct = (maxRate * 100).toFixed(2).replace(/\.?0+$/, "");
+    const minPct = (config.minRate * 100).toFixed(2).replace(/\.?0+$/, "");
+    const maxPct = (config.maxRate * 100).toFixed(2).replace(/\.?0+$/, "");
     calcRateRange.textContent = `${minPct}% – ${maxPct}%`;
-    calcCostRange.textContent = `${formatCurrency(amount * minRate)} – ${formatCurrency(amount * maxRate)} CAD`;
+
+    if (amount <= 0) {
+      calcCostRange.textContent = "$0 CAD";
+      return;
+    }
+
+    const rawMinCost = amount * config.minRate;
+    const rawMaxCost = amount * config.maxRate;
+    const minCost = Math.max(rawMinCost, config.minCost);
+    const maxCost = Math.max(rawMaxCost, config.minCost);
+
+    if (minCost === maxCost) {
+      calcCostRange.textContent = `${formatCurrency(minCost)} CAD (subject to minimum premium)`;
+    } else {
+      calcCostRange.textContent = `${formatCurrency(minCost)} – ${formatCurrency(maxCost)} CAD`;
+    }
   }
 
   if (calcForm) {
@@ -308,18 +325,24 @@
       const phone = String(data.get("phone") || "").trim();
       const company = String(data.get("company") || "").trim();
       const bondType = String(data.get("bondType") || "").trim();
+      const province = String(data.get("province") || "").trim();
       const notes = String(data.get("notes") || "").trim();
+      const websiteUrl = String(data.get("website_url") || "").trim();
+      const crossSellInsurance = Boolean(data.get("crossSellInsurance"));
+      const privacyConsent = Boolean(data.get("privacyConsent"));
+      const marketingOptIn = Boolean(data.get("marketingOptIn"));
 
-      if (!name || !email || !phone || !company || !bondType) {
+      if (!name || !email || !phone || !company || !bondType || !province) {
         highlightInvalidFields(contactForm, [
           ["name", !name],
           ["email", !email],
           ["phone", !phone],
           ["company", !company],
           ["bondType", !bondType],
+          ["province", !province],
         ]);
         contactError.textContent =
-          "Please complete all required fields (Name, Email, Phone Number, Company Name, and Type of Bond).";
+          "Please complete all required fields (Name, Email, Phone Number, Company Name, Type of Bond, and Province).";
         contactError.hidden = false;
         return;
       }
@@ -327,6 +350,14 @@
       if (!isValidEmail(email)) {
         highlightInvalidFields(contactForm, [["email", true]]);
         contactError.textContent = "Please enter a valid email address.";
+        contactError.hidden = false;
+        return;
+      }
+
+      if (!privacyConsent) {
+        highlightInvalidFields(contactForm, [["privacyConsent", true]]);
+        contactError.textContent =
+          "Please confirm the mandatory Privacy Policy, Broker Disclosures, and Referral Consent checkbox before submitting.";
         contactError.hidden = false;
         return;
       }
@@ -341,6 +372,7 @@
       }
 
       try {
+        const consentTimestamp = new Date().toISOString();
         const leadPayload = {
           lead_type: "contact",
           contact_name: name,
@@ -348,7 +380,14 @@
           email,
           phone,
           bond_type: bondType,
+          province,
           notes,
+          cross_sell_insurance: crossSellInsurance,
+          privacy_consent: privacyConsent,
+          referral_consent: privacyConsent,
+          marketing_opt_in: marketingOptIn,
+          consent_timestamp: consentTimestamp,
+          website_url: websiteUrl,
         };
         if (pendingCalcAmount && pendingCalcAmount > 0) {
           leadPayload.amount = pendingCalcAmount;
@@ -365,10 +404,14 @@
           ["Email", email],
           ["Phone", phone],
           ["Company", company],
+          ["Province", province],
           ["Bond Type", bondType],
         ];
         if (submittedAmount && submittedAmount > 0) {
           summaryRows.push(["Bond / Contract Value", `${formatCurrency(submittedAmount)} CAD`]);
+        }
+        if (crossSellInsurance) {
+          summaryRows.push(["Commercial Insurance", "Requested CGL/Bundle Review"]);
         }
         renderSummary(contactSummary, summaryRows);
 
@@ -410,6 +453,7 @@
       const email = String(data.get("email") || "").trim();
       const phone = String(data.get("phone") || "").trim();
       const city = String(data.get("city") || "").trim();
+      const province = String(data.get("province") || "").trim();
       const years = String(data.get("years") || "").trim();
       const structure = String(data.get("structure") || "").trim();
       const bondType = String(data.get("bondType") || "").trim();
@@ -419,6 +463,10 @@
       const financials = String(data.get("financials") || "").trim();
       const priorSurety = String(data.get("priorSurety") || "").trim();
       const notes = String(data.get("notes") || "").trim();
+      const websiteUrl = String(data.get("website_url") || "").trim();
+      const crossSellInsurance = Boolean(data.get("crossSellInsurance"));
+      const privacyConsent = Boolean(data.get("privacyConsent"));
+      const marketingOptIn = Boolean(data.get("marketingOptIn"));
 
       if (
         !company ||
@@ -426,6 +474,7 @@
         !email ||
         !phone ||
         !city ||
+        !province ||
         !years ||
         !bondType ||
         amount <= 0
@@ -436,12 +485,13 @@
           ["email", !email],
           ["phone", !phone],
           ["city", !city],
+          ["province", !province],
           ["years", !years],
           ["bondType", !bondType],
           ["amount", amount <= 0],
         ]);
         applyError.textContent =
-          "Please complete all required business, contact, and bond detail fields.";
+          "Please complete all required business, contact, province, and bond detail fields.";
         applyError.hidden = false;
         return;
       }
@@ -449,6 +499,14 @@
       if (!isValidEmail(email)) {
         highlightInvalidFields(applyForm, [["email", true]]);
         applyError.textContent = "Please enter a valid email address.";
+        applyError.hidden = false;
+        return;
+      }
+
+      if (!privacyConsent) {
+        highlightInvalidFields(applyForm, [["privacyConsent", true]]);
+        applyError.textContent =
+          "Please confirm the mandatory Privacy Policy, Broker Disclosures, and Referral Consent checkbox before submitting.";
         applyError.hidden = false;
         return;
       }
@@ -465,6 +523,7 @@
       const refId = `NX-${Math.floor(100000 + Math.random() * 900000)}`;
 
       try {
+        const consentTimestamp = new Date().toISOString();
         const savedLead = await submitLeadToApi({
           reference_id: refId,
           lead_type: "application",
@@ -473,6 +532,7 @@
           email,
           phone,
           city,
+          province,
           years_in_business: Number(years),
           business_structure: structure,
           bond_type: bondType,
@@ -482,18 +542,28 @@
           financials,
           prior_surety: priorSurety,
           notes,
+          cross_sell_insurance: crossSellInsurance,
+          privacy_consent: privacyConsent,
+          referral_consent: privacyConsent,
+          marketing_opt_in: marketingOptIn,
+          consent_timestamp: consentTimestamp,
+          website_url: websiteUrl,
         });
 
         applyError.hidden = true;
-        renderSummary(applySummary, [
+        const summaryRows = [
           ["Reference #", savedLead.reference_id || refId],
           ["Business", company],
           ["Contact", `${contactName} (${email})`],
-          ["Location", city],
+          ["Location", `${city}, ${province}`],
           ["Bond Type", bondType],
           ["Estimated Amount", `${formatCurrency(amount)} CAD`],
           ["Obligee / Owner", obligee || "Not specified"],
-        ]);
+        ];
+        if (crossSellInsurance) {
+          summaryRows.push(["Commercial Insurance", "Requested CGL/Bundle Review"]);
+        }
+        renderSummary(applySummary, summaryRows);
 
         applyForm.hidden = true;
         applySuccess.hidden = false;
@@ -501,6 +571,111 @@
       } catch (err) {
         applyError.textContent = err.message || "Failed to submit application. Please try again.";
         applyError.hidden = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
+    });
+  }
+
+  // Readiness Checklist Lead Magnet Form
+  const checklistForm = document.getElementById("checklist-form");
+  const checklistError = document.getElementById("checklist-error");
+  const checklistSuccess = document.getElementById("checklist-success");
+  const checklistSummary = document.getElementById("checklist-success-summary");
+  const checklistDownloadLink = document.getElementById("checklist-download-link");
+
+  if (checklistForm) {
+    attachLiveValidationReset(checklistForm);
+    checklistForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const data = new FormData(checklistForm);
+      const name = String(data.get("name") || "").trim();
+      const company = String(data.get("company") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const phone = String(data.get("phone") || "").trim();
+      const province = String(data.get("province") || "").trim();
+      const websiteUrl = String(data.get("website_url") || "").trim();
+      const crossSellInsurance = Boolean(data.get("crossSellInsurance"));
+      const privacyConsent = Boolean(data.get("privacyConsent"));
+      const marketingOptIn = Boolean(data.get("marketingOptIn"));
+
+      if (!name || !company || !email || !province) {
+        highlightInvalidFields(checklistForm, [
+          ["name", !name],
+          ["company", !company],
+          ["email", !email],
+          ["province", !province],
+        ]);
+        checklistError.textContent =
+          "Please enter your Name, Company Name, Work Email, and Province to download the PDF.";
+        checklistError.hidden = false;
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        highlightInvalidFields(checklistForm, [["email", true]]);
+        checklistError.textContent = "Please enter a valid email address.";
+        checklistError.hidden = false;
+        return;
+      }
+
+      if (!privacyConsent) {
+        highlightInvalidFields(checklistForm, [["privacyConsent", true]]);
+        checklistError.textContent =
+          "Please agree to the Privacy Policy and Broker Disclosures before downloading.";
+        checklistError.hidden = false;
+        return;
+      }
+
+      clearFormValidation(checklistForm);
+
+      const submitBtn = checklistForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : "Get Checklist PDF";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Preparing PDF...";
+      }
+
+      try {
+        const savedLead = await submitLeadToApi({
+          lead_type: "checklist",
+          contact_name: name,
+          company_name: company,
+          email,
+          phone: phone || "Not provided",
+          bond_type: "Checklist",
+          province,
+          notes: "Downloaded First-Time Contractor Bonding Readiness Checklist (PDF).",
+          cross_sell_insurance: crossSellInsurance,
+          privacy_consent: privacyConsent,
+          referral_consent: privacyConsent,
+          marketing_opt_in: marketingOptIn,
+          consent_timestamp: new Date().toISOString(),
+          website_url: websiteUrl,
+        });
+
+        checklistError.hidden = true;
+        renderSummary(checklistSummary, [
+          ["Reference #", savedLead.reference_id],
+          ["Name", name],
+          ["Company", company],
+          ["Province", province],
+        ]);
+
+        checklistForm.hidden = true;
+        checklistSuccess.hidden = false;
+        checklistForm.reset();
+
+        if (checklistDownloadLink) {
+          checklistDownloadLink.click();
+        }
+      } catch (err) {
+        checklistError.textContent =
+          err.message || "Unable to unlock the checklist right now. Please try again.";
+        checklistError.hidden = false;
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

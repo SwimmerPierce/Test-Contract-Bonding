@@ -67,10 +67,9 @@ Gather these six items before tender week so your broker can negotiate the lowes
 ## Part B: Website Integration Blueprint (Checklist Capture Section + Download Trigger)
 
 ### Todo Checklist
-- [ ] **B.1 Export PDF** to `C:\Users\ChaseAddison\Documents\GitHub\Test-Contract-Bonding\assets\first-time-bonding-readiness-checklist.pdf`.
-- [ ] **B.2 Add a Lead Magnet Banner/Section** in `index.html` right below `#who-qualifies` (or inside `#how-it-works`) with a button `"Download Free 1-Page Readiness Checklist (PDF)"` opening a clean `#checklist-modal`.
-- [ ] **B.3 Wire `#checklist-form` in `app.js`:**
-  - Fields: `Name`, `Company Name`, `Email`, `Phone (optional or required)`, `Province`, mandatory `privacyConsent` checkbox, and unbundled `marketingOptIn` checkbox.
-  - On submit, `POST /api/leads` with `lead_type: "checklist"` and `bond_type: "Checklist"`.
-  - In [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js#L21-L58), permit `lead_type: "checklist"` alongside `"contact"` and `"application"`.
-  - On `201 Created`, display a download button linking directly to `/assets/first-time-bonding-readiness-checklist.pdf` (`download` attribute) and trigger automatic download / email delivery!
+- [x] **B.1 Export PDF** to [assets/first-time-bonding-readiness-checklist.pdf](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/assets/first-time-bonding-readiness-checklist.pdf) via [generate-checklist-pdf.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/master-action-plan-and-todos/generate-checklist-pdf.js).
+  - [ ] **[Human Broker Review]:** Have a licensed Nexus broker review the exported PDF text & underwriting figures (`10%` working capital rule, financial tiers).
+- [x] **B.2 Add a Lead Magnet Banner/Section** in [index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html) right inside `#who-qualifies` with `"Download Free 1-Page Readiness Checklist (PDF)"` opening `#checklist-modal`.
+- [x] **B.3 Wire `#checklist-form` in [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js) & [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js):**
+  - Captures `Name`, `Company Name`, `Email`, `Phone (optional)`, `Province`, `crossSellInsurance`, mandatory `privacyConsent`, and unbundled `marketingOptIn`.
+  - Posts `lead_type: "checklist"` & `bond_type: "Checklist"` to `/api/leads` and reveals/triggers `/assets/first-time-bonding-readiness-checklist.pdf` on `201 Created`.

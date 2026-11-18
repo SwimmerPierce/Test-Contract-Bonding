@@ -7,37 +7,23 @@ This document provides exact line-by-line edits, copy, and drop-in HTML/JS bluep
 ## Section 1: Update `index.html` Entity Branding & Contact Details
 
 ### Todo Checklist
-- [ ] **1.1 Update `<meta name="description">` ([index.html#L16-L19](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L16-L19)):** Change `"with Trusted Broker Partner Nexus Insurance Brokers Ltd."` to `"— a surety bond service operated by Nexus Insurance Brokers Ltd. in Burnaby, BC, serving British Columbia and Alberta."`
-- [ ] **1.2 Update Top Utility Bar ([index.html#L38](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L38)):**
-  - *Replace:* `<span><strong>contractbonding.ca</strong> &bull; Trusted Broker Partner: Nexus Insurance Brokers Ltd. (Burnaby, BC)</span>`
-  - *With:* `<span><strong>contractbonding.ca</strong> &bull; Operated by <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC) &bull; <a href="tel:6044202501" style="color:inherit;text-decoration:underline;">604-420-2501</a></span>`
-- [ ] **1.3 Update Hero Eyebrow & Lead Paragraph ([index.html#L101-L109](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L101-L109)):**
-  - *Replace Line 101:* `contractbonding.ca &bull; Operated by Nexus Insurance Brokers Ltd.`
-  - *Replace Lines 104–109:* `"<strong>contractbonding.ca</strong> is a commercial and construction surety service operated by <strong>Nexus Insurance Brokers Ltd.</strong> (Burnaby, BC), licensed in British Columbia and Alberta to arrange Bid, Contract, Performance, and Administrative bonds quickly and competitively."`
-- [ ] **1.4 Update Section 6 "Who Qualifies" Copy ([index.html#L474](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L474)):**
-  - Change `"We arrange bonding facilities..."` to `"Nexus Insurance Brokers Ltd. arranges bonding facilities..."`
-- [ ] **1.5 Rewrite Section 8 (`#trusted-partners`) to Eliminate Independent-Entity Framing ([index.html#L560-L589](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L560-L589)):**
-  - Replace `"Trusted Broker Partners"` / `"contractbonding.ca works with vetted, licensed surety brokerages"` with:
-    - Eyebrow: `Operated by Nexus Insurance Brokers Ltd.`
-    - Heading: `Backed by Licensed BC & Alberta Surety Specialists`
-    - Subtext: `contractbonding.ca is operated by Nexus Insurance Brokers Ltd., a licensed insurance brokerage serving contractors, subtrades, and developers in British Columbia and Alberta (with licensed partner brokerage referrals across Canada).`
-    - Banner tag (`L573`): `Licensed Brokerage Operator`
-    - Banner paragraph (`L575-L579`): `Headquartered at #101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6 (Tel: 604-420-2501), Nexus Insurance Brokers Ltd. specializes in commercial insurance and construction surety bonds across British Columbia and Alberta.`
-- [ ] **1.6 DELETE Placeholder Testimonials ([index.html#L591-L607](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L591-L607)):**
-  - Remove both anonymous `blockquote.quote-card` blocks immediately (*Competition Act s. 52 & s. 74.01* and *ICBCouncil Code of Conduct*). Only add testimonials later when Nexus holds signed client consent and avoids confidential file details.
-- [ ] **1.7 Update Footer With Full Legal Name, Address, Phone, Hours, Jurisdictions & Legal Links ([index.html#L613-L662](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L613-L662)):**
-  - Add exact office address (`#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`), phone (`604-420-2501`), hours (`Mon–Fri, 8:30 AM – 4:30 PM PT`), copyright (`© 2026 Nexus Insurance Brokers Ltd. (contractbonding.ca). All rights reserved.`), and links to `/privacy` (`privacy.html`) and `/terms` (`terms.html`).
-- [ ] **1.8 Update Modal Eyebrows ([index.html#L670](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L670) & [L741](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L741)):**
-  - Replace `"Trusted Broker Partner: Nexus Insurance Brokers Ltd."` with `"Operated by Nexus Insurance Brokers Ltd. • Licensed in BC & Alberta"`.
+- [x] **1.1 Update `<meta name="description">` ([index.html#L16-L19](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L16-L19)):** Updated to `"— a surety bond service operated by Nexus Insurance Brokers Ltd. in Burnaby, BC, serving British Columbia and Alberta."`
+- [x] **1.2 Update Top Utility Bar ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Updated with `Operated by Nexus Insurance Brokers Ltd. (Burnaby, BC)` and clickable `tel:6044202501`.
+- [x] **1.3 Update Hero Eyebrow & Lead Paragraph ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Updated eyebrow and lead paragraph to state operated by Nexus Insurance Brokers Ltd., licensed in BC & Alberta.
+- [x] **1.4 Update Section 6 "Who Qualifies" Copy ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Changed `"We arrange bonding facilities..."` to `"Nexus Insurance Brokers Ltd. arranges bonding facilities..."`
+- [x] **1.5 Rewrite Section 8 (`#trusted-partners`) to Eliminate Independent-Entity Framing ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Rewrote eyebrow, heading, subtext, banner tag, and address/phone copy.
+- [x] **1.6 DELETE Placeholder Testimonials ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Removed both anonymous `blockquote.quote-card` blocks (*Competition Act s. 52 & s. 74.01* and *ICBCouncil Code of Conduct*).
+  - [ ] **[Human Post-Launch Action]:** Collect 2–3 real client testimonials with signed written marketing consent before re-enabling testimonials.
+- [x] **1.7 Update Footer With Full Legal Name, Address, Phone, Hours, Jurisdictions & Legal Links ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Added `#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`, `604-420-2501`, `Mon–Fri, 8:30 AM – 4:30 PM PT`, Privacy Officer contact, copyright, and links to `/privacy` and `/terms`.
+  - [ ] **[Human Decision / Action]:** Confirm live Privacy Officer mailbox (`privacy@nexusinsurancebrokers.com`) and verify copyright owner wording once Option 1 vs. Option 2 ownership is finalized.
+- [x] **1.8 Update Modal Eyebrows ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Replaced `"Trusted Broker Partner"` with `"Operated by Nexus Insurance Brokers Ltd. • Licensed in BC & Alberta"`.
 
 ---
 
 ## Section 2: Add Disclaimers & Fix Calculator Minimums
 
 ### Todo Checklist
-- [ ] **2.1 Update Calculator Logic in [app.js#L115-L174](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js#L115-L174):**
-  - Currently, entering `$10,000` (a TSBC electrical/gas bond or Alberta prepaid contractor bond) outputs `"$100 – $175 CAD"` (`1%–1.75%`), which is below typical minimum surety premiums (`$250–$500+`).
-  - Update `RATE_TABLE` / `updateCalculator()` in [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js#L115-L174) to apply realistic minimum annual premiums per category:
+- [x] **2.1 Update Calculator Logic in [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js#L115-L195):** Applied realistic minimum annual premiums per category (`contract: $500`, `bid: $250`, `administrative: $250`, `other: $350`):
 
 ```javascript
 const RATE_TABLE = {
@@ -76,10 +62,8 @@ function updateCalculator() {
 }
 ```
 
-- [ ] **2.2 Upgrade Calculator Disclaimer ([index.html#L449-L452](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L449-L452)):**
-  - Replace `.calc-result__disclaimer` with:
-    `"*Indicative estimate only and subject to insurer minimum premiums (typically $250–$500+ CAD) and formal surety underwriting. This calculator is not a quote, binder, or commitment to issue a bond."`
-- [ ] **2.3 Add 48-Hour Urgent Tender Warning Box Near `Required By Date` ([index.html#L818-L821](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L818-L821)):**
+- [x] **2.2 Upgrade Calculator Disclaimer ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Replaced `.calc-result__disclaimer` with minimum-premium and non-binding language.
+- [x] **2.3 Add 48-Hour Urgent Tender Warning Box Near `Required By Date` ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Added inside both `#contact-form` and `#apply-form`.
 
 ```html
 <div class="note-box" style="margin-top: 0.75rem; margin-bottom: 0.5rem;">
@@ -88,18 +72,22 @@ function updateCalculator() {
 </div>
 ```
 
-- [ ] **2.4 Add "No Bond or Coverage Bound Online" Notice Inside Both Forms & Success Screens ([index.html#L716-L731](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L716-L731), [L849-L864](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L849-L864)):**
-  - Add directly above submit buttons and inside `#contact-success` / `#apply-success`:
-    `<strong>Important Notice:</strong> Submitting this online form does not bind, issue, or guarantee any surety bond, Consent of Surety, or insurance coverage. No bond is in effect until underwritten and formally executed by an authorized Attorney-in-Fact of a licensed surety company.`
+- [x] **2.4 Add "No Bond or Coverage Bound Online" Notice Inside Both Forms & Success Screens ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Added `.no-bind-notice` directly above submit buttons and inside `#contact-success` / `#apply-success`.
 
 ---
 
 ## Section 3: Publish Privacy Policy (`privacy.html`) & Financial Products Disclosure / Terms (`terms.html`)
 
 ### Todo Checklist
-- [ ] **3.1 Create `privacy.html` in the repository root** (`vercel.json` has `"cleanUrls": true`, so `/privacy` works automatically) using the compliant draft text below.
-- [ ] **3.2 Create `terms.html` in the repository root** (`/terms`) containing the **BC Financial Products Disclosure Regulation (`B.C. Reg. 573/2004`)** notice and website Terms of Use.
-- [ ] **3.3 Link `/privacy` and `/terms` in the Footer and inside both `#contact-form` and `#apply-form`.**
+- [x] **3.0 Create Page Outline Subfolders First (Per Project Workflow Rule):**
+  - [notes/pages/privacy-policy/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/privacy-policy/01-page-outline-and-requirements.md)
+  - [notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md)
+- [ ] **3.1 Create `privacy.html` in the repository root** (`vercel.json` has `"cleanUrls": true`, so `/privacy` works automatically) using the compliant draft outline (`notes/pages/privacy-policy/01-page-outline-and-requirements.md`).
+  - [ ] **[Human Broker Review]:** Confirm live Privacy Officer contact & final cloud residency details with a licensed Nexus Level 3 broker before publishing.
+- [ ] **3.2 Create `terms.html` in the repository root** (`/terms`) containing the **BC Financial Products Disclosure Regulation (`B.C. Reg. 573/2004`)** notice and website Terms of Use (`notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md`).
+  - [ ] **[Deferred — Ownership Decision]:** Confirm Option 1 vs. Option 2 copyright/IP terms before finalizing `terms.html`.
+  - [ ] **[Human Broker Review]:** Confirm no insurer ownership conflict (`B.C. Reg. 573/2004`) and represented surety markets with Nexus's Level 3 Nominee before publishing.
+- [x] **3.3 Link `/privacy` and `/terms` in the Footer and inside `#contact-form`, `#apply-form`, and `#checklist-form`.**
 
 ### Ready-to-Use Content Blueprint for `privacy.html`
 Must include all of the following sections (verified for **BC PIPA s. 5–10, 34** and **Alberta PIPA s. 6(2), 13.1, 34, 34.1**):
@@ -133,8 +121,8 @@ Must include:
 ## Section 4: Form Checkboxes, Province Selector & Commercial Insurance Cross-Sell
 
 ### Todo Checklist
-- [ ] **4.1 Replace/Upgrade Location Input With Explicit Province/Territory Dropdown** in `#contact-form` ([index.html#L692-L707](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L692-L707)) and `#apply-form` ([index.html#L773-L777](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html#L773-L777)).
-- [ ] **4.2 Add the 3 Checkboxes Below** to **both** `#contact-form` and `#apply-form`, update [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js#L301-L511) to validate required consent and serialize all new fields, and update [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js) + [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js).
+- [x] **4.1 Replace/Upgrade Location Input With Explicit Province/Territory Dropdown** in `#contact-form`, `#apply-form`, and `#checklist-form` ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)).
+- [x] **4.2 Add the 3 Checkboxes Below** to `#contact-form`, `#apply-form`, and `#checklist-form`, updated [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js) to validate required consent and serialize all new fields, and updated [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js) + [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js).
 
 ### Drop-In HTML Snippet for Forms (Province + Cross-Sell + Privacy/Referral + Unbundled CASL)
 

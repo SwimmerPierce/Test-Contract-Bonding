@@ -44,6 +44,8 @@
   const detailLeadId = document.getElementById("detail-lead-id");
   const detailStatus = document.getElementById("detail-status");
   const detailReferenceReadonly = document.getElementById("detail-reference-readonly");
+  const detailAssignedBroker = document.getElementById("detail-assigned-broker");
+  const detailSupervisingAgent = document.getElementById("detail-supervising-agent");
   const detailAdminNotes = document.getElementById("detail-admin-notes");
   const detailDeleteBtn = document.getElementById("detail-delete-btn");
 
@@ -257,7 +259,10 @@
           lead.email,
           lead.phone,
           lead.city,
+          lead.province,
           lead.obligee,
+          lead.assigned_broker,
+          lead.supervising_agent,
           lead.notes,
           lead.admin_notes,
         ]
@@ -292,9 +297,12 @@
     leadsTbody.innerHTML = rows
       .map((lead) => {
         const isApp = lead.lead_type === "application";
+        const isChecklist = lead.lead_type === "checklist";
         const typeBadge = isApp
           ? '<span class="badge badge--application">Application</span>'
-          : '<span class="badge badge--contact">Inquiry</span>';
+          : isChecklist
+            ? '<span class="badge badge--checklist">Checklist</span>'
+            : '<span class="badge badge--contact">Inquiry</span>';
 
         const statusOptions = statuses
           .map(
@@ -305,13 +313,43 @@
           )
           .join("");
 
+        const prov = String(lead.province || "").trim();
+        let provinceBadge = "";
+        if (prov) {
+          if (prov === "BC") {
+            provinceBadge = '<span class="badge badge--province">BC</span>';
+          } else if (prov === "AB") {
+            provinceBadge = '<span class="badge badge--alberta">AB &bull; AIC Route</span>';
+          } else {
+            provinceBadge = `<span class="badge badge--referral">REFERRAL: ${escapeHtml(prov)}</span>`;
+          }
+        }
+
+        const crossSellBadge = lead.cross_sell_insurance
+          ? '<span class="badge badge--cross-sell">+CGL Cross-Sell</span>'
+          : "";
+
+        let caslBadge = "";
+        if (lead.marketing_opt_in) {
+          caslBadge = '<span class="badge badge--casl-express">Express Opt-In</span>';
+        } else if (lead.casl_implied_expires_at) {
+          const expDateStr = String(lead.casl_implied_expires_at).slice(0, 10);
+          const isExpired = Date.parse(lead.casl_implied_expires_at) < Date.now();
+          caslBadge = isExpired
+            ? `<span class="badge badge--casl-expired">CASL Expired: ${escapeHtml(expDateStr)}</span>`
+            : `<span class="badge badge--casl-implied">Implied: Expires ${escapeHtml(expDateStr)}</span>`;
+        }
+
         const locationOrNotes = [
           lead.city ? `Location: ${lead.city}` : null,
           lead.obligee ? `Obligee: ${lead.obligee}` : null,
+          lead.assigned_broker ? `Broker: ${lead.assigned_broker}` : null,
           lead.notes ? lead.notes : null,
         ]
           .filter(Boolean)
           .join(" • ");
+
+        const badgesHtml = [provinceBadge, crossSellBadge, caslBadge].filter(Boolean).join("");
 
         return `
           <tr data-lead-id="${lead.id}">
@@ -334,6 +372,7 @@
             </td>
             <td>
               <span class="cell-sub">${escapeHtml(locationOrNotes || "—")}</span>
+              ${badgesHtml ? `<div class="cell-badges">${badgesHtml}</div>` : ""}
             </td>
             <td>
               <select class="status-select" data-status-lead-id="${lead.id}" aria-label="Lead status">
@@ -395,14 +434,38 @@
     detailLeadId.value = String(lead.id);
     detailStatus.value = lead.status || "New";
     detailReferenceReadonly.value = lead.reference_id || `#${lead.id}`;
+    if (detailAssignedBroker) {
+      const val = lead.assigned_broker || "";
+      const hasOption = Array.from(detailAssignedBroker.options).some((opt) => opt.value === val);
+      if (val && !hasOption) {
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = val;
+        detailAssignedBroker.appendChild(opt);
+      }
+      detailAssignedBroker.value = val;
+    }
+    if (detailSupervisingAgent) {
+      detailSupervisingAgent.value = lead.supervising_agent || "";
+    }
     detailAdminNotes.value = lead.admin_notes || "";
 
     detailEyebrow.textContent =
-      lead.lead_type === "application" ? "Surety Bond Application" : "Contact Us Inquiry";
+      lead.lead_type === "application"
+        ? "Surety Bond Application"
+        : lead.lead_type === "checklist"
+          ? "Readiness Checklist Download"
+          : "Contact Us Inquiry";
     detailTitle.textContent = lead.company_name || "Lead Record";
     detailSubtitle.textContent = `Submitted ${formatDate(lead.created_at)} • Reference ${
       lead.reference_id || `#${lead.id}`
     }`;
+
+    const caslDisplay = lead.marketing_opt_in
+      ? "Express Opt-In"
+      : lead.casl_implied_expires_at
+        ? `Implied (Expires ${String(lead.casl_implied_expires_at).slice(0, 10)})`
+        : "—";
 
     const fields = [
       ["Contact Name", lead.contact_name],
@@ -411,7 +474,8 @@
       ["Phone Number", lead.phone],
       ["Bond Type", lead.bond_type],
       ["Estimated Bond Amount", formatCurrency(lead.amount)],
-      ["City / Province", lead.city || "—"],
+      ["City / Municipality", lead.city || "—"],
+      ["Province / Territory", lead.province || "—"],
       [
         "Years in Business",
         lead.years_in_business !== null && lead.years_in_business !== undefined
@@ -423,6 +487,11 @@
       ["Required By Date", lead.required_date || "—"],
       ["Financial Statements", lead.financials || "—"],
       ["Prior Surety", lead.prior_surety || "—"],
+      ["Commercial Insurance Cross-Sell", lead.cross_sell_insurance ? "YES — Requested CGL/Bundle" : "No"],
+      ["Privacy & Referral Consent", lead.privacy_consent ? "Confirmed" : "Not recorded"],
+      ["CASL Marketing Status", caslDisplay],
+      ["Assigned Broker", lead.assigned_broker || "Unassigned"],
+      ["Supervising Level 2/3 Agent", lead.supervising_agent || "Pending sign-off"],
       ["Last Updated", formatDate(lead.updated_at)],
       ["Client Notes / Scope", lead.notes || "—", true],
     ];
@@ -464,13 +533,21 @@
       const id = Number(detailLeadId.value);
       const status = detailStatus.value;
       const admin_notes = detailAdminNotes.value;
+      const assigned_broker = detailAssignedBroker ? detailAssignedBroker.value : undefined;
+      const supervising_agent = detailSupervisingAgent ? detailSupervisingAgent.value : undefined;
 
       try {
         const res = await fetch("/api/leads", {
           method: "PATCH",
           headers: getAuthHeaders({ "Content-Type": "application/json" }),
           credentials: "same-origin",
-          body: JSON.stringify({ id, status, admin_notes }),
+          body: JSON.stringify({
+            id,
+            status,
+            admin_notes,
+            assigned_broker,
+            supervising_agent,
+          }),
         });
         const data = await res.json();
         if (!res.ok || !data.ok) {
@@ -537,10 +614,13 @@
         contact_name: String(formData.get("contact_name") || "").trim(),
         email: String(formData.get("email") || "").trim(),
         phone: String(formData.get("phone") || "").trim(),
-        city: String(formData.get("city") || "").trim() || "Burnaby, BC",
+        city: String(formData.get("city") || "").trim() || "Burnaby",
+        province: String(formData.get("province") || "BC").trim(),
         years_in_business: 5,
         amount: Number(formData.get("amount") || 100000),
         notes: String(formData.get("notes") || "").trim(),
+        privacy_consent: true,
+        consent_timestamp: new Date().toISOString(),
       };
 
       try {
@@ -602,12 +682,21 @@
         "Bond Type",
         "Amount CAD",
         "City",
+        "Province",
         "Years in Business",
         "Business Structure",
         "Obligee",
         "Required Date",
         "Financials",
         "Prior Surety",
+        "Cross-Sell Insurance",
+        "Privacy Consent",
+        "Referral Consent",
+        "Marketing Opt-In",
+        "Consent Timestamp",
+        "CASL Implied Expires At",
+        "Assigned Broker",
+        "Supervising Agent",
         "Client Notes",
         "Admin Notes",
         "Created At",
@@ -636,12 +725,21 @@
             l.bond_type,
             l.amount ?? "",
             l.city ?? "",
+            l.province ?? "",
             l.years_in_business ?? "",
             l.business_structure ?? "",
             l.obligee ?? "",
             l.required_date ?? "",
             l.financials ?? "",
             l.prior_surety ?? "",
+            l.cross_sell_insurance ? "true" : "false",
+            l.privacy_consent ? "true" : "false",
+            l.referral_consent ? "true" : "false",
+            l.marketing_opt_in ? "true" : "false",
+            l.consent_timestamp ?? "",
+            l.casl_implied_expires_at ?? "",
+            l.assigned_broker ?? "",
+            l.supervising_agent ?? "",
             l.notes ?? "",
             l.admin_notes ?? "",
             l.created_at ?? "",

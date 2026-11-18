@@ -12,6 +12,10 @@ const {
   isRequestAuthenticated,
   buildSessionCookie,
   buildLogoutCookie,
+  getClientIp,
+  checkRateLimit,
+  recordFailedAttempt,
+  clearFailedAttempts,
 } = require("../lib/auth");
 const { sendJson, readJsonBody } = require("../lib/http");
 
@@ -36,16 +40,32 @@ module.exports = async function handler(req, res) {
         });
       }
 
+      const clientIp = getClientIp(req);
+      const rateStatus = await checkRateLimit(clientIp);
+      if (rateStatus.blocked) {
+        return sendJson(
+          res,
+          429,
+          {
+            ok: false,
+            error: "Too many failed login attempts. Please try again in 15 minutes.",
+          },
+          { "Retry-After": String(rateStatus.retryAfterSeconds || 900) }
+        );
+      }
+
       const body = await readJsonBody(req);
       const password = String(body.password || "");
 
       if (!verifyPassword(password)) {
+        await recordFailedAttempt(clientIp);
         return sendJson(res, 401, {
           ok: false,
           error: "Invalid admin password. Please try again.",
         });
       }
 
+      await clearFailedAttempts(clientIp);
       const token = createSessionToken();
       const cookie = buildSessionCookie(token, isSecure);
 
