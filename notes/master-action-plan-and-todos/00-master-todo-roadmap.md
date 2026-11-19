@@ -1,5 +1,3 @@
-I do not want my name on the website (change the footer, test-suite.js index.html and terms.html) there should not be a legal issue with this based on examples I have seen on other companies marketing sitesi
-
 # Master Action Plan & Sequenced Todo Roadmap (`contractbonding.ca`)
 
 This folder contains the complete technical, legal/compliance, and marketing execution blueprints for everything required to take `https://test-contract-bonding.vercel.app/` live on `contractbonding.ca` safely and profitably.
@@ -35,7 +33,7 @@ This folder contains the complete technical, legal/compliance, and marketing exe
     1. [01_Domain_and_Platform_License_Addendum_(Execution_Ready).docx](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package/01_Domain_and_Platform_License_Addendum_(Execution_Ready).docx) (Chase Pierce Addison, Kenneth James Addison, and Vice President / Minority Shareholder)
     2. [02_BCBCA_Related_Party_Resolution_(Minute_Book).docx](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package/02_BCBCA_Related_Party_Resolution_(Minute_Book).docx) (Kenneth James Addison and Vice President / Minority Shareholder — BCBCA ss. 147–149 & s. 227 unanimous shareholder approval)
   - [ ] **[Human Admin — Minute Book & CRM]:** Place both signed documents in Nexus's corporate minute book and create the `"CB-WEB"` source tracking tag in Nexus's CRM / BMS (per [03_Summary_and_Signing_Checklist_for_Ken.docx](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package/03_Summary_and_Signing_Checklist_for_Ken.docx)).
-  - [X] **[Website Update]:** Updated website copyright/IP attribution in [index.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/index.html) and [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) to reflect the Option 1 Licensing Structure (Platform IP owned by Chase Pierce Addison; surety brokerage service operated under exclusive license by Nexus Insurance Brokers Ltd.).
+  - [X] **[Website Update]:** Updated website copyright/IP attribution in [index.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/index.html) and [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) (and verified in [test-suite.js](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/test-suite.js)) to reflect the Option 1 exclusive operating license by Nexus Insurance Brokers Ltd. without exposing Chase's personal name on the public site.
 - [ ] **Notify Nexus's E&O Insurer (`Rule 7(11)` / Addendum §4.3), File DBA / Trade Name Updates (`Rule 7(3)(d)` / `AB s. 490` / Addendum §2.2), and Sign Level 1 Supervision Protocol (`Rule 6(1)(a) & (c)`):**
   - [ ] **[Human Action — Ken / Level 3 Nominee]:** Send the written E&O notification confirming `contractbonding.ca` is an approved online surety channel/DBA of Nexus and complete any required BC Corporate Registry / ICBC / AIC DBA filings (reference templates in [notes/legal_package/archive/option-1-personal-ip-license/02-regulatory-dba-and-eo-notification-templates.md](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package/archive/option-1-personal-ip-license/02-regulatory-dba-and-eo-notification-templates.md)).
   - [ ] **[Human Action — Chase & Ken]:** Execute the Level 1 Supervision Protocol (`Rule 6(1)(a) & (c)`) prohibiting any Level 1 broker from signing/sealing bonds or Consents of Surety (template in [notes/legal_package/archive/option-1-personal-ip-license/03-level-1-supervision-and-operating-protocol.md](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package/archive/option-1-personal-ip-license/03-level-1-supervision-and-operating-protocol.md)).
@@ -54,12 +52,9 @@ This folder contains the complete technical, legal/compliance, and marketing exe
 - [X] **2. Delete Placeholder Testimonials:** Removed both anonymous `blockquote.quote-card` blocks from [index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html) (*Competition Act s. 52 & s. 74.01* / *ICBCouncil Code of Conduct*).
 
   - [ ] **[Human Post-Launch Action]:** Collect 2–3 real client testimonials with signed written marketing consent (and zero confidential file details) before adding any new testimonials block later.
-- [X] **3. Add Nexus Physical Address, Phone, Hours & Privacy Officer Contact:** Added `#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`, `604-420-2501`, `Mon–Fri, 8:30 AM – 4:30 PM PT`, and Designated Privacy Officer contact (`privacy@nexusinsurancebrokers.com`) to the top bar, Section 8, footer, modals, and confirmation emails.
+- [X] **3. Add Nexus Physical Address, Phone, Hours & Privacy Officer Contact:** Added `#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`, `604-420-2501`, `Mon–Fri, 8:30 AM – 4:30 PM PT`, and Designated Privacy Officer contact (`info@nexusinsurancebrokers.com`) to the top bar, Section 8, footer, modals, and confirmation emails.
 
-  - [ ] **[Human Action — Nexus Admin]:** Confirm that `privacy@nexusinsurancebrokers.com` is an active monitored mailbox (or update the footer/Privacy Policy to Nexus's preferred Privacy Officer email address).
-
-  > Chase Note: `privacy@nexusinsurancebrokers.com` is not a valid email address, they send emails to `info@nexusinsurancebrokers.com`  for any issues
-  >
+  - [X] **[Confirmed — Nexus Admin]:** Privacy Officer / general issues mailbox confirmed as `info@nexusinsurancebrokers.com` (`privacy@nexusinsurancebrokers.com` is not a valid address; updated [index.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/index.html) and [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) footers accordingly).
 - [X] **4. Add Disclaimers & Fix Calculator Minimums:** Added *"Submitting this online form does not bind coverage..."* notices above submit buttons and inside success screens, added *"Tender closing within 48 hours? Call 604-420-2501"* warning boxes in both modals, upgraded the calculator disclaimer, and enforced minimum bond premiums (`$250–$500+` floor) in [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js#L115-L195).
 - [ ] **5. Publish Privacy Policy (`privacy.html`) & Financial Products Disclosure / Terms (`terms.html`):**
 
@@ -67,7 +62,7 @@ This folder contains the complete technical, legal/compliance, and marketing exe
     - [ ] **[Finish Page]:** Build `privacy.html` in the repository root using the shared header/footer/modals and approved outline.
     - [ ] **[Human Broker Review]:** Confirm live Privacy Officer name/email, verify production cloud hosting regions (`yul1` Montréal, `aws-ca-central-1`, email API), and have a licensed Nexus Level 3 broker approve `privacy.html` before publishing and uncommenting `/privacy` in [sitemap.xml](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/sitemap.xml).
   - [X] Created dedicated outline subfolder for **Terms & B.C. Reg. 573/2004 Disclosures** (`terms.html` / `/terms`): [notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md).
-    - [X] **Ownership & IP Attribution Confirmed:** Option 1 Licensing Structure finalized in [notes/legal_package/](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package) (Chase Pierce Addison retains domain/IP title; Nexus Insurance Brokers Ltd. holds exclusive operating license) — apply this attribution to `terms.html`.
+    - [X] **Ownership & IP Attribution Confirmed:** Option 1 Licensing Structure finalized in [notes/legal_package/](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/notes/legal_package) (Nexus Insurance Brokers Ltd. holds exclusive operating license; personal name omitted from public-facing website copy per owner preference).
     - [X] **[Finish Page]:** Built [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) in the repository root using the shared header/footer/modals, Option 1 IP attribution, and approved `B.C. Reg. 573/2004` outline.
     - [ ] **[Human Broker Review]:** Have Nexus's Level 3 Nominee confirm the `B.C. Reg. 573/2004` statement (no insurer ownership conflict + represented surety list) and approve `terms.html` before publishing and uncommenting `/terms` in [sitemap.xml](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/sitemap.xml).
 - [X] **6. Update Modals & Database Schema for Form Checkboxes:** Added required Province dropdown, **Commercial Insurance Cross-Sell Checkbox**, mandatory Privacy/Referral consent, and unbundled **CASL Express Marketing Opt-In** across `#contact-form`, `#apply-form`, `#checklist-form`, [app.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/app.js), [api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js), and [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js).
@@ -81,16 +76,12 @@ This folder contains the complete technical, legal/compliance, and marketing exe
 - [ ] **7. Set Up Corporate Broker Mailboxes & Instant Lead Alert Infrastructure:**
   - **7A. Corporate Business Inboxes (Day-to-Day Human Broker Email):**
 
-    - [ ] **[Human Action — Email Provider Selection]:** Choose between **Google Workspace** (recommended for simplicity, top deliverability, and familiar Gmail UI at ~$7.20 CAD/mo) or **Microsoft 365** (industry standard for insurance brokerages running Outlook/BMS systems at ~$7.70 CAD/mo).
-
-    > Chase Note: I will go with **Google Workspace** but have not set it up yet
-    >
-
-    - [ ] **[Human Action — Mailbox & Alias Setup]:** Provision the primary broker user account (`chase@contractbonding.ca` or use existing `chase@nexusinsurancebrokers.com`), and configure free aliases or shared mailboxes for:
+    - [X] **[Decision — Email Provider Selected]:** Selected **Google Workspace** (not yet provisioned).
+    - [ ] **[Human Action — Google Workspace Account & Alias Setup]:** Provision the Google Workspace account and primary broker user (`chase@contractbonding.ca`, or route to existing `chase@nexusinsurancebrokers.com`), and configure free aliases or shared groups for:
       - `info@contractbonding.ca` (general inquiries & website contact)
       - `bonds@contractbonding.ca` (tender bond requests & submissions)
-      - `privacy@nexusinsurancebrokers.com` (Designated Privacy Officer inbox required by BC PIPA)
-    - [ ] **[Human Action — DNS MX Records]:** Add primary MX records and TXT verification records to your domain DNS host (e.g., Google or Microsoft MX records for `contractbonding.ca`).
+      - *(Note: Designated Privacy Officer / BC PIPA inquiries use Nexus's existing `info@nexusinsurancebrokers.com` mailbox — no `privacy@` mailbox needed.)*
+    - [ ] **[Human Action — Google Workspace DNS MX Records]:** Add Google Workspace MX records and TXT domain verification records to your DNS host for `contractbonding.ca`.
   - **7B. Transactional Email Alerts & Automated Lead Dispatch ([api/leads.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/api/leads.js)):**
 
     - [X] Created zero-dependency Resend helper [lib/email.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/email.js) (`[URGENT TENDER]`, `[ALBERTA LEAD — ROUTE TO AIC-LICENSED BROKER]`, `[REFERRAL: ...]`, `[+CGL CROSS-SELL]`, and CASL-compliant applicant confirmation), wired safely into `POST /api/leads`, and documented env vars in [.env.example](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/.env.example).
@@ -154,10 +145,7 @@ This folder contains the complete technical, legal/compliance, and marketing exe
     - [ ] **[Human Licensing Gate]:** Launch ONLY after Chase's individual AIC Non-Resident Level 1 Licence (`abcouncil.ab.ca`) or verified AIC broker routing is live.
     - [ ] **[Finish Page]:** Build `calgary-edmonton-surety-bonds.html` in root (pre-selecting `Contract`).
     - [ ] **[Human Broker Review]:** Have an AIC-licensed Nexus broker verify Alberta statutory references before publishing.
-  - [ ] **[Human Action — Google Business Profile]:** Verify/optimize Nexus's Burnaby GBP (`#101 – 4268 Lozells Avenue`), add Surety Bonds / Construction Bonding services, upload real office/team photos, and link `contractbonding.ca` once live.
-
-  > Chase Note: I am not sure on this as Nexus's current GBP has the nexus url on it and there will be some distiction between the brands. unless there is a legal oblication I would prefer to not have to manage a GBP for the website.
-  >
+  - [X] **[Waived — Google Business Profile (No Legal Obligation)]:** Skipped per owner decision. There is no legal or regulatory obligation to create a separate GBP for `contractbonding.ca` or link it from Nexus's existing GBP, preserving brand distinction between Nexus's main site and `contractbonding.ca`.
 - [ ] **14. Launch Surgical Google Search Ads (Channel 3):**
 
   - [X] Prepared campaign build sheet, 4 exact/phrase ad groups, compliant RSA copy, master negative keyword list, and conversion tracking rules in [notes/channel-3-google-ads/01-google-ads-campaign-import-and-verification-pack.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/channel-3-google-ads/01-google-ads-campaign-import-and-verification-pack.md).
