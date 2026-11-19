@@ -51,6 +51,6 @@
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/burnaby-vancouver-surety-bonds/01-page-outline-and-requirements.md`.
-- [ ] Build `burnaby-vancouver-surety-bonds.html` in root (with local Burnaby `InsuranceAgency` JSON-LD and `Contract` pre-selected in modals).
+- [x] Build `burnaby-vancouver-surety-bonds.html` in root (with local Burnaby `InsuranceAgency` JSON-LD and `Contract` pre-selected in modals).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus broker confirm exact Burnaby office parking/appointment instructions, Google Business Profile link consistency, and Lower Mainland obligee examples before publishing.
 - [ ] Uncomment `/burnaby-vancouver-surety-bonds` in `sitemap.xml` once approved.

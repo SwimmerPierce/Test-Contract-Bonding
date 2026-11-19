@@ -58,6 +58,6 @@
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/bc-electrical-gas-contractor-bond/01-page-outline-and-requirements.md`.
-- [ ] Build `bc-electrical-gas-contractor-bond.html` in root (reusing `styles.css` & `app.js` and pre-selecting `Administrative` bond type in modals and calculator default `$10,000`).
+- [x] Build `bc-electrical-gas-contractor-bond.html` in root (reusing `styles.css` & `app.js` and pre-selecting `Administrative` bond type in modals and calculator default `$10,000`).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus broker verify current TSBC bond form wording, current minimum annual premium (`$250–$350`), and whether TSBC currently accepts digital e-bonds or requires wet-ink originals.
 - [ ] Uncomment `/bc-electrical-gas-contractor-bond` in `sitemap.xml` and link from `index.html` footer/nav once approved.

@@ -52,6 +52,6 @@
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/bid-bonds-bc/01-page-outline-and-requirements.md`.
-- [ ] Build `bid-bonds-bc.html` in root (pre-selecting `Bid` in modals and highlighting the 48-hour urgent tender phone rule).
+- [x] Build `bid-bonds-bc.html` in root (pre-selecting `Bid` in modals and highlighting the 48-hour urgent tender phone rule).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus Level 3 broker verify digital E-Bond platform claims, Bid Bond minimum fees (`$250` vs. `$0` on active facilities), and CCDC 220 / statutory bid bond wording before publishing.
 - [ ] Uncomment `/bid-bonds-bc` in `sitemap.xml` once approved.

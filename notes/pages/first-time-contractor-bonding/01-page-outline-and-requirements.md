@@ -56,6 +56,6 @@ Embed the clean 4-tier matrix from `04-first-time-bonding-readiness-checklist-le
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/first-time-contractor-bonding/01-page-outline-and-requirements.md`.
-- [ ] Build `first-time-contractor-bonding.html` in root (pre-selecting `Contract` in modals and wiring `#checklist-modal`).
+- [x] Build `first-time-contractor-bonding.html` in root (pre-selecting `Contract` in modals and wiring `#checklist-modal`).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus Level 3 broker verify the emerging-contractor financial thresholds (`$250k–$500k` Compilation vs. `$1M+` Review Engagement), `$0` standby facility phrasing, and General Indemnity Agreement (GIA) explanation before publishing.
 - [ ] Uncomment `/first-time-contractor-bonding` in `sitemap.xml` once approved.

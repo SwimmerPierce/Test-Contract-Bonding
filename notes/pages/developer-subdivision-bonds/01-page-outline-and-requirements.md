@@ -54,6 +54,6 @@ Create a clear comparison table:
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/developer-subdivision-bonds/01-page-outline-and-requirements.md`.
-- [ ] Build `developer-subdivision-bonds.html` in root (pre-selecting `Other` in modals and linking LOC replacement calculator).
+- [x] Build `developer-subdivision-bonds.html` in root (pre-selecting `Other` in modals and linking LOC replacement calculator).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus Level 3 broker confirm current list of Metro Vancouver / Fraser Valley / Alberta municipalities accepting developer surety bonds vs. LOCs and verify underwriting liquidity requirements before publishing.
 - [ ] Uncomment `/developer-subdivision-bonds` in `sitemap.xml` once approved.

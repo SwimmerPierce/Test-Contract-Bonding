@@ -46,6 +46,6 @@
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/calgary-edmonton-surety-bonds/01-page-outline-and-requirements.md`.
 - [ ] **GATE:** Confirm Chase's individual AIC Non-Resident Level 1 Licence (`abcouncil.ab.ca`) is issued OR confirm live `/admin` routing to an individually AIC-licensed Nexus broker.
-- [ ] Build `calgary-edmonton-surety-bonds.html` in root (with `Contract` pre-selected and Alberta timezone hours noted).
+- [x] Build `calgary-edmonton-surety-bonds.html` in root (with `Contract` pre-selected and Alberta timezone hours noted).
 - [ ] **[Human Broker Review]:** Have an individually AIC-licensed Nexus broker verify Alberta *Public Works Act*, *Prompt Payment and Construction Lien Act*, and AIC disclosure copy before publishing.
 - [ ] Uncomment `/calgary-edmonton-surety-bonds` in `sitemap.xml` once approved.

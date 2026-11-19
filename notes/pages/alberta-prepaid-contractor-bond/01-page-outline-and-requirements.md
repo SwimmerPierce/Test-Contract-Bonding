@@ -51,6 +51,6 @@
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/alberta-prepaid-contractor-bond/01-page-outline-and-requirements.md`.
 - [ ] Confirm Chase's individual AIC Non-Resident Level 1 Licence (`abcouncil.ab.ca`) OR verify 100% automatic routing in `/admin` to an individually AIC-licensed Nexus broker before running ads to this page.
-- [ ] Build `alberta-prepaid-contractor-bond.html` in root (pre-selecting `Administrative` and defaulting Province option awareness / calculator to `$10,000`).
+- [x] Build `alberta-prepaid-contractor-bond.html` in root (pre-selecting `Administrative` and defaulting Province option awareness / calculator to `$10,000`).
 - [ ] **[Human Broker Review]:** Have an AIC-licensed Nexus broker verify current Service Alberta bond amounts (`$10k` vs. `$25k`), wet-ink courier procedures, and Alberta regulatory wording before publishing.
 - [ ] Uncomment `/alberta-prepaid-contractor-bond` in `sitemap.xml` once approved.

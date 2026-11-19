@@ -50,6 +50,6 @@
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/performance-and-payment-bonds/01-page-outline-and-requirements.md`.
-- [ ] Build `performance-and-payment-bonds.html` in root (pre-selecting `Contract` in modals and linking calculator + checklist PDF modal).
+- [x] Build `performance-and-payment-bonds.html` in root (pre-selecting `Contract` in modals and linking calculator + checklist PDF modal).
 - [ ] **[Human Broker Review]:** Have a licensed Nexus Level 3 broker verify CCDC 221/222 terminology, 50% vs. 100% rating explanation, and BC *Builders Lien Act* / prompt payment commentary before publishing.
 - [ ] Uncomment `/performance-and-payment-bonds` in `sitemap.xml` once approved.

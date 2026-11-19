@@ -59,14 +59,14 @@ This playbook breaks down **Channels 1–5** into executable sub-tasks, outreach
   - [notes/pages/burnaby-vancouver-surety-bonds/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/burnaby-vancouver-surety-bonds/01-page-outline-and-requirements.md)
   - [notes/pages/calgary-edmonton-surety-bonds/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/calgary-edmonton-surety-bonds/01-page-outline-and-requirements.md)
 - [ ] **2.2b Build & Have Human Broker Review All 8 SEO Landing Pages Using the Spec Table Below:**
-  - [ ] Build & broker-review `/bc-electrical-gas-contractor-bond` (`bc-electrical-gas-contractor-bond.html`)
-  - [ ] Build & broker-review `/alberta-prepaid-contractor-bond` (`alberta-prepaid-contractor-bond.html` — gated on AIC licensing/routing)
-  - [ ] Build & broker-review `/bid-bonds-bc` (`bid-bonds-bc.html`)
-  - [ ] Build & broker-review `/performance-and-payment-bonds` (`performance-and-payment-bonds.html`)
-  - [ ] Build & broker-review `/developer-subdivision-bonds` (`developer-subdivision-bonds.html`)
-  - [ ] Build & broker-review `/first-time-contractor-bonding` (`first-time-contractor-bonding.html`)
-  - [ ] Build & broker-review `/burnaby-vancouver-surety-bonds` (`burnaby-vancouver-surety-bonds.html`)
-  - [ ] Build & broker-review `/calgary-edmonton-surety-bonds` (`calgary-edmonton-surety-bonds.html` — gated on AIC licensing/routing)
+  - [ ] Build *(done)* & broker-review `/bc-electrical-gas-contractor-bond` ([bc-electrical-gas-contractor-bond.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/bc-electrical-gas-contractor-bond.html))
+  - [ ] Build *(done)* & broker-review `/alberta-prepaid-contractor-bond` ([alberta-prepaid-contractor-bond.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/alberta-prepaid-contractor-bond.html) — gated on AIC licensing/routing)
+  - [ ] Build *(done)* & broker-review `/bid-bonds-bc` ([bid-bonds-bc.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/bid-bonds-bc.html))
+  - [ ] Build *(done)* & broker-review `/performance-and-payment-bonds` ([performance-and-payment-bonds.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/performance-and-payment-bonds.html))
+  - [ ] Build *(done)* & broker-review `/developer-subdivision-bonds` ([developer-subdivision-bonds.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/developer-subdivision-bonds.html))
+  - [ ] Build *(done)* & broker-review `/first-time-contractor-bonding` ([first-time-contractor-bonding.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/first-time-contractor-bonding.html))
+  - [ ] Build *(done)* & broker-review `/burnaby-vancouver-surety-bonds` ([burnaby-vancouver-surety-bonds.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/burnaby-vancouver-surety-bonds.html))
+  - [ ] Build *(done)* & broker-review `/calgary-edmonton-surety-bonds` ([calgary-edmonton-surety-bonds.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/calgary-edmonton-surety-bonds.html) — gated on AIC licensing/routing)
 
 | URL Slug (`cleanUrls`) | Primary Keyword Target | H1 Headline & Angle | Pre-Selected Modal Bond Type |
 | :--- | :--- | :--- | :--- |
