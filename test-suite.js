@@ -87,6 +87,41 @@ async function runTests() {
       termsHtml.includes("exclusive operating license by") && !termsHtml.includes("Chase Pierce Addison"),
       "/terms should reflect exclusive license without exposing personal name"
     );
+
+    const privacyRes = await fetch(`${baseUrl}/privacy`);
+    assert.strictEqual(privacyRes.status, 200, "/privacy should return 200");
+    const privacyHtml = await privacyRes.text();
+    assert.ok(privacyHtml.includes("AB PIPA s. 13.1"), "/privacy should include AB PIPA cross-border disclosure");
+    assert.ok(
+      privacyHtml.includes("info@nexusinsurancebrokers.com") &&
+        privacyHtml.includes("yul1") &&
+        !privacyHtml.includes("Chase Pierce Addison"),
+      "/privacy should list confirmed Privacy Officer email, yul1 region, and omit personal name"
+    );
+
+    const seoSlugs = [
+      "bc-electrical-gas-contractor-bond",
+      "alberta-prepaid-contractor-bond",
+      "bid-bonds-bc",
+      "performance-and-payment-bonds",
+      "developer-subdivision-bonds",
+      "first-time-contractor-bonding",
+      "burnaby-vancouver-surety-bonds",
+      "calgary-edmonton-surety-bonds",
+    ];
+    for (const slug of seoSlugs) {
+      const seoRes = await fetch(`${baseUrl}/${slug}`);
+      assert.strictEqual(seoRes.status, 200, `/${slug} should return 200`);
+      const seoHtml = await seoRes.text();
+      assert.ok(
+        seoHtml.includes(`https://contractbonding.ca/${slug}`),
+        `/${slug} should include its canonical URL`
+      );
+      assert.ok(
+        seoHtml.includes("Nexus Insurance Brokers Ltd.") && !seoHtml.includes("Chase Pierce Addison"),
+        `/${slug} should attribute Nexus Insurance Brokers Ltd. without exposing personal name`
+      );
+    }
     const sitemapXml = await sitemapRes.text();
     assert.ok(sitemapXml.includes("https://contractbonding.ca/"), "sitemap.xml should include canonical root URL");
 

@@ -57,7 +57,7 @@
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/privacy-policy/01-page-outline-and-requirements.md`.
-- [ ] Build `privacy.html` in the repository root using the shared site header/footer/modals and the approved outline above.
-- [ ] **[Human Broker Review]:** Confirm the exact live Privacy Officer email address (`privacy@nexusinsurancebrokers.com` vs. existing Nexus email) and name of the Designated Privacy Officer.
-- [ ] **[Human Broker Review]:** Verify exact cloud regions (`yyz1` Vercel, `aws-ca-central-1` Neon, Resend US/EU/CA data residency) match production settings and have a licensed Nexus Level 3 broker approve the final `privacy.html` text.
+- [x] Build `privacy.html` in the repository root using the shared site header/footer/modals and the approved outline above (using confirmed `info@nexusinsurancebrokers.com` Privacy Officer mailbox and `yul1` Montréal region).
+- [ ] **[Human Broker Review]:** Confirm whether a named Designated Privacy Officer should be listed alongside `info@nexusinsurancebrokers.com` (already confirmed as the live mailbox).
+- [ ] **[Human Broker Review]:** Verify exact cloud regions (`yul1` Vercel, `aws-ca-central-1` Neon, Resend US/EU/CA data residency) match production settings and have a licensed Nexus Level 3 broker approve the final `privacy.html` text.
 - [ ] Uncomment `/privacy` in `sitemap.xml` once published.
