@@ -6,4 +6,5 @@ node_modules/
 .playwright-mcp/
 .local-leads.json
 *.log
+notes/temp notes/
 
