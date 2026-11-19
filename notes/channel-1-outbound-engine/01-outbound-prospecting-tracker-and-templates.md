@@ -8,7 +8,7 @@ This operational pack turns Channel 1 of `03-marketing-channels-1-to-5-execution
 
 - **Repository:** `https://github.com/SwimmerPierce/BC_Bid_Organizer_Skill` *(separate personal project collecting BC Bid and other RFP site data daily into a structured database)*
 - **Architecture Rule (Do NOT Merge):** Keep `BC_Bid_Organizer_Skill` in its own repository and database. Do **not** merge its scraper code or database into the `contractbonding.ca` brokerage website repository (`Test-Contract-Bonding`). Treating it as a standalone upstream intelligence source:
-  1. Preserves clean IP/ownership boundaries (especially while Stage 0 Option 1 vs. Option 2 is undecided).
+  1. Preserves clean IP/ownership boundaries (protecting Chase's Schedule B Excluded Personal IP carve-out under the finalized Option 1 Licensing Structure in `notes/legal_package/`).
   2. Prevents scraping dependencies or heavy database workloads from touching the Vercel frontend/API.
 - **How It Connects to Channel 1:** Instead of manually pulling BC Bid and RFP sites every Monday morning, query/export the previous 7 days of collected records from `BC_Bid_Organizer_Skill` directly into the **Section 3 CSV Tracker** below:
   - **Bucket A Export Filter:** Contract awards from the past 7 days between `$75,000` and `$250,000` (plus emerging/small-value public RFP winners) where bonding was not yet required or no recurring surety history appears.

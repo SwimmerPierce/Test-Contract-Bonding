@@ -15,7 +15,8 @@ This document provides exact line-by-line edits, copy, and drop-in HTML/JS bluep
 - [x] **1.6 DELETE Placeholder Testimonials ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Removed both anonymous `blockquote.quote-card` blocks (*Competition Act s. 52 & s. 74.01* and *ICBCouncil Code of Conduct*).
   - [ ] **[Human Post-Launch Action]:** Collect 2–3 real client testimonials with signed written marketing consent before re-enabling testimonials.
 - [x] **1.7 Update Footer With Full Legal Name, Address, Phone, Hours, Jurisdictions & Legal Links ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Added `#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`, `604-420-2501`, `Mon–Fri, 8:30 AM – 4:30 PM PT`, Privacy Officer contact, copyright, and links to `/privacy` and `/terms`.
-  - [ ] **[Human Decision / Action]:** Confirm live Privacy Officer mailbox (`privacy@nexusinsurancebrokers.com`) and verify copyright owner wording once Option 1 vs. Option 2 ownership is finalized.
+  - [x] **Option 1 Copyright Owner Wording Updated:** Updated footer copyright/IP attribution in [index.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/index.html) and [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) to reflect the finalized Option 1 Licensing Structure (Platform IP owned by Chase Pierce Addison; operated under exclusive license by Nexus Insurance Brokers Ltd.).
+  - [ ] **[Human Decision / Action]:** Confirm live Privacy Officer mailbox (`privacy@nexusinsurancebrokers.com` vs. `info@nexusinsurancebrokers.com`).
 - [x] **1.8 Update Modal Eyebrows ([index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html)):** Replaced `"Trusted Broker Partner"` with `"Operated by Nexus Insurance Brokers Ltd. • Licensed in BC & Alberta"`.
 
 ---
@@ -84,8 +85,8 @@ function updateCalculator() {
   - [notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md)
 - [ ] **3.1 Create `privacy.html` in the repository root** (`vercel.json` has `"cleanUrls": true`, so `/privacy` works automatically) using the compliant draft outline (`notes/pages/privacy-policy/01-page-outline-and-requirements.md`).
   - [ ] **[Human Broker Review]:** Confirm live Privacy Officer contact & final cloud residency details with a licensed Nexus Level 3 broker before publishing.
-- [ ] **3.2 Create `terms.html` in the repository root** (`/terms`) containing the **BC Financial Products Disclosure Regulation (`B.C. Reg. 573/2004`)** notice and website Terms of Use (`notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md`).
-  - [ ] **[Deferred — Ownership Decision]:** Confirm Option 1 vs. Option 2 copyright/IP terms before finalizing `terms.html`.
+- [x] **3.2 Create `terms.html` in the repository root** (`/terms`) containing the **BC Financial Products Disclosure Regulation (`B.C. Reg. 573/2004`)** notice and website Terms of Use (`notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md`).
+  - [x] **Ownership Structure Confirmed:** Applied finalized Option 1 Licensing Structure copyright/IP attribution (Chase Pierce Addison owns platform IP; Nexus Insurance Brokers Ltd. operates under exclusive license) in `terms.html`.
   - [ ] **[Human Broker Review]:** Confirm no insurer ownership conflict (`B.C. Reg. 573/2004`) and represented surety markets with Nexus's Level 3 Nominee before publishing.
 - [x] **3.3 Link `/privacy` and `/terms` in the Footer and inside `#contact-form`, `#apply-form`, and `#checklist-form`.**
 

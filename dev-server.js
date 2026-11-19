@@ -70,11 +70,19 @@ function createServer() {
       return res.end("Forbidden");
     }
 
-    if (fs.existsSync(safePath) && fs.statSync(safePath).isFile()) {
-      const ext = path.extname(safePath).toLowerCase();
+    let resolvedPath = safePath;
+    if (!fs.existsSync(resolvedPath) && !path.extname(resolvedPath)) {
+      const htmlCandidate = `${resolvedPath}.html`;
+      if (fs.existsSync(htmlCandidate) && fs.statSync(htmlCandidate).isFile()) {
+        resolvedPath = htmlCandidate;
+      }
+    }
+
+    if (fs.existsSync(resolvedPath) && fs.statSync(resolvedPath).isFile()) {
+      const ext = path.extname(resolvedPath).toLowerCase();
       res.statusCode = 200;
       res.setHeader("Content-Type", MIME_TYPES[ext] || "application/octet-stream");
-      return fs.createReadStream(safePath).pipe(res);
+      return fs.createReadStream(resolvedPath).pipe(res);
     }
 
     res.statusCode = 404;

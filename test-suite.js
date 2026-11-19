@@ -78,6 +78,15 @@ async function runTests() {
 
     const sitemapRes = await fetch(`${baseUrl}/sitemap.xml`);
     assert.strictEqual(sitemapRes.status, 200, "/sitemap.xml should return 200");
+
+    const termsRes = await fetch(`${baseUrl}/terms`);
+    assert.strictEqual(termsRes.status, 200, "/terms should return 200");
+    const termsHtml = await termsRes.text();
+    assert.ok(termsHtml.includes("B.C. Reg. 573/2004"), "/terms should include B.C. Reg. 573/2004 disclosure");
+    assert.ok(
+      termsHtml.includes("exclusive operating license by") && !termsHtml.includes("Chase Pierce Addison"),
+      "/terms should reflect exclusive license without exposing personal name"
+    );
     const sitemapXml = await sitemapRes.text();
     assert.ok(sitemapXml.includes("https://contractbonding.ca/"), "sitemap.xml should include canonical root URL");
 

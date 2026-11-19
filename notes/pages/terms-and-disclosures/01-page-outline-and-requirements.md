@@ -1,7 +1,7 @@
 # Page Outline & Requirements: Terms of Use & Financial Products Disclosure (`terms.html` / `/terms`)
 
 - **Target URL (`cleanUrls`):** `https://contractbonding.ca/terms` (`terms.html` in root)
-- **Status:** Outline drafted — **Pending ownership confirmation, build & human broker review before publishing**
+- **Status:** Built (`terms.html` in root with Option 1 Licensing Structure IP attribution) — **Pending human Level 3 broker review (`B.C. Reg. 573/2004`) before uncommenting in `sitemap.xml`**
 - **Primary Legal Frameworks:** BC *Financial Products Disclosure Regulation* (**B.C. Reg. 573/2004** under the *Financial Institutions Act*), **Insurance Council of BC Rules & Code of Conduct**, **Alberta Insurance Act & AIC Guidelines**, **CISRO Principles of Conduct**, federal *Competition Act*.
 
 ---
@@ -39,9 +39,9 @@ Must include the four statutory disclosures required in BC prior to / at point o
 - Reiterate that the **Surety Bond Rate Calculator** provides indicative CAD estimates only, subject to insurer minimum premiums (typically `$250–$500+ CAD`), credit/financial underwriting, and project complexity.
 - Urgent tender warning: For Bid Bonds or Consents of Surety needed within 48 hours, users must call `604-420-2501` during business hours (`Mon–Fri, 8:30 AM – 4:30 PM PT`) rather than relying solely on an online submission.
 
-### Section 4: Intellectual Property & Acceptable Use (Deferred Ownership Variant)
+### Section 4: Intellectual Property & Acceptable Use (Option 1 Licensing Structure)
 - Standard website copyright & acceptable use terms (prohibiting scraping, automated spam submissions, unauthorized `/admin` access attempts).
-- **Ownership Structure Placeholder:** Notice text regarding copyright/ownership (`© 2026 Nexus Insurance Brokers Ltd.` vs. licensed IP attribution to Chase Addison) must align with whichever ownership option (Option 1 vs. Option 2) is finally executed in Stage 0.
+- **Confirmed Attribution (`Option 1 Licensing Structure`):** `contractbonding.ca` domain, website source code, calculator logic, and digital assets are the intellectual property of **Chase Pierce Addison**, operated as an official online surety brokerage service under an exclusive operating license by **Nexus Insurance Brokers Ltd.**
 
 ### Section 5: Limitation of Liability & Governing Law
 - Standard commercial limitation of liability for website uptime/calculator estimates to the extent permitted by Canadian law.
@@ -51,7 +51,7 @@ Must include the four statutory disclosures required in BC prior to / at point o
 
 ## 3. Subtasks Before Publishing
 - [x] Create page outline in `notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md`.
-- [ ] Confirm ownership structure (Option 1 vs. Option 2) so IP/copyright attribution in Section 4 is accurate.
+- [x] Confirm ownership structure (Option 1 Licensing Structure finalized in `notes/legal_package/`) so IP/copyright attribution in Section 4 is accurate.
 - [ ] **[Human Broker Review]:** Have Nexus's Level 3 Nominee confirm the `B.C. Reg. 573/2004` insurer ownership statement (no insurer ownership conflict) and list of represented surety markets.
-- [ ] Build `terms.html` in the repository root using the shared site header/footer/modals and verified disclosures.
+- [x] Build `terms.html` in the repository root using the shared site header/footer/modals and verified disclosures.
 - [ ] **[Human Broker Review]:** Final legal/regulatory sign-off by a licensed Nexus broker before deploying live and uncommenting `/terms` in `sitemap.xml`.

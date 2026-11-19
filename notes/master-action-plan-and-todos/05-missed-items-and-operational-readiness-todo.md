@@ -30,7 +30,8 @@ Your initial 8-bullet summary covered the core site, backend, cross-sell, SEO/ou
 - **The Law:** ***Financial Products Disclosure Regulation* (B.C. Reg. 573/2004)** under the BC *Financial Institutions Act* & **CISRO Principles of Conduct**.
 - **Todo:**
   - [x] Created page outline folder [notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/notes/pages/terms-and-disclosures/01-page-outline-and-requirements.md).
-  - [ ] **[Finish Page & Broker Review]:** Build `terms.html` (`/terms`) once Option 1 vs. Option 2 ownership attribution & `B.C. Reg. 573/2004` disclosures are verified by Nexus's Level 3 Nominee.
+  - [x] Built [terms.html](file:///C:/Users/chase/OneDrive/Documents/GitHub/Test-Contract-Bonding/terms.html) (`/terms`) with finalized Option 1 Licensing Structure IP attribution (`notes/legal_package/`).
+  - [ ] **[Human Broker Review]:** Have Nexus's Level 3 Nominee verify the `B.C. Reg. 573/2004` disclosures (no insurer ownership conflict + represented surety markets) in `terms.html`.
 
 ## 5. Add Province Dropdown, Out-of-Province Referral Consent & Pre-Signed Partner Agreements — *HIGH URGENCY*
 - **Why Missed:** Your notes mentioned making out-of-province referral arrangements *"as it happens"*, which creates unlicensed solicitation and PIPA violation risks.
@@ -44,7 +45,7 @@ Your initial 8-bullet summary covered the core site, backend, cross-sell, SEO/ou
 - **Todo:**
   - [x] Added `assigned_broker` + `supervising_agent` columns in [lib/db.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/db.js) and `/admin` ([admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html) & [admin/admin.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/admin.js)).
   - [x] Implemented multi-broker `/admin` logins in [lib/auth.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/auth.js) & [admin/index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/admin/index.html) (`chase`, `ken`, and `nathan` @nexusinsurancebrokers.com) with 20-character secure passwords and anti-reconnaissance UI hardening.
-  - [ ] **[Human Action — Chase & Ken]:** Add `ADMIN_PASSWORD_CHASE`, `ADMIN_PASSWORD_KEN`, and `ADMIN_PASSWORD_NATHAN` to Vercel Production Environment Variables, provide Ken (Level 3 Nominee) his credentials, and establish the written rule (deferred with Stage 0 Supervision Protocol) that **no Level 1 broker signs or seals any bond or Consent of Surety** (`Rule 6(1)(a)`).
+  - [ ] **[Human Action — Chase & Ken]:** Add `ADMIN_PASSWORD_CHASE`, `ADMIN_PASSWORD_KEN`, and `ADMIN_PASSWORD_NATHAN` to Vercel Production Environment Variables, provide Ken (Level 3 Nominee) his credentials, and sign the Stage 0 Level 1 Supervision Protocol (`notes/legal_package/archive/option-1-personal-ip-license/03-level-1-supervision-and-operating-protocol.md`) establishing that **no Level 1 broker signs or seals any bond or Consent of Surety** (`Rule 6(1)(a)`).
 
 ## 7. Build CASL 6-Month Implied Consent Expiry Tracker (`CASL s. 10(9) & s. 13`) — *MEDIUM URGENCY*
 - **Why Missed:** Unconverted form inquiries expire after **6 months** under CASL unless express opt-in was checked or the contractor became an active client (2-year EBR).
