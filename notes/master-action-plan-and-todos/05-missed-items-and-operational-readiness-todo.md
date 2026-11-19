@@ -16,7 +16,7 @@ Your initial 8-bullet summary covered the core site, backend, cross-sell, SEO/ou
 - **The Law:** **BC PIPA (s. 5 & s. 10)**, **Alberta PIPA (s. 6(2))**, **CASL (s. 6)**, and **Insurance Council Code of Conduct**.
 - **Todo:**
   - [x] Added `#101 – 4268 Lozells Avenue, Burnaby, BC V5A 0C6`, `Tel: 604-420-2501`, `Hours: Mon–Fri 8:30 AM – 4:30 PM PT`, and Privacy Officer designation to [index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html) and [lib/email.js](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/lib/email.js) confirmation emails.
-  - [ ] **[Human Action]:** Confirm live Privacy Officer mailbox (`privacy@nexusinsurancebrokers.com`).
+  - [x] **[Confirmed — Nexus Admin]:** Live Privacy Officer mailbox confirmed as `info@nexusinsurancebrokers.com` (`privacy@nexusinsurancebrokers.com` is not valid; applied across all site pages).
 
 ## 3. Apply for Chase's Individual Alberta Non-Resident Level 1 Licence (`AB Insurance Act s. 452`) — *CRITICAL*
 - **Why Missed:** Nexus's corporate Alberta license does **not** license you individually to quote or solicit Alberta contractors.
@@ -58,7 +58,7 @@ Your initial 8-bullet summary covered the core site, backend, cross-sell, SEO/ou
   - [x] Created [sitemap.xml](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/sitemap.xml) listing `/` (with `/privacy`, `/terms`, and all 8 SEO landing pages staged in comments ready to uncomment upon page completion & broker approval).
   - [x] Added `InsuranceAgency` **JSON-LD structured data** to [index.html](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/index.html) containing Nexus's exact Burnaby NAP and `contractbonding.ca` URL.
   - [x] Verified `@vercel/analytics` in [package.json#L13](file:///C:/Users/ChaseAddison/Documents/GitHub/Test-Contract-Bonding/package.json#L13) and verified `npm test` (`test-suite.js`) passes after edits.
-  - [ ] **[Human Action]:** Complete `privacy.html` & `terms.html` + Stage 0 ownership agreement, then configure `contractbonding.ca` custom domain and HTTPS/www redirect in Vercel.
+  - [ ] **[Human Action]:** Have a licensed Nexus Level 3 broker sign off on the built `privacy.html` & `terms.html` pages and execute the Stage 0 ownership agreement, then configure `contractbonding.ca` custom domain and HTTPS/www redirect in Vercel.
 
 ## 9. Prepare Your Post-Lead "Underwriting Intake & Cross-Sell Packet" — *CONVERSION READY*
 - **Why Missed:** A website lead only turns into commission if you can move the contractor through surety underwriting faster than competing brokers.
