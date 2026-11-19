@@ -21,7 +21,7 @@ If Option 2 is required, do **not** sign the unedited Option 2 draft in `05_Refe
 
 - **Section 5.3(b) (Valuation):** Replace `[4.0x - 4.5x]` with a fixed **4.5x** unadjusted TTM gross revenue multiple, framed as bona fide consideration for commercial goodwill.
 - **Section 5.4 (Installments):** Add the **12-month quarterly installment option** (4 x 25%) with default acceleration and Prime + 2% interest for internal departures (§5.2(b)-(e)).
-- **Section 1 / Preamble (Paramountcy & BCBCA):** Add the fresh-consideration clause superseding the 10-year-old "Marketing Coordinator" employment agreement and the BCBCA ss. 147-149 / s. 227 unanimous shareholder ratification clause + dual-capacity signature block for Ken and the Vice President.
+- **Section 1 / Preamble (Paramountcy & BCBCA):** Add the fresh-consideration clause superseding the 10-year-old "Marketing Coordinator" employment agreement and the BCBCA ss. 147-149 / s. 227 unanimous corporate shareholder ratification clause + dual-capacity signature block for Ken (on behalf of Nexus and AddFam Holdings Ltd.) and Nathan Cheng (on behalf of Nexus and `HQC Holdings Inc.`).
 - **Section 1.3 / 5.3 (Data & Wind-Down):** Separate Producer database/schema ownership from Nexus's 7-year PIPA archival export right, and add the 30-day neutral transition notice on `contractbonding.ca`.
 - **Schedule A (Stream B & C):** Add the objective `"Working on Deal"` definition and recharacterize Stream C as a 90% Formulaic Origination & Marketing Bonus.
 - **Section 6 (Boilerplate):** Add Mutual Indemnification, Severability, and Confidential Binding Arbitration under the BC *Arbitration Act* (SBC 2020, c. 2).

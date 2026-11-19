@@ -3,8 +3,9 @@
 ## Key Legal Fixes Applied
 
 1. **BCBCA Sections 147-149 & 227 (Corporate Governance & Minority Ratification):**
-   - Harmonized shareholder capacity across the execution block and recitals so Kenneth James Addison (90% majority shareholder, President, and Level 3 Nominee) and the Vice President (holding all remaining voting equity) execute in dual capacities as officers and 100% voting shareholders.
-   - Explicitly waives conflict-of-interest challenges under BCBCA ss. 147-149 and minority shareholder oppression claims under BCBCA s. 227.
+   - Harmonized shareholder capacity across the execution block and recitals to reflect that Nexus Insurance Brokers Ltd.'s voting shares are held by two holding companies: **AddFam Holdings Ltd.** (majority voting shareholder, controlled by Kenneth James Addison; Chase Pierce Addison is a non-controlling beneficiary with no voting or management control) and **`HQC Holdings Inc.`** (minority voting shareholder holding all remaining voting equity, represented by Vice President Nathan Cheng).
+   - Both Kenneth James Addison and Nathan Cheng execute in dual capacities as Nexus officers and authorized signatories for 100% of the corporate voting shareholders.
+   - Explicitly waives conflict-of-interest challenges under BCBCA ss. 147-149 (including full disclosure of the AddFam Holdings Ltd. relationship) and minority shareholder oppression claims under BCBCA s. 227.
    - Paired with a standalone corporate minute book resolution (`02_BCBCA_Related_Party_Resolution_(Minute_Book).docx`).
 
 2. **Fresh Consideration & Legacy Contract Paramountcy (§1.5):**
