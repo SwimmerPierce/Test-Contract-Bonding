@@ -16,26 +16,38 @@
 ---
 
 ## 2. Campaign Settings (Zero Budget Waste Configuration)
+- **Daily Budget:** **`$30–$50 CAD / day`** (`~$900–$1,500 / month`).
+  - *Why not `$10/day`?* Keyword Stats show top-of-page bids of `$5.84–$23.11 CAD` on core terms (and the `$10/day` Keyword Planner forecast projected `$38.07` avg CPC / `1.19` clicks/mo). A `$30–$50/day` budget clears the `>= 2x Max CPC` pacing threshold and is sized to capture the majority of the ~2,250/mo BC+AB search pool (`1,339` BC / `911` AB).
 - **Campaign Type:** Search Network Only (**Disable** Search Partners and **Disable** Display Network expansion).
 - **Locations:** Target `British Columbia, Canada` and `Alberta, Canada` *(disable Alberta ad group / geo until AIC licensing or routing is verified)*.
 - **Location Options (CRITICAL):** Select **`Presence: People in or regularly in your targeted locations`** (NEVER "Presence or interest", which leaks budget to out-of-country searchers).
+- **Device Bid Adjustments:** Apply **`-40%` on Mobile** (Keyword Forecast shows Mobile CPC at `$50.99` vs. Desktop `$26.79`, and Desktop estimators/contractors convert better on multi-field bonding applications).
 - **Ad Schedule:** Prioritize Monday–Friday `7:00 AM – 6:00 PM PT` (or run 24/7 with bid adjustments during Burnaby office hours `8:30 AM – 4:30 PM PT`).
-- **Bidding Strategy:** Start with **Maximize Clicks (with Max CPC Cap)** or **Manual CPC** for the first 30 conversions, then transition to Maximize Conversions once lead tracking has sufficient volume.
+- **Bidding Strategy:** Use **Manual CPC** or **Maximize Clicks with a `$22.00 CAD` Max CPC Cap** (do **NOT** use `Maximize Conversions` at launch—the total BC+AB search pool only yields ~2–7 leads/month at a ~5% conversion rate, which is below the ~30 conversions/month threshold automated bidding needs).
 
 ---
 
 ## 3. Four Exact/Phrase Match Ad Groups & Compliant Ad Copy
 
 > **Compliance Rule:** Never promise "guaranteed approval" or "instant binding online" in ad headlines or descriptions. Always route clicks to specific landing pages once published (or `/#calculator` for BC Contract/Bid initially).
+>
+> **Keyword Data Note (`Keyword Stats 2026-11-19`):** Only 27 of 249 researched keywords have measurable BC+AB search volume (`2,250/mo` combined). Because Location is locked to `Presence` in BC (and AB), use non-geo-modified exact/phrase terms with proven volume alongside geo-modified exacts.
 
-### Ad Group 1: BC Contract & Bid Bonds
-- **Landing URL (Pre-SEO Pages):** `https://contractbonding.ca/#calculator` *(Update to `https://contractbonding.ca/bid-bonds-bc` once published & reviewed)*
-- **Keywords:**
-  - `[contract bonding bc]`
-  - `[construction bid bond vancouver]`
-  - `"surety bond broker bc"`
-  - `"performance bond bc"`
-  - `"consent of surety bc"`
+### Ad Group 1: BC Contract, Bid & Performance Bonds *(Primary Volume Driver)*
+- **Landing URL (Pre-SEO Pages):** `https://contractbonding.ca/#calculator` *(Route bid/consent terms to `https://contractbonding.ca/bid-bonds-bc` and performance/CCDC terms to `https://contractbonding.ca/performance-and-payment-bonds` once broker-reviewed)*
+- **Keywords (Data-Backed Volume + High-Intent):**
+  - `"construction bonding"` *(500/mo, $5.97–$23.11)*
+  - `"surety bonding"` *(500/mo, $5.84–$16.27)*
+  - `"contract bonding"` *(50/mo, $3.81–$13.47)*
+  - `"performance bonds construction"` *(50/mo, $3.65–$8.10)*
+  - `"bid bonds for construction"` *(50/mo)*
+  - `"performance and payment bonds"` *(50/mo)*
+  - `"ccdc 221 performance bond"` *(50/mo)*
+  - `"consent of surety"` *(50/mo)*
+  - `"electronic bid bonds"` *(50/mo)*
+  - `"bonding capacity calculator"` *(50/mo)*
+  - `"surety bond broker near me"` *(50/mo)*
+  - `[contract bonding bc]` / `[construction bid bond vancouver]` / `"surety bond broker bc"`
 - **Ad Headlines (max 30 chars):**
   - `Construction Bonds in BC`
   - `Bid Bonds & Consent of Surety`
@@ -82,6 +94,8 @@
 ### Ad Group 4: Developer Subdivision Bonds
 - **Landing URL (Gate):** `https://contractbonding.ca/developer-subdivision-bonds` *(Hold ad group paused until page is published & broker-reviewed)*
 - **Keywords:**
+  - `"subdivision bonds"` *(50/mo)*
+  - `"site improvement bonds"` *(50/mo)*
   - `"subdivision bond bc"`
   - `"developer surety bond vancouver"`
   - `"replace letter of credit surety bond"`
@@ -116,6 +130,10 @@ us
 usa
 texas
 california
+sba
+treasury listed
+t-list
+miller act
 definition
 meaning
 wikipedia

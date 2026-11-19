@@ -5,16 +5,16 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Uncomment each URL below once its page is built from notes/pages/<slug>/ and approved by a licensed Nexus broker:
   <url><loc>https://contractbonding.ca/privacy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://contractbonding.ca/terms</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://contractbonding.ca/bc-electrical-gas-contractor-bond</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://contractbonding.ca/alberta-prepaid-contractor-bond</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://contractbonding.ca/bid-bonds-bc</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://contractbonding.ca/performance-and-payment-bonds</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://contractbonding.ca/developer-subdivision-bonds</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://contractbonding.ca/first-time-contractor-bonding</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://contractbonding.ca/burnaby-vancouver-surety-bonds</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Gated on Alberta AIC licensing/routing:
+  <url><loc>https://contractbonding.ca/alberta-prepaid-contractor-bond</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://contractbonding.ca/calgary-edmonton-surety-bonds</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   -->
 </urlset>

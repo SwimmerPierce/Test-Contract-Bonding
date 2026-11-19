@@ -735,10 +735,36 @@ a:hover {
   font-size: 0.96rem;
 }
 
+.bond-list li strong a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(27, 94, 168, 0.35);
+  text-underline-offset: 2px;
+}
+
+.bond-list li strong a:hover {
+  color: var(--blue);
+  text-decoration-color: var(--blue);
+}
+
 .bond-list li span {
   display: block;
   color: var(--text-muted);
   font-size: 0.88rem;
+}
+
+.bond-group__more {
+  display: block;
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.bond-group__more:hover {
+  text-decoration: underline;
 }
 
 /* Calculator */
